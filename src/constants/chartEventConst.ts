@@ -1,0 +1,1 @@
+export const chartResizeSet = new Set<echarts.ECharts>();
