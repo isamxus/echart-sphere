@@ -1,8 +1,8 @@
 {
-  "name": "vue3-charts",
+  "name": "vue3-echarts-tool",
   "version": "0.0.1",
   "description": "",
-  "main": "dist/vue3-chart.esm.js",
+  "main": "dist/vue3-echarts-tool.esm.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist/**/*"

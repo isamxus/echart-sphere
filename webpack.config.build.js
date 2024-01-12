@@ -50,9 +50,9 @@ const umdConfig = {
   ...commonConfig,
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "vue3-chart.umd.js",
+    filename: "vue3-echarts-tool.umd.js",
     library: {
-      name: "Vue3Chart",
+      name: "vue3-charts-tool",
       type: "umd",
     },
   },
@@ -66,13 +66,14 @@ const esmConfig = {
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "vue3-chart.esm.js",
+    filename: "vue3-echarts-tool.esm.js",
     library: {
       type: "module",
     },
   },
   externals: {
     vue: "Vue",
+    echarts: 'echarts'
   },
 };
 

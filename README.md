@@ -1,6 +1,6 @@
-# Vue3 Charts
+# Vue3 ECharts tool
 
-vue3-charts 是一个基于 Vue 3 和 ECharts 的高度可定制和灵活的图表组件库。它允许开发者通过传递 `dataOptions`、`chartOptions` 和 `styleOptions` 来快速创建和定制多种图表。此组件库旨在提供一个简单的方式来集成和扩展 ECharts，使得创建交互式和响应式图表变得轻而易举。
+vue3-echarts-tool 是一个基于 Vue 3 和 ECharts 的高度可定制和灵活的图表组件库。它允许开发者通过传递 `dataOptions`、`chartOptions` 和 `styleOptions` 来快速创建和定制多种图表。此组件库旨在提供一个简单的方式来集成和扩展 ECharts，使得创建交互式和响应式图表变得轻而易举。
 
 ## 特性
 
@@ -13,9 +13,9 @@ vue3-charts 是一个基于 Vue 3 和 ECharts 的高度可定制和灵活的图�
 
 ## 安装
 
-`npm install vue3-charts`
+`npm install vue3-echarts-tool`
 or
-`yarn add vue3-charts`
+`yarn add vue3-echarts-tool`
 
 ## 快速上手
 
@@ -25,7 +25,7 @@ or
 </template>
 
 <script setup>
-import VueECharts from 'vue3-charts';
+import VueECharts from 'vue3-echarts-tool';
 import { ref } from "vue";
 const config = ref({
     dataOptions: {
@@ -51,14 +51,14 @@ const config = ref({
 
 ## 全局配置
 
-vue3-charts 提供了几种方法来设置全局配置，这些配置将作为默认值应用于所有图表实例。以下是可用的全局配置方法：
+vue3-echarts-tool 提供了几种方法来设置全局配置，这些配置将作为默认值应用于所有图表实例。以下是可用的全局配置方法：
 
 ### `setConfig`
 
 `setConfig` 方法允许您设置通用的图表配置项，如颜色方案、字体大小、工具提示等。
 
 ```
-import { setConfig } from 'vue3-charts';
+import { setConfig } from 'vue3-echarts-tool';
 
 setConfig({
     barWidth: 5,
@@ -71,7 +71,7 @@ setConfig({
 `setLoadingConfig` 方法允许您自定义图表的加载状态显示。您可以设置加载文本、颜色、字体大小等属性，以匹配您的应用程序的风格。
 
 ```
-import { setLoadingConfig } from 'vue3-charts';
+import { setLoadingConfig } from 'vue3-echarts-tool';
 
 setLoadingConfig({
     text: "正在加载图表", // 加载时显示的文本
@@ -94,7 +94,7 @@ setLoadingConfig({
 `setFlexibleConfig` 方法允许您设置图表的自适应行为，使图表能够根据不同屏幕尺寸动态调整大小。您可以指定设计稿的默认宽度、基准字体大小以及是否启用自适应功能。
 
 ```
-import { setFlexibleConfig } from 'vue3-charts';
+import { setFlexibleConfig } from 'vue3-echarts-tool';
 
 setFlexibleConfig({
     designWidth: 375, // 设计稿的默认宽度
@@ -509,14 +509,14 @@ setFlexibleConfig({
 
 ## 扩展图表类型
 
-vue3-charts 提供了一套扩展机制，允许开发者自定义和扩展不同的图表组件类型。以下是如何使用这些扩展点：
+vue3-echarts-tool 提供了一套扩展机制，允许开发者自定义和扩展不同的图表组件类型。以下是如何使用这些扩展点：
 
 ### X 轴类型扩展
 
 使用 `xAxisExtend` 方法来扩展或自定义 X 轴的行为。您可以注册一个新的 X 轴类型，并提供一个函数来定义它的行为。
 
 ```
-import Vue3Charts from "vue3-charts";
+import Vue3Charts from "vue3-echarts-tool";
 Vue3Charts.xAxisExtend.extend('customXType', (props) => {
 // 自定义 X 轴的行为
 });
@@ -527,7 +527,7 @@ Vue3Charts.xAxisExtend.extend('customXType', (props) => {
 类似地，`yAxisExtend` 允许您扩展 Y 轴的行为。通过提供一个类型和一个函数，您可以定义 Y 轴的新行为。
 
 ```
-import Vue3Charts from "vue3-charts";
+import Vue3Charts from "vue3-echarts-tool";
 Vue3Charts.yAxisExtend.extend('customXType', (props) => {
 // 自定义 Y 轴的行为
 });
@@ -538,7 +538,7 @@ Vue3Charts.yAxisExtend.extend('customXType', (props) => {
 使用 `gridExtend` 来自定义网格的配置和行为。您可以为网格定义一个新的类型和相应的行为。
 
 ```
-import Vue3Charts from "vue3-charts";
+import Vue3Charts from "vue3-echarts-tool";
 Vue3Charts.gridExtend.extend('customXType', (props) => {
 // 自定义网格的配置和行为
 });
@@ -549,7 +549,7 @@ Vue3Charts.gridExtend.extend('customXType', (props) => {
 `tooltipExtend` 允许您自定义提示框的显示方式。通过注册一个新类型，您可以控制提示框的渲染和行为。
 
 ```
-import Vue3Charts from "vue3-charts";
+import Vue3Charts from "vue3-echarts-tool";
 Vue3Charts.tooltipExtend.extend('customXType', (props) => {
 // 自定义提示框的显示方式
 });
@@ -560,7 +560,7 @@ Vue3Charts.tooltipExtend.extend('customXType', (props) => {
 使用 `legendExtend` 来自定义图例的样式和行为。您可以定义新的图例类型来改变其默认的显示和交互。
 
 ```
-import Vue3Charts from "vue3-charts";
+import Vue3Charts from "vue3-echarts-tool";
 Vue3Charts.legendExtend.extend('customXType', (props) => {
 // 自定义图例的样式和行为
 });
@@ -572,7 +572,7 @@ Vue3Charts.legendExtend.extend('customXType', (props) => {
 
 ```
 
-import Vue3Charts from "vue3-charts";
+import Vue3Charts from "vue3-echarts-tool";
 Vue3Charts.seriesExtend.extend('customXType', (props) => {
 // 自定义系列的渲染方式
 });
@@ -592,7 +592,7 @@ Vue3Charts.seriesExtend.extend('customXType', (props) => {
 
 ```
 
-import Vue3Charts from "vue3-charts";
+import Vue3Charts from "vue3-echarts-tool";
 Vue3Charts.seriesExtend.afterHook('customXType', (props) => {
 // 自定义系列的渲染方式
 });
@@ -606,7 +606,7 @@ Vue3Charts.seriesExtend.afterHook('customXType', (props) => {
 
 ```
 
-import Vue3Charts from "vue3-charts";
+import Vue3Charts from "vue3-echarts-tool";
 Vue3Charts.chartExtend.extend('customXType', (props) => {
 // 自定义整个图表的渲染逻辑
 });
@@ -614,6 +614,3 @@ Vue3Charts.chartExtend.extend('customXType', (props) => {
 
 通过这些扩展点，您可以灵活地增加新的行为和样式，以满足特定的业务需求或创造独特的图表效果。
 
-## 图表类型配置示例 
- 
-### 柱状图配置
