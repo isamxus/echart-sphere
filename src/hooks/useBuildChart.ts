@@ -17,7 +17,7 @@ function handleMeasure(props: RenderPropOptions) {
     labelY = seriesConfig.yAxisField,
     measureType = DataFormatType.BILLION,
     isNegative = false,
-    isFormatter = true,
+    isFormatter = false,
     formatter,
   } = props.dataOptions;
   if (!isFormatter) return;
