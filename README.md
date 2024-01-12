@@ -1,4 +1,4 @@
-# Echart Sphere
+# Echart Sphere 介绍
 
 echart-sphere 是一个基于 Vue 3 和 ECharts 的高度可定制和灵活的图表组件库。它允许开发者通过传递 `dataOptions`、`chartOptions` 和 `styleOptions` 来快速创建和定制多种图表。此组件库旨在提供一个简单的方式来集成和扩展 ECharts，使得创建交互式和响应式图表变得轻而易举。
 
@@ -614,3 +614,48 @@ Vue3Charts.chartExtend.extend('customXType', (props) => {
 
 通过这些扩展点，您可以灵活地增加新的行为和样式，以满足特定的业务需求或创造独特的图表效果。
 
+# Echart Sphere 示例
+
+echart-sphere 是一个基于 Vue 3 和 ECharts 的高度可定制和灵活的图表组件库。以下是如何使用 echart-sphere 创建不同类型的图表的示例。
+
+## 柱状图示例
+
+柱状图适用于展示不同类别之间的比较。以下是一些柱状图的配置示例：
+
+### 基础柱状图
+
+```
+<template>
+  <div class="chart-container">
+    <NormalChart v-bind="options"></NormalChart>
+  </div>
+</template>
+<script lang="ts" setup>
+import { NormalChart } from "echart-sphere";
+const options = {
+  dataOptions: {
+    name: "测试",
+    labelX: "label",
+    labelY: "value",
+    data: [
+      { label: "测试柱子1", value: 23324 },
+      { label: "测试柱子2", value: 23123 },
+      { label: "测试柱子3", value: 43431 },
+      { label: "测试柱子4", value: 13421 },
+      { label: "测试柱子5", value: 55232 },
+      { label: "测试柱子6", value: 31234 },
+    ],
+  }
+};
+</script>
+<style>
+.chart-container {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+```
+
+如下图所示：
+![基础柱状图](assets/bar/normalBar.png)
