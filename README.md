@@ -697,4 +697,4 @@ const options = {
 </style>
 ```
 
-![基础折线图](https://github.com/isamxus/echart-sphere/blob/40c44cf4a1cc4a98e8bf35a36ebaf0efc6511778/assets/line/normalLine.png)
+![基础折线图](https://github.com/isamxus/echart-sphere/blob/bf5cbcd03253895e844f9e94a2076382ffa6f2e3/assets/line/normalLine.png)
