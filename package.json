@@ -1,8 +1,8 @@
 {
-  "name": "vue3-echarts-tool",
-  "version": "0.0.1",
+  "name": "echart-sphere",
+  "version": "0.0.22",
   "description": "",
-  "main": "dist/vue3-echarts-tool.esm.js",
+  "main": "dist/echart-sphere.esm.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist/**/*"
