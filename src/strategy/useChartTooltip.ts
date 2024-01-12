@@ -1,5 +1,5 @@
 import { TooltipOption } from "echarts/types/dist/shared";
-import { RenderPropOptions } from "../models/propOptionModel";
+import { GlobalConfigkeys, RenderPropOptions } from "../models/propOptionModel";
 import globalConfig from "../constants/globalConfig";
 // 默认tooltip
 export function buildNormalTooltip(props: RenderPropOptions) {
