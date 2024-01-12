@@ -658,4 +658,4 @@ const options = {
 ```
 
 如下图所示：
-![基础柱状图](assets/bar/normalBar.png)
+![基础柱状图](https://github.com/isamxus/echart-sphere/blob/40c44cf4a1cc4a98e8bf35a36ebaf0efc6511778/assets/bar/normalBar.png)
