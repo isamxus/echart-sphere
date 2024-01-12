@@ -1,6 +1,6 @@
 {
   "name": "echart-sphere",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "",
   "main": "dist/echart-sphere.esm.js",
   "types": "dist/types/index.d.ts",
@@ -8,6 +8,8 @@
     "dist/**/*"
   ],
   "scripts": {
+    "clean": "rimraf ./dist",
+    "prebuild": "npm run clean",
     "build": "vue-tsc --declaration --emitDeclarationOnly && webpack --config webpack.config.build.js"
   },
   "author": "lijiancong",
@@ -15,6 +17,7 @@
   "dependencies": {
     "echarts": "^5.4.2",
     "lodash": "^4.17.21",
+    "rimraf": "^5.0.5",
     "vue": "^3.3.4",
     "xe-utils": "^3.5.14"
   },
