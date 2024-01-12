@@ -5,6 +5,28 @@
 </template>
 <script lang="ts" setup>
 import { NormalChart } from "../src";
+const options = {
+  dataOptions: {
+    dataItems: [
+      { name: "测试", labelX: "label", labelY: "value", itemType: "bar" },
+    ],
+    data: [
+      { label: "01", value: 23324, value1: Math.floor(Math.random() * 10000) },
+      { label: "02", value: 23123, value1: Math.floor(Math.random() * 10000) },
+      { label: "03", value: 43431, value1: Math.floor(Math.random() * 10000) },
+      { label: "04", value: 13421, value1: Math.floor(Math.random() * 10000) },
+      { label: "05", value: 55232, value1: Math.floor(Math.random() * 10000) },
+      { label: "06", value: 31234, value1: Math.floor(Math.random() * 10000) },
+    ],
+  },
+  chartOptions: {
+    split: {
+      splitX: 2,
+      trend: "pictorial",
+    },
+    seriesType: 'trend'
+  },
+};
 </script>
 <style lang="css">
 .echart-sphere-wrapper {

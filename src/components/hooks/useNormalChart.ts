@@ -9,10 +9,11 @@ import { usePropsValidate } from "../../hooks/useValidate";
 export default function useNormalChart(props: RenderPropOptions) {
   const chartRef = ref();
   const { chartType = "normal", componentType } = props.chartOptions || {};
-  // 验证props合法性
 
   // 如果使用组件渲染
   let renderComponent: any;
+
+  // 验证props合法性
   if (!usePropsValidate(props))
     return {
       chartRef,

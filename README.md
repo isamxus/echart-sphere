@@ -103,223 +103,223 @@ setFlexibleConfig({
 });
 ```
 
-#### 配置项
+### 配置项
 
-##### 柱形图配置
+#### 柱形图配置
 
-###### `barWidth`
+##### `barWidth`
 
 - 类型: `number`
 - 默认值: `5`
 - 描述: 设置柱的宽度。
 
-###### `barColor`
+##### `barColor`
 
 - 类型: `string`
 - 默认值: `'rgba(132, 212, 232, 1)'`
 - 描述: 设置柱的颜色。
 
-###### `barBorderType`
+##### `barBorderType`
 
 - 类型: `string`
 - 默认值: `'solid'`
 - 描述: 设置柱边框的样式。
 
-###### `barBorderColor`
+##### `barBorderColor`
 
 - 类型: `string`
 - 默认值: `'#fff'`
 - 描述: 设置柱边框的颜色。
 
-###### `barBorderWidth`
+##### `barBorderWidth`
 
 - 类型: `number`
 - 默认值: `0`
 - 描述: 设置柱边框的宽度。
 
-###### `barGap`
+##### `barGap`
 
 - 类型: `string`
 - 默认值: `'30%'`
 - 描述: 设置同一类目中柱间的间隔。
 
-###### `barSymbol`
+##### `barSymbol`
 
 - 类型: `string`
 - 默认值: `'rect'`
 - 描述: 设置 PictorialBar 的图形类型。默认为 `'rect'`，表示使用矩形。
 
-###### `barSymbolRepeat`
+##### `barSymbolRepeat`
 
 - 类型: `string`
 - 默认值: `'fixed'`
 - 描述: 设置图形是否沿着柱的长度方向重复。`'fixed'` 表示不重复，图形将被拉伸。
 
-###### `barSymbolMargin`
+##### `barSymbolMargin`
 
 - 类型: `number`
 - 默认值: `2`
 - 描述: 设置图形在重复时的间隔。
 
-###### `barSymbolOffset`
+##### `barSymbolOffset`
 
 - 类型: `Array<number>`
 - 默认值: `[0, 0]`
 - 描述: 设置图形在柱体中的偏移位置。数组的两个元素分别对应水平和垂直方向的偏移。
 
-###### `barSymbolSize`
+##### `barSymbolSize`
 
 - 类型: `Array<number>`
 - 默认值: `[6, 2]`
 - 描述: 设置图形的大小。数组的两个元素分别对应宽度和高度。
 
-###### `barSymbolPosition`
+##### `barSymbolPosition`
 
 - 类型: `string`
 - 默认值: `'start'`
 - 描述: 设置图形相对于柱体的位置。`'start'` 表示图形位于柱体的起始端。
 
-###### `barSymbolClip`
+##### `barSymbolClip`
 
 - 类型: `boolean`
 - 默认值: `true`
 - 描述: 设置是否对超出柱体部分的图形进行裁剪。
 
-##### 折线图配置
+#### 折线图配置
 
-###### `lineColor`
+##### `lineColor`
 
 - 类型: `string`
 - 默认值: `"rgba(45, 174, 194, 1)"`
 - 描述: 设置折线的颜色。
 
-###### `lineSmooth`
+##### `lineSmooth`
 
 - 类型: `boolean`
 - 默认值: `true`
 - 描述: 设置折线是否平滑显示，`true` 为平滑曲线，`false` 为直线连接。
 
-###### `lineType`
+##### `lineType`
 
 - 类型: `string`
 - 默认值: `'solid'`
 - 描述: 设置折线的类型，可选值为 `'solid'`, `'dashed'`, 或 `'dotted'`。
 
-###### `showSymbol`
+##### `showSymbol`
 
 - 类型: `boolean`
 - 默认值: `false`
 - 描述: 设置是否显示折线图的数据点。
 
-##### Legend 图例配置
+#### Legend 图例配置
 
-###### `legendWidth`
+##### `legendWidth`
 
 - 类型: `number`
 - 默认值: `10`
 - 描述: 设置图例的宽度。
 
-###### `legendHeight`
+##### `legendHeight`
 
 - 类型: `number`
 - 默认值: `4`
 - 描述: 设置图例的高度。
 
-###### `legendBottom`
+##### `legendBottom`
 
 - 类型: `number`
 - 默认值: `0`
 - 描述: 设置图例距离底部的距离。
 
-###### `legendSize`
+##### `legendSize`
 
 - 类型: `number`
 - 默认值: `12`
 - 描述: 设置图例字体的大小。
 
-##### Grid 配置
+#### Grid 配置
 
-###### `gridTop`
+##### `gridTop`
 
 - 类型: `number`
 - 默认值: `22`
 - 描述: 设置图表上方的边距。
 
-###### `gridLeft`
+##### `gridLeft`
 
 - 类型: `number`
 - 默认值: `3`
 - 描述: 设置图表左侧的边距。
 
-###### `gridRight`
+##### `gridRight`
 
 - 类型: `number`
 - 默认值: `5`
 - 描述: 设置图表右侧的边距。
 
-###### `gridBottom`
+##### `gridBottom`
 
 - 类型: `number`
 - 默认值: `30`
 - 描述: 设置图表下方的边距。
 
-###### `isContainLabel`
+##### `isContainLabel`
 
 - 类型: `boolean`
 - 默认值: `true`
 - 描述: 设置网格区域是否包含坐标轴的标签。
 
-##### Series 配置
+#### Series 配置
 
-###### `yAxisField`
+##### `yAxisField`
 
 - 类型: `string`
 - 默认值: `"value"`
 - 描述: 设置系列数据在 Y 轴上的取值字段。
 
-###### `yAxisIndex`
+##### `yAxisIndex`
 
 - 类型: `number`
 - 默认值: `0`
 - 描述: 指定使用哪一条 Y 轴，`0` 表示第一条 Y 轴。
 
-##### DataZoom 配置
+#### DataZoom 配置
 
-###### `dataZoomType`
+##### `dataZoomType`
 
 - 类型: `string`
 - 默认值: `'inside'`
 - 描述: 设置数据区域缩放组件的类型。`'inside'` 表示内置型数据区域缩放组件，允许通过鼠标滚轮或触摸板进行缩放。
 
-###### `dataZoomXAxisIndex`
+##### `dataZoomXAxisIndex`
 
 - 类型: `number`
 - 默认值: `0`
 - 描述: 指定哪一个 x 轴与数据区域缩放组件关联，默认关联第一个 x 轴。
 
-##### X 轴配置
+#### X 轴配置
 
-###### `xAxisField`
+##### `xAxisField`
 
 - 类型: `string`
 - 默认值: `"label"`
 - 描述: 设置 X 轴的取值字段。
 
-###### `xAxisLabelSize`
+##### `xAxisLabelSize`
 
 - 类型: `number`
 - 默认值: `8`
 - 描述: 设置 X 轴标签的字体大小。
 
-###### `xAxisTickShow`
+##### `xAxisTickShow`
 
 - 类型: `boolean`
 - 默认值: `false`
 - 描述: 设置是否显示 X 轴的刻度。
 
-##### Y 轴配置
+#### Y 轴配置
 
-###### `yAxisLabelSize`
+##### `yAxisLabelSize`
 
 - 类型: `number`
 - 默认值: `10`
@@ -663,6 +663,8 @@ const options = {
 
 ### 基础折线图
 
+通过设置 `itemType` 为`"line"`即可实现
+
 ```
 <template>
   <div class="chart-container">
@@ -703,6 +705,8 @@ const options = {
 
 ### 柱线混合
 
+设置 dataItems 属性，并指定每个数据项的 name、labelX、labelY 和 itemType，可以创建多系列图表，其中每个系列的类型可以不同。例如，以下代码创建了一个柱状图和折线图的混合图表：
+
 ```
 <template>
   <div class="chart-container">
@@ -738,3 +742,52 @@ const options = {
 ```
 
 ![柱线混合](https://github.com/isamxus/echart-sphere-assets/blob/4ca5222ed41f2fd13d245039ede7b12d0de88c30/assets/multi-series/bar-line-mixin.png)
+
+## 趋势图
+
+### 柱形趋势图
+
+通过设置 chartOptions 中的 seriesType 为 'trend' 和 split 选项，我们可以创建一个柱形趋势图。在 split 选项中，splitX 设置为 2 表示 X 轴以第二个标签为中点分割成两部分，trend 设置为 "pictorial" 表示使用象形的方式显示趋势
+
+```
+<template>
+  <div class="echart-sphere-wrapper">
+    <NormalChart v-bind="options"></NormalChart>
+  </div>
+</template>
+<script lang="ts" setup>
+import { NormalChart } from "../src";
+const options = {
+  dataOptions: {
+    dataItems: [
+      { name: "测试", labelX: "label", labelY: "value", itemType: "bar" },
+    ],
+    data: [
+      { label: "01", value: 23324, value1: Math.floor(Math.random() * 10000) },
+      { label: "02", value: 23123, value1: Math.floor(Math.random() * 10000) },
+      { label: "03", value: 43431, value1: Math.floor(Math.random() * 10000) },
+      { label: "04", value: 13421, value1: Math.floor(Math.random() * 10000) },
+      { label: "05", value: 55232, value1: Math.floor(Math.random() * 10000) },
+      { label: "06", value: 31234, value1: Math.floor(Math.random() * 10000) },
+    ],
+  },
+  chartOptions: {
+    split: {
+      splitX: 2,
+      trend: "pictorial",
+    },
+    seriesType: 'trend'
+  },
+};
+</script>
+<style lang="css">
+.echart-sphere-wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+
+```
+
+![柱形趋势图](https://github.com/isamxus/echart-sphere-assets/blob/dd86c5cdfcac2d8ba777e0389e22027770d76c0f/assets/trend/normal-trend.png)
