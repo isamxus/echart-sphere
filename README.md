@@ -658,3 +658,43 @@ const options = {
 ```
 
 ![基础柱状图](https://github.com/isamxus/echart-sphere/blob/40c44cf4a1cc4a98e8bf35a36ebaf0efc6511778/assets/bar/normalBar.png)
+
+## 折线图示例
+
+### 基础折线图
+
+```
+<template>
+  <div class="chart-container">
+    <NormalChart v-bind="options"></NormalChart>
+  </div>
+</template>
+<script lang="ts" setup>
+import { NormalChart } from "echart-sphere";
+const options = {
+  dataOptions: {
+    name: "测试",
+    labelX: "label",
+    labelY: "value",
+    itemType: "line", // 代表系列series使用折线
+    data: [
+      { label: "测试柱子1", value: 23324 },
+      { label: "测试柱子2", value: 23123 },
+      { label: "测试柱子3", value: 43431 },
+      { label: "测试柱子4", value: 13421 },
+      { label: "测试柱子5", value: 55232 },
+      { label: "测试柱子6", value: 31234 },
+    ],
+  }
+};
+</script>
+<style>
+.chart-container {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+```
+
+![基础折线图](https://github.com/isamxus/echart-sphere/blob/40c44cf4a1cc4a98e8bf35a36ebaf0efc6511778/assets/bar/normalLine.png)

@@ -43,6 +43,10 @@ const commonConfig = {
   optimization: {
     minimize: true,
   },
+  externals: {
+    vue: "Vue",
+    echarts: 'echarts'
+  }
 };
 
 // 定义UMD配置
@@ -70,11 +74,7 @@ const esmConfig = {
     library: {
       type: "module",
     },
-  },
-  externals: {
-    vue: "Vue",
-    echarts: 'echarts'
-  },
+  }
 };
 
 module.exports = [umdConfig, esmConfig];
