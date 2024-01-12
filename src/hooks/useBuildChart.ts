@@ -68,7 +68,6 @@ export default function useBuildChart(props: RenderPropOptions) {
   let echartInstance: echarts.ECharts;
   // 组装策略配置
   const strategyTypeOptions: StrategyOptions = {};
-
   const strategyMethods = useGetStrategy();
   const { transOptionFlexible } = useFlexible(props);
   const { chartOptions } = props;

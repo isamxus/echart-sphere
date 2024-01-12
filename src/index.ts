@@ -28,6 +28,7 @@ import { chartResizeSet } from "./constants/chartEventConst";
 import { debounce } from "lodash";
 import useWatch from "./hooks/useWatch";
 import NormalChart from "./components/NormalChart.vue";
+import { usePropsValidate } from "./hooks/useValidate";
 export {
   setConfig,
   setLoadingConfig,
@@ -63,6 +64,7 @@ export default {
           },
         },
         setup(props, context) {
+          if (!usePropsValidate(props)) return;
           const chartRef = ref();
           const chartContext = useBuildChart(props);
           const { initChart, handleRender } = chartContext;

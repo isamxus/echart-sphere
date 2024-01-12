@@ -8,6 +8,7 @@
     "dist/**/*"
   ],
   "scripts": {
+    "example": "webpack serve --config webpack.config.example.js",
     "clean": "rimraf ./dist",
     "prebuild": "npm run clean",
     "build": "vue-tsc --declaration --emitDeclarationOnly && webpack --config webpack.config.build.js"
