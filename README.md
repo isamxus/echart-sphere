@@ -698,3 +698,43 @@ const options = {
 ```
 
 ![基础折线图](https://github.com/isamxus/echart-sphere-assets/blob/0b448c8f4eb646c04e49c5b1d189e153726541d9/assets/line/normalLine.png)
+
+## 多系列类型
+
+### 柱线混合
+
+```
+<template>
+  <div class="chart-container">
+    <NormalChart v-bind="options"></NormalChart>
+  </div>
+</template>
+<script lang="ts" setup>
+import { NormalChart } from "echart-sphere";
+const options = {
+  dataOptions: {
+    dataItems: [
+      { name: "测试",labelX: "label", labelY: "value", itemType: "bar"},
+      { name: "测试",labelX: "label", labelY: "value1", itemType: "line"}
+    ],
+    data: [
+      { label: "01", value: 23324, value1: Math.floor(Math.random() * 10000) },
+      { label: "02", value: 23123, value1: Math.floor(Math.random() * 10000) },
+      { label: "03", value: 43431, value1: Math.floor(Math.random() * 10000) },
+      { label: "04", value: 13421, value1: Math.floor(Math.random() * 10000) },
+      { label: "05", value: 55232, value1: Math.floor(Math.random() * 10000) },
+      { label: "06", value: 31234, value1: Math.floor(Math.random() * 10000) },
+    ],
+  }
+};
+</script>
+<style>
+.chart-container {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+```
+
+![柱线混合](https://github.com/isamxus/echart-sphere-assets/blob/4ca5222ed41f2fd13d245039ede7b12d0de88c30/assets/multi-series/bar-line-mixin.png)
