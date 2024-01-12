@@ -657,7 +657,7 @@ const options = {
 </style>
 ```
 
-![基础柱状图](https://github.com/isamxus/echart-sphere/blob/40c44cf4a1cc4a98e8bf35a36ebaf0efc6511778/assets/bar/normalBar.png)
+![基础柱状图](https://github.com/isamxus/echart-sphere-assets/blob/0b448c8f4eb646c04e49c5b1d189e153726541d9/assets/bar/normalBar.png)
 
 ## 折线图示例
 
@@ -697,4 +697,4 @@ const options = {
 </style>
 ```
 
-![基础折线图](https://github.com/isamxus/echart-sphere/blob/bf5cbcd03253895e844f9e94a2076382ffa6f2e3/assets/line/normalLine.png)
+![基础折线图](https://github.com/isamxus/echart-sphere-assets/blob/0b448c8f4eb646c04e49c5b1d189e153726541d9/assets/line/normalLine.png)
