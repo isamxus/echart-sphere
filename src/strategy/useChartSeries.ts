@@ -2,16 +2,15 @@ import {
   DataItemWithStyleOptions,
   RenderPropOptions,
 } from "../models/propOptionModel";
-import { seriesConfig } from "../constants/seriesConfigConst";
 import { SeriesOption } from "echarts/types/dist/shared";
 import { handleSplitPoint } from "../properties/useChartProperties";
 import { handleBarGap, handleBarStack } from "../properties/useBarProperties";
 import { getNormalOptions } from "../hooks/useGetOptions";
-
+import globalConfig from "../constants/globalConfig";
 // 默认的柱状图series配置
 export function buildNormalSeries(props: RenderPropOptions) {
   const {
-    labelY = seriesConfig.yAxisField,
+    labelY = globalConfig.yAxisField,
     data = [],
     dataItems = [],
   } = props.dataOptions;
@@ -21,7 +20,7 @@ export function buildNormalSeries(props: RenderPropOptions) {
       const opiton = {
         name: item.name,
         data: seriesData,
-        yAxisIndex: item.yAxisIndex || seriesConfig.yAxisIndex,
+        yAxisIndex: item.yAxisIndex || globalConfig.yAxisIndex,
         ...getNormalOptions(props, item),
       };
       return opiton;

@@ -1,7 +1,7 @@
 import { watch } from "vue";
 import { ChartContextType } from "../models/extendOptionModel";
 import { RenderPropOptions } from "../models/propOptionModel";
-import { normalLoadingConfig } from "../constants/loadingConfigConst";
+import { normalLoadingConfig } from "../constants/globalConfig";
 
 export default function useWatch(
   props: RenderPropOptions,

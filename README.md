@@ -55,7 +55,7 @@ echart-sphere 提供了几种方法来设置全局配置，这些配置将作为
 
 ### `setConfig`
 
-`setConfig` 方法允许您设置通用的图表配置项，如颜色方案、字体大小、工具提示等。
+`setConfig` 方法允许您设置通用的图表配置项，如颜色方案、字体大小、工具提示，自定义图表的加载状态显示。您可以设置加载文本、颜色、字体大小等属性，指定设计稿的默认宽度、基准字体大小以及是否启用自适应功能。
 
 ```
 import { setConfig } from 'echart-sphere';
@@ -63,43 +63,6 @@ import { setConfig } from 'echart-sphere';
 setConfig({
     barWidth: 5,
     barColor: 'rgba(132, 212, 232, 1)'
-});
-```
-
-### `setLoadingConfig`
-
-`setLoadingConfig` 方法允许您自定义图表的加载状态显示。您可以设置加载文本、颜色、字体大小等属性，以匹配您的应用程序的风格。
-
-```
-import { setLoadingConfig } from 'echart-sphere';
-
-setLoadingConfig({
-    text: "正在加载图表", // 加载时显示的文本
-    color: "#009C84", // 加载图标的颜色
-    textColor: "#009C84", // 加载文本的颜色
-    maskColor: "rgba(255, 255, 255, 0.8)", // 加载遮罩层的颜色
-    zlevel: 0,
-    fontSize: 12, // 文本字体大小
-    showSpinner: true, // 是否显示加载图标
-    spinnerRadius: 10, // 加载图标的半径
-    lineWidth: 2, // 加载图标线条的宽度
-    fontWeight: "normal", // 文本字体粗细
-    fontStyle: "normal", // 文本字体样式
-    fontFamily: "sans-serif" // 文本字体族
-});
-```
-
-### `setFlexibleConfig`
-
-`setFlexibleConfig` 方法允许您设置图表的自适应行为，使图表能够根据不同屏幕尺寸动态调整大小。您可以指定设计稿的默认宽度、基准字体大小以及是否启用自适应功能。
-
-```
-import { setFlexibleConfig } from 'echart-sphere';
-
-setFlexibleConfig({
-    designWidth: 375, // 设计稿的默认宽度
-    baseSize: 14, // 基准字体大小，用于计算缩放比例
-    flexible: true // 是否开启自适应功能
 });
 ```
 
@@ -324,6 +287,33 @@ setFlexibleConfig({
 - 类型: `number`
 - 默认值: `10`
 - 描述: 设置 Y 轴标签的字体大小。
+
+#### loading 配置
+
+- 类型: object
+- 描述: 设置图表的加载状态显示。以下是可用的配置项：
+
+- text: 类型为 string，默认值为 "正在加载图表"，用于设置加载状态的文本。
+- color: 类型为 string，默认值为 "#009C84"，用于设置加载图标的颜色。
+- textColor: 类型为 string，默认值为 "#009C84"，用于设置加载文本的颜色。
+- maskColor: 类型为 string，默认值为 "rgba(255, 255, 255, 0.8)"，用于设置加载遮罩的颜色。
+- zlevel: 类型为 number，默认值为 0，用于设置加载图层的层级。
+- fontSize: 类型为 number，默认值为 12，用于设置加载文本的字体大小。
+- showSpinner: 类型为 boolean，默认值为 true，用于设置是否显示加载图标。
+- spinnerRadius: 类型为 number，默认值为 10，用于设置加载图标的半径。
+- lineWidth: 类型为 number，默认值为 2，用于设置加载图标的线宽。
+- fontWeight: 类型为 string，默认值为 "normal"，用于设置加载文本的字体粗细。
+- fontStyle: 类型为 string，默认值为 "normal"，用于设置加载文本的字体样式。
+- fontFamily: 类型为 string，默认值为 "sans-serif"，用于设置加载文本的字体系列。
+
+#### 自适应配置
+
+- 类型: object
+- 描述: 设置图表的自适应配置。以下是可用的配置项：
+
+- designWidth: 类型为 number，默认值为 375，用于设置设计稿的默认宽度。
+- baseSize: 类型为 number，默认值为 14，用于设置基准字体大小。
+- flexible: 类型为 boolean，默认值为 true，用于设置是否启用自适应功能。
 
 ## Props 说明
 

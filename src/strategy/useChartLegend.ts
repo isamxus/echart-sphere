@@ -1,12 +1,16 @@
 import { LegendOption } from "echarts/types/dist/shared";
-import { legendConfig } from "../constants/legendConfigConst";
-import { DataItemWithStyleOptions, RenderPropOptions } from "../models/propOptionModel";
+import {
+  DataItemWithStyleOptions,
+  GlobalConfigkeys,
+  RenderPropOptions,
+} from "../models/propOptionModel";
+import globalConfig from "../constants/globalConfig";
 
 export function buildNormalLegend(props: RenderPropOptions) {
   const { name, dataItems = [] } = props.dataOptions;
   const { styleOptions } = props;
-  const getProperties = (key: keyof typeof legendConfig) => {
-    return styleOptions?.[key] || legendConfig[key];
+  const getProperties = (key: GlobalConfigkeys) => {
+    return styleOptions?.[key] || globalConfig[key];
   };
   function buildOptions(dataItems: Array<DataItemWithStyleOptions>) {
     return {
@@ -14,13 +18,13 @@ export function buildNormalLegend(props: RenderPropOptions) {
       itemHeight: getProperties("legendHeight"),
       bottom: getProperties("legendBottom"),
       textStyle: {
-        fontSize: getProperties("legendSize")
+        fontSize: getProperties("legendSize"),
       },
       data: dataItems.map((item) => {
         return {
-          name: item.name || name
+          name: item.name || name,
         };
-      })
+      }),
     } as LegendOption;
   }
   if (dataItems.length) {

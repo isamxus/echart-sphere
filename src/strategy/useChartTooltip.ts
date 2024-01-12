@@ -1,20 +1,19 @@
 import { TooltipOption } from "echarts/types/dist/shared";
-import { tooltipConfig } from "../constants/tooltipConfigConst";
 import { RenderPropOptions } from "../models/propOptionModel";
-
+import globalConfig from "../constants/globalConfig";
 // 默认tooltip
 export function buildNormalTooltip(props: RenderPropOptions) {
   const { styleOptions } = props;
-  const getProperties = (key: keyof typeof tooltipConfig) => {
-    return styleOptions?.[key] || tooltipConfig[key];
+  const getProperties = (key: GlobalConfigkeys) => {
+    return styleOptions?.[key] || globalConfig[key];
   };
   const option = {
     trigger: getProperties("tooltipTriggerType"),
     axisPointer: {
       type: getProperties("tooltipAxisPointer"),
       shadowStyle: {
-        color: getProperties("tooltipShadowColor")
-      }
+        color: getProperties("tooltipShadowColor"),
+      },
     },
     show: getProperties("tooltipShow"),
     confine: getProperties("isTooltipConfine"),
@@ -23,7 +22,7 @@ export function buildNormalTooltip(props: RenderPropOptions) {
     padding: getProperties("tooltipPadding"),
     textStyle: {
       color: getProperties("tooltipTextColor"),
-      fontSize: getProperties("tooltipTextSize")
+      fontSize: getProperties("tooltipTextSize"),
     },
     formatter: (params: any) => {
       return `<div style="display: flex; flex-direction: column;">
@@ -37,7 +36,7 @@ export function buildNormalTooltip(props: RenderPropOptions) {
           })
           .join("")}
       </div>`;
-    }
+    },
   } as TooltipOption;
   return option;
 }

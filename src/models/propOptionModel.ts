@@ -1,13 +1,5 @@
 import { RegisteredSeriesOption } from "echarts/types/dist/shared";
-import { barConfig } from "../constants/barConfigConst";
-import { DataFormatType } from "../constants/dataFormatConst";
-import { gridConfig } from "../constants/gridConfigConst";
-import { legendConfig } from "../constants/legendConfigConst";
-import { seriesConfig } from "../constants/seriesConfigConst";
-import { tooltipConfig } from "../constants/tooltipConfigConst";
-import { xAxisConfig } from "../constants/xAxisConfigConst";
-import { yAxisConfig } from "../constants/yAxisConfigConst";
-import { lineConfig } from "../constants/lineConfigConst";
+import globalConfig, { yAxisConfig } from "../constants/globalConfig";
 import * as echarts from "echarts";
 // 图表自适应选项
 export interface ChartSelfAdaptionOptions {
@@ -37,7 +29,8 @@ export interface DataItemOptions extends ChartPropertiesOptions {
   itemType?: keyof RegisteredSeriesOption;
 }
 
-export type DataItemWithStyleOptions = DataItemOptions & Partial<StyleOptionsType>;
+export type DataItemWithStyleOptions = DataItemOptions &
+  Partial<StyleOptionsType>;
 // 源数据配置接口
 export interface DataPropOptions extends DataItemOptions {
   dataItems?: Array<DataItemWithStyleOptions>;
@@ -85,7 +78,9 @@ export interface ChartPropOptions extends ChartPropertiesOptions {
   // 图表类型
   chartType?: string;
   // 自定义option
-  optionFormatter?: (option: echarts.EChartsCoreOption) => echarts.EChartsCoreOption;
+  optionFormatter?: (
+    option: echarts.EChartsCoreOption
+  ) => echarts.EChartsCoreOption;
   // 是否加载图表
   loading?: boolean;
   // X轴类型
@@ -106,20 +101,15 @@ export interface ChartPropOptions extends ChartPropertiesOptions {
   componentType?: string;
 }
 
-export type styleConfigType = typeof xAxisConfig &
-  typeof barConfig &
-  typeof legendConfig &
-  typeof yAxisConfig &
-  typeof seriesConfig &
-  typeof tooltipConfig &
-  typeof gridConfig &
-  typeof lineConfig & {
-    [key: string]: any;
-  };
+export type StyleConfigType = typeof globalConfig & {
+  [key: string]: any;
+};
+
+export type GlobalConfigkeys = keyof typeof globalConfig;
 
 // 样式配置接口类型
 export type StyleOptionsType = {
-  [T in keyof styleConfigType]: styleConfigType[T];
+  [T in keyof StyleConfigType]: StyleConfigType[T];
 };
 export interface StyleOptions {}
 // 组件Props接口

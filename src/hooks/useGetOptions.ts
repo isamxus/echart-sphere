@@ -1,18 +1,23 @@
 import { SeriesOption } from "echarts/types/dist/shared";
-import { barConfig } from "../constants/barConfigConst";
-import { lineConfig } from "../constants/lineConfigConst";
-import { DataItemWithStyleOptions, RenderPropOptions } from "../models/propOptionModel";
-
+import {
+  DataItemWithStyleOptions,
+  GlobalConfigkeys,
+  RenderPropOptions,
+} from "../models/propOptionModel";
+import globalConfig from "../constants/globalConfig";
 const itemTypeToOptionsMap = new Map<string, any>([
   ["bar", getNormalBarOptions],
-  ["line", getNormalLineOptions]
+  ["line", getNormalLineOptions],
 ]);
 
 // 公共柱状图options
-export function getNormalBarOptions(props: RenderPropOptions, item?: DataItemWithStyleOptions) {
+export function getNormalBarOptions(
+  props: RenderPropOptions,
+  item?: DataItemWithStyleOptions
+) {
   const { styleOptions } = props;
-  const getProperties = (key: keyof typeof barConfig) => {
-    return item?.[key] || styleOptions?.[key] || barConfig[key];
+  const getProperties = (key: GlobalConfigkeys) => {
+    return item?.[key] || styleOptions?.[key] || globalConfig[key];
   };
   return {
     barWidth: getProperties("barWidth"),
@@ -22,28 +27,31 @@ export function getNormalBarOptions(props: RenderPropOptions, item?: DataItemWit
       color: getProperties("barColor"),
       borderWidth: getProperties("barBorderWidth"),
       borderColor: getProperties("barBorderColor"),
-      borderType: getProperties("barBorderType")
-    }
+      borderType: getProperties("barBorderType"),
+    },
   } as SeriesOption;
 }
 
 // 公共折线图样式
-export function getNormalLineOptions(props: RenderPropOptions, item?: DataItemWithStyleOptions) {
+export function getNormalLineOptions(
+  props: RenderPropOptions,
+  item?: DataItemWithStyleOptions
+) {
   const { styleOptions } = props;
-  const getProperties = (key: keyof typeof lineConfig) => {
-    return item?.[key] || styleOptions?.[key] || lineConfig[key];
+  const getProperties = (key: GlobalConfigkeys) => {
+    return item?.[key] || styleOptions?.[key] || globalConfig[key];
   };
   return {
     type: "line",
     smooth: getProperties("lineSmooth"),
     showSymbol: getProperties("showSymbol"),
     itemStyle: {
-      color: getProperties("lineColor")
+      color: getProperties("lineColor"),
     },
     lineStyle: {
       color: getProperties("lineColor"),
-      type: getProperties("lineType")
-    }
+      type: getProperties("lineType"),
+    },
   } as SeriesOption;
 }
 
@@ -53,8 +61,8 @@ export function getNormalPictorialOptions(
   item?: DataItemWithStyleOptions
 ) {
   const { styleOptions } = props;
-  const getProperties = (key: keyof typeof barConfig) => {
-    return item?.[key] || styleOptions?.[key] || barConfig[key];
+  const getProperties = (key: GlobalConfigkeys) => {
+    return item?.[key] || styleOptions?.[key] || globalConfig[key];
   };
   return {
     ...getNormalBarOptions(props, item),
@@ -65,13 +73,18 @@ export function getNormalPictorialOptions(
     symbol: getProperties("barSymbol"),
     symbolOffset: getProperties("barSymbolOffset"),
     symbolSize: getProperties("barSymbolSize"),
-    symbolPosition: getProperties("barSymbolPosition")
+    symbolPosition: getProperties("barSymbolPosition"),
   } as SeriesOption;
 }
 
 // 根据传入的itemType获取公共样式
-export function getNormalOptions(props: RenderPropOptions, item: DataItemWithStyleOptions) {
+export function getNormalOptions(
+  props: RenderPropOptions,
+  item: DataItemWithStyleOptions
+) {
   const { dataOptions } = props;
-  const optionFn = itemTypeToOptionsMap.get(item.itemType || dataOptions.itemType || "bar");
+  const optionFn = itemTypeToOptionsMap.get(
+    item.itemType || dataOptions.itemType || "bar"
+  );
   return optionFn(props, item);
 }

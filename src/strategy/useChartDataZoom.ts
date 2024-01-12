@@ -1,15 +1,15 @@
 import { DataZoomComponentOption } from "echarts/types/dist/shared";
-import { RenderPropOptions } from "../models/propOptionModel";
-import { dataZoomConfig } from "../constants/dataZoomConfigConst";
+import { GlobalConfigkeys, RenderPropOptions } from "../models/propOptionModel";
+import globalConfig from "../constants/globalConfig";
 
 // 默认的缩放组件配置
 export function buildNormalDataZoom(props: RenderPropOptions) {
   const { styleOptions } = props;
-  const getProperties = (key: keyof typeof dataZoomConfig) => {
-    return styleOptions?.[key] || dataZoomConfig[key];
+  const getProperties = (key: GlobalConfigkeys) => {
+    return styleOptions?.[key] || globalConfig[key];
   };
   return {
     type: getProperties("dataZoomType"),
-    xAxisIndex: getProperties("dataZoomXAxisIndex")
+    xAxisIndex: getProperties("dataZoomXAxisIndex"),
   } as DataZoomComponentOption;
 }

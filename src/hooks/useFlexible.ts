@@ -1,4 +1,7 @@
-import { chartSelfAdaptionConfig, flexibleFieldsSet } from "../constants/flexibleConst";
+import {
+  chartSelfAdaptionConfig,
+  flexibleFieldsSet,
+} from "../constants/globalConfig";
 import { RenderPropOptions } from "../models/propOptionModel";
 
 export default function useFlexible(props: RenderPropOptions) {
@@ -7,7 +10,8 @@ export default function useFlexible(props: RenderPropOptions) {
   function transOptionFlexible(options: echarts.EChartsCoreOption) {
     if (flexible) {
       // 浏览器可视宽
-      const clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      const clientWidth =
+        document.documentElement.clientWidth || document.body.clientWidth;
       changeFieldsToValue(options, clientWidth);
     }
   }
@@ -23,6 +27,6 @@ export default function useFlexible(props: RenderPropOptions) {
   }
 
   return {
-    transOptionFlexible
+    transOptionFlexible,
   };
 }

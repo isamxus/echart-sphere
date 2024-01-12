@@ -29,11 +29,7 @@ import { debounce } from "lodash";
 import useWatch from "./hooks/useWatch";
 import NormalChart from "./components/NormalChart.vue";
 import { usePropsValidate } from "./hooks/useValidate";
-export {
-  setConfig,
-  setLoadingConfig,
-  setFlexibleConfig,
-} from "./hooks/useGlobalConfig";
+export { setConfig } from "./hooks/useGlobalConfig";
 export default {
   // X轴类型扩展
   xAxisExtend: useExtend<XAXisOption>(XAxisTypeToStrategyMap),

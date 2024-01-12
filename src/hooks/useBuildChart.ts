@@ -1,20 +1,19 @@
 import { RenderPropOptions } from "../models/propOptionModel";
+import { deepCopy } from "../utils/objectUtils";
+import { chartResizeSet } from "../constants/chartEventConst";
+import { DataFormatType } from "../constants/dataFormatConst";
+import { StrategyOptions } from "../models/buildChartModel";
+import globalConfig from "../constants/globalConfig";
+import useMeasureType from "./useMeasureType";
 import * as echarts from "echarts";
 import useFlexible from "./useFlexible";
 import useGetStrategy from "./useGetStrategy";
-import { deepCopy } from "../utils/objectUtils";
-import { chartResizeSet } from "../constants/chartEventConst";
-import { seriesConfig } from "../constants/seriesConfigConst";
-import useMeasureType from "./useMeasureType";
-import { DataFormatType } from "../constants/dataFormatConst";
-import { StrategyOptions } from "../models/buildChartModel";
-
 // 处理计量单位
 function handleMeasure(props: RenderPropOptions) {
   const {
     data = [],
     dataItems = [],
-    labelY = seriesConfig.yAxisField,
+    labelY = globalConfig.yAxisField,
     measureType = DataFormatType.BILLION,
     isNegative = false,
     isFormatter = false,
