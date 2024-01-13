@@ -1,6 +1,6 @@
 {
   "name": "echart-sphere",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "description": "",
   "main": "dist/echart-sphere.esm.js",
   "types": "dist/types/index.d.ts",
@@ -15,11 +15,12 @@
   },
   "author": "lijiancong",
   "license": "ISC",
-  "dependencies": {
+  "peerDependencies": {
     "echarts": "^5.4.2",
+    "vue": "^3.3.4"
+  },
+  "dependencies": {
     "lodash": "^4.17.21",
-    "rimraf": "^5.0.5",
-    "vue": "^3.3.4",
     "xe-utils": "^3.5.14"
   },
   "devDependencies": {
@@ -29,6 +30,7 @@
     "css-loader": "^6.9.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "html-webpack-plugin": "^5.6.0",
+    "rimraf": "^5.0.5",
     "style-loader": "^3.3.3",
     "ts-loader": "^9.4.4",
     "typescript": "^5.2.2",
