@@ -74,6 +74,7 @@ export const tooltipConfig = {
   tooltipTriggerType: "axis",
   tooltipAxisPointer: "shadow",
   tooltipShadowColor: "rgba(153, 153, 153, 0.4)",
+  tooltipFormatter: null
 };
 
 // X轴配置
@@ -92,6 +93,10 @@ export const yAxisConfig = {
   yAxisLabelSize: 10,
 };
 
+// 饼图配置
+export const pieConfig = {
+
+}
 // 自适应配置
 export const chartSelfAdaptionConfig = {
   // 设计稿默认宽度
@@ -99,7 +104,7 @@ export const chartSelfAdaptionConfig = {
   // 基准值
   baseSize: 14,
   // 是否自适应
-  flexible: true,
+  flexible: false,
 };
 // 需要进行自适应的字段集合
 export const flexibleFieldsSet = new Set([
@@ -140,6 +145,7 @@ export default {
   ...tooltipConfig,
   ...xAxisConfig,
   ...yAxisConfig,
+  ...pieConfig,
   ...chartSelfAdaptionConfig,
   ...normalLoadingConfig,
 };

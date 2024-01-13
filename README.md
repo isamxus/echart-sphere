@@ -260,6 +260,75 @@ setConfig({
 - 默认值: `0`
 - 描述: 指定哪一个 x 轴与数据区域缩放组件关联，默认关联第一个 x 轴。
 
+#### Tooltip 配置
+
+##### `tooltipShow`
+
+- 类型: boolean
+- 默认值: true
+- 描述: 设置是否显示 Tooltip。
+-
+
+##### `isTooltipConfine`
+
+- 类型: boolean
+- 默认值: true
+- 描述: 设置 Tooltip 是否被限制在图表的区域内。
+
+##### `tooltipBgColor`
+
+- 类型: string
+- 默认值: "rgba(50,50,50,0.7)"
+- 描述: 设置 Tooltip 的背景颜色。
+
+##### `tooltipTextColor`
+
+- 类型: string
+- 默认值: "#fff"
+- 描述: 设置 Tooltip 文本的颜色。
+
+##### `tooltipTextSize`
+
+- 类型: number
+- 默认值: 10
+- 描述: 设置 Tooltip 文本的字体大小。
+
+##### `tooltipBorderColor`
+
+- 类型: string
+- 默认值: "rgba(50,50,50,0)"
+- 描述: 设置 Tooltip 的边框颜色。
+
+##### `tooltipPadding`
+
+- 类型: number
+- 默认值: 5
+- 描述: 设置 Tooltip 的内边距。
+
+##### `tooltipTriggerType`
+
+- 类型: string
+- 默认值: "axis"
+- 描述: 设置触发 Tooltip 的方式。"axis" 表示坐标轴触发。
+
+##### `tooltipAxisPointer`
+
+- 类型: string
+- 默认值: "shadow"
+- 描述: 设置坐标轴指示器的类型。"shadow" 表示阴影指示器。
+
+##### `tooltipShadowColor`
+
+- 类型: string
+- 默认值: "rgba(153, 153, 153, 0.4)"
+- 描述: 设置阴影指示器的颜色。
+
+##### `tooltipFormatter`
+
+- 类型: Function
+- 默认值: null
+- 描述: 自定义 Tooltip 的格式化函数。
+
 #### X 轴配置
 
 ##### `xAxisField`
@@ -313,7 +382,7 @@ setConfig({
 
 - designWidth: 类型为 number，默认值为 375，用于设置设计稿的默认宽度。
 - baseSize: 类型为 number，默认值为 14，用于设置基准字体大小。
-- flexible: 类型为 boolean，默认值为 true，用于设置是否启用自适应功能。
+- flexible: 类型为 boolean，默认值为 false，用于设置是否启用自适应功能。
 
 ## Props 说明
 
@@ -781,3 +850,48 @@ const options = {
 ```
 
 ![柱形趋势图](https://github.com/isamxus/echart-sphere-assets/blob/dd86c5cdfcac2d8ba777e0389e22027770d76c0f/assets/trend/normal-trend.png)
+
+## 饼图
+
+### 基础饼图
+
+通过设置 chartOptions 中的 chartType 为 `pie`，我们可以创建一个基础饼图
+
+```
+<template>
+  <div class="echart-sphere-wrapper">
+    <NormalChart v-bind="options"></NormalChart>
+  </div>
+</template>
+<script lang="ts" setup>
+import { NormalChart } from "../src";
+const options = {
+  dataOptions: {
+    dataItems: [
+      { name: "测试", labelX: "label", labelY: "value" }
+    ],
+    data: [
+      { label: "01", value: 23324, value1: Math.floor(Math.random() * 10000) },
+      { label: "02", value: 23123, value1: Math.floor(Math.random() * 10000) },
+      { label: "03", value: 43431, value1: Math.floor(Math.random() * 10000) },
+      { label: "04", value: 13421, value1: Math.floor(Math.random() * 10000) },
+      { label: "05", value: 55232, value1: Math.floor(Math.random() * 10000) },
+      { label: "06", value: 31234, value1: Math.floor(Math.random() * 10000) },
+    ],
+  },
+  chartOptions: {
+    chartType: 'pie' // 饼图类型
+  },
+};
+</script>
+<style lang="css">
+.echart-sphere-wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+
+```
+
+![基础饼图](https://github.com/isamxus/echart-sphere-assets/blob/9d4ef2cbe5776336f8cb9347a3affc80180ec101/assets/pie/%E5%9F%BA%E7%A1%80%E9%A5%BC%E5%9B%BE.png)

@@ -1,4 +1,4 @@
-import { onBeforeUnmount, onMounted, ref, toRaw } from "vue";
+import { nextTick, onBeforeUnmount, onMounted, ref, toRaw } from "vue";
 import { RenderPropOptions } from "../../models/propOptionModel";
 import { chartComponentMap } from "../../constants/chartTypeConst";
 import { chartTypeConfigMap } from "../../constants/chartTypeConfigConst";
@@ -25,7 +25,7 @@ export default function useNormalChart(props: RenderPropOptions) {
   }
 
   const context = useBuildChart(toRaw(props));
-  const { initChart, chartDispose, setStrategyType } = context;
+  const { initChart, chartDispose, setStrategyType, chartResize } = context;
   const chartConfig = chartTypeConfigMap.get(chartType);
   setStrategyType(chartConfig);
   // 启用监听

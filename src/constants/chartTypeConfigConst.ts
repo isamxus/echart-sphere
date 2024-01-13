@@ -6,11 +6,14 @@ import {
   SeriesTypeEnum,
   TooltipTypeEnum,
   XAxisTypeEnum,
-  YAxisTypeEnum
+  YAxisTypeEnum,
 } from "./chartTypeConst";
 export const enum ChartTypeEnum {
-  NORMAL_CHART = "normal"
+  NORMAL_CHART = "normal",
+  PIE = "pie",
 }
+
+// 默认图表组件策略配置
 export const normalChartTypeConfig = {
   xAxisType: XAxisTypeEnum.NORMAL,
   yAxisType: YAxisTypeEnum.NORMAL,
@@ -18,9 +21,17 @@ export const normalChartTypeConfig = {
   gridType: GridTypeEnum.NORMAL,
   legendType: LegendTypeEnum.NORMAL,
   seriesType: SeriesTypeEnum.NORMAL,
-  dataZoomType: DataZoomTypeEnum.NORMAL
+  dataZoomType: DataZoomTypeEnum.NORMAL,
+};
+
+// 默认饼图组件策略配置
+export const normalPieChartTypeConfig = {
+  legendType: LegendTypeEnum.NORMAL,
+  tooltipType: TooltipTypeEnum.PIE,
+  seriesType: SeriesTypeEnum.PIE,
 };
 
 export const chartTypeConfigMap = new Map<string, StrategyOptions>([
-  [ChartTypeEnum.NORMAL_CHART, normalChartTypeConfig]
+  [ChartTypeEnum.NORMAL_CHART, normalChartTypeConfig],
+  [ChartTypeEnum.PIE, normalPieChartTypeConfig],
 ]);

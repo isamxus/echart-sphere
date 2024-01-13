@@ -8,6 +8,7 @@ import globalConfig from "../constants/globalConfig";
 const itemTypeToOptionsMap = new Map<string, any>([
   ["bar", getNormalBarOptions],
   ["line", getNormalLineOptions],
+  ["pie", getNormalPieOptions],
 ]);
 
 // 公共柱状图options
@@ -74,6 +75,16 @@ export function getNormalPictorialOptions(
     symbolOffset: getProperties("barSymbolOffset"),
     symbolSize: getProperties("barSymbolSize"),
     symbolPosition: getProperties("barSymbolPosition"),
+  } as SeriesOption;
+}
+
+// 公共饼图样式
+export function getNormalPieOptions(
+  props: RenderPropOptions,
+  item?: DataItemWithStyleOptions
+) {
+  return {
+    type: "pie",
   } as SeriesOption;
 }
 

@@ -145,6 +145,7 @@ export default function useBuildChart(props: RenderPropOptions) {
   // 设置选项
   function setOption(opitons: echarts.EChartsCoreOption) {
     echartInstance.setOption(opitons);
+    chartResize()
   }
   // 最终渲染前处理选项
   function handleOptionBeforeRender(opitons: echarts.EChartsCoreOption) {

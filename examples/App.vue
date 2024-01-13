@@ -8,7 +8,7 @@ import { NormalChart } from "../src";
 const options = {
   dataOptions: {
     dataItems: [
-      { name: "测试", labelX: "label", labelY: "value", itemType: "bar" },
+      { name: "测试", labelX: "label", labelY: "value" }
     ],
     data: [
       { label: "01", value: 23324, value1: Math.floor(Math.random() * 10000) },
@@ -20,11 +20,7 @@ const options = {
     ],
   },
   chartOptions: {
-    split: {
-      splitX: 2,
-      trend: "pictorial",
-    },
-    seriesType: 'trend'
+    chartType: 'pie'
   },
 };
 </script>

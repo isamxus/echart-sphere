@@ -5,30 +5,26 @@ import {
   RenderPropOptions,
 } from "../models/propOptionModel";
 import globalConfig from "../constants/globalConfig";
+import { handleDataItems } from "../properties/useDataProperties";
 
 export function buildNormalLegend(props: RenderPropOptions) {
-  const { name, dataItems = [] } = props.dataOptions;
   const { styleOptions } = props;
+  const dataItems = handleDataItems(props);
+  console.log(dataItems, "dataItems")
   const getProperties = (key: GlobalConfigkeys) => {
     return styleOptions?.[key] || globalConfig[key];
   };
-  function buildOptions(dataItems: Array<DataItemWithStyleOptions>) {
-    return {
-      itemWidth: getProperties("legendWidth"),
-      itemHeight: getProperties("legendHeight"),
-      bottom: getProperties("legendBottom"),
-      textStyle: {
-        fontSize: getProperties("legendSize"),
-      },
-      data: dataItems.map((item) => {
-        return {
-          name: item.name || name,
-        };
-      }),
-    } as LegendOption;
-  }
-  if (dataItems.length) {
-    return buildOptions(dataItems);
-  }
-  return buildOptions([{}]);
+  return {
+    itemWidth: getProperties("legendWidth"),
+    itemHeight: getProperties("legendHeight"),
+    bottom: getProperties("legendBottom"),
+    textStyle: {
+      fontSize: getProperties("legendSize"),
+    },
+    data: dataItems.map((item) => {
+      return {
+        name: item.name || name,
+      };
+    }),
+  } as LegendOption;
 }

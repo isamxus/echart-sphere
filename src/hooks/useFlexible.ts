@@ -6,7 +6,6 @@ import { RenderPropOptions } from "../models/propOptionModel";
 
 export default function useFlexible(props: RenderPropOptions) {
   const { designWidth, flexible } = chartSelfAdaptionConfig;
-
   function transOptionFlexible(options: echarts.EChartsCoreOption) {
     if (flexible) {
       // 浏览器可视宽

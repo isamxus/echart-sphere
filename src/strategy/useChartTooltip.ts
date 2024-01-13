@@ -24,8 +24,10 @@ export function buildNormalTooltip(props: RenderPropOptions) {
       color: getProperties("tooltipTextColor"),
       fontSize: getProperties("tooltipTextSize"),
     },
-    formatter: (params: any) => {
-      return `<div style="display: flex; flex-direction: column;">
+    formatter:
+      getProperties("tooltipFormatter") ||
+      ((params: any) => {
+        return `<div style="display: flex; flex-direction: column;">
         <div style="padding: 0 0 3px 0">${params[0].name}</div>
         ${params
           .filter((param: any) => param.value !== "--")
@@ -36,7 +38,17 @@ export function buildNormalTooltip(props: RenderPropOptions) {
           })
           .join("")}
       </div>`;
-    },
+      }),
   } as TooltipOption;
   return option;
+}
+
+// 饼图tooltip
+export function buildPieTooltip(props: RenderPropOptions) {
+  const opitons = buildNormalTooltip(props);
+  Object.assign(opitons, {
+    trigger: "item",
+  });
+  delete opitons.formatter;
+  return opitons;
 }
