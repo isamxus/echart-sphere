@@ -802,6 +802,48 @@ const options = {
 
 ![柱线混合](https://github.com/isamxus/echart-sphere-assets/blob/4ca5222ed41f2fd13d245039ede7b12d0de88c30/assets/multi-series/bar-line-mixin.png)
 
+### 柱线混合(自定义样式)
+
+在这个柱线混合图的示例中，我们通过设置 `barColor` 和 `lineColor` 属性自定义了图表的样式。
+
+```
+<template>
+  <div class="echart-sphere-wrapper">
+    <NormalChart v-bind="options"></NormalChart>
+  </div>
+</template>
+<script lang="ts" setup>
+import { NormalChart } from "../src";
+const getValue = () => Math.floor(Math.random() * 10000);
+const options = {
+  dataOptions: {
+    dataItems: [
+      { name: "测试1", labelX: "label", labelY: "value", barColor: "blue" },
+      { name: "测试2", labelX: "label", labelY: "value1" },
+      { name: "测试3", labelX: "label", labelY: "value2", itemType: "line", lineColor: "orange" },
+    ],
+    data: [
+      { label: "01", value: getValue(), value1: getValue(), value2: getValue() },
+      { label: "02", value: getValue(), value1: getValue(), value2: getValue() },
+      { label: "03", value: getValue(), value1: getValue(), value2: getValue() },
+      { label: "04", value: getValue(), value1: getValue(), value2: getValue() },
+      { label: "05", value: getValue(), value1: getValue(), value2: getValue() }
+    ],
+  },
+};
+</script>
+<style lang="css">
+.echart-sphere-wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+
+```
+
+![柱线混合-自定义样式](https://github.com/isamxus/echart-sphere-assets/blob/d6b983f8c414782edb788aeb20bdc1ab3c843635/assets/multi-series/%E6%9F%B1%E7%BA%BF%E6%B7%B7%E5%90%88-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F.png)
+
 ## 趋势图
 
 ### 柱形趋势图
