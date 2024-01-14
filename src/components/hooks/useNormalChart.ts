@@ -40,5 +40,6 @@ export default function useNormalChart(props: RenderPropOptions) {
   return {
     chartRef,
     renderComponent,
+    context
   };
 }

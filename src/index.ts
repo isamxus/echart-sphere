@@ -70,6 +70,9 @@ export default {
             initChart(chartRef.value, result ? false : true);
             result && handleRender(result);
           });
+          context.expose({
+            ...chartContext,
+          });
           return () =>
             h("div", {
               ref: (ref) => (chartRef.value = ref),

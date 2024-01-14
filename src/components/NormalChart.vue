@@ -6,7 +6,10 @@
 import useNormalChart from "./hooks/useNormalChart";
 import { RenderPropOptions } from "../models/propOptionModel";
 const props = defineProps<RenderPropOptions>();
-const { chartRef, renderComponent } = useNormalChart(props);
+const { chartRef, renderComponent, context } = useNormalChart(props);
+defineExpose({
+  ...context
+})
 </script>
 <style>
 .universal-echart-component-wrapper {
