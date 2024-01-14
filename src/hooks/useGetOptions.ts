@@ -53,7 +53,7 @@ export function getNormalLineOptions(
       color: getProperties("lineColor"),
       type: getProperties("lineType"),
     },
-  } as SeriesOption;
+  };
 }
 
 // 公共pictorialBar样式

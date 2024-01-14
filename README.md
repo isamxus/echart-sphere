@@ -893,6 +893,95 @@ const options = {
 
 ![柱形趋势图](https://github.com/isamxus/echart-sphere-assets/blob/dd86c5cdfcac2d8ba777e0389e22027770d76c0f/assets/trend/normal-trend.png)
 
+### 多系列趋势图
+
+通过设置折线系列的 split 对象，定义趋势图的类型为 `line`。
+
+```
+<template>
+  <div class="echart-sphere-wrapper">
+    <NormalChart v-bind="options"></NormalChart>
+  </div>
+</template>
+<script lang="ts" setup>
+import { NormalChart } from "../src";
+const getValue = () => Math.floor(Math.random() * 10000);
+const options = {
+  dataOptions: {
+    dataItems: [
+      { name: "测试1", labelX: "label", labelY: "value", barColor: "blue" },
+      { name: "测试2", labelX: "label", labelY: "value1" },
+      {
+        name: "测试3",
+        labelX: "label",
+        labelY: "value2",
+        itemType: "line",
+        lineColor: "orange",
+        split: {
+          trend: "line"
+        },
+      },
+    ],
+    data: [
+      {
+        label: "01",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "02",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "03",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "04",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "05",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "06",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+    ],
+  },
+  chartOptions: {
+    seriesType: "trend",
+    split: {
+      splitX: 2,
+      trend: "pictorial",
+    },
+  },
+};
+</script>
+<style lang="css">
+.echart-sphere-wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+
+```
+
+![多系列趋势图](https://github.com/isamxus/echart-sphere-assets/blob/e534754c8a5a8d4441e7536f5c11f256fa20bbcf/assets/trend/%E5%A4%9A%E7%B3%BB%E5%88%97%E8%B6%8B%E5%8A%BF%E5%9B%BE.png)
+
 ## 饼图
 
 ### 基础饼图

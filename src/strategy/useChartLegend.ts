@@ -10,7 +10,6 @@ import { handleDataItems } from "../properties/useDataProperties";
 export function buildNormalLegend(props: RenderPropOptions) {
   const { styleOptions } = props;
   const dataItems = handleDataItems(props);
-  console.log(dataItems, "dataItems")
   const getProperties = (key: GlobalConfigkeys) => {
     return styleOptions?.[key] || globalConfig[key];
   };

@@ -11,15 +11,62 @@ const options = {
     dataItems: [
       { name: "测试1", labelX: "label", labelY: "value", barColor: "blue" },
       { name: "测试2", labelX: "label", labelY: "value1" },
-      { name: "测试3", labelX: "label", labelY: "value2", itemType: "line", lineColor: "orange" },
+      {
+        name: "测试3",
+        labelX: "label",
+        labelY: "value2",
+        itemType: "line",
+        lineColor: "orange",
+        split: {
+          trend: "line"
+        },
+      },
     ],
     data: [
-      { label: "01", value: getValue(), value1: getValue(), value2: getValue() },
-      { label: "02", value: getValue(), value1: getValue(), value2: getValue() },
-      { label: "03", value: getValue(), value1: getValue(), value2: getValue() },
-      { label: "04", value: getValue(), value1: getValue(), value2: getValue() },
-      { label: "05", value: getValue(), value1: getValue(), value2: getValue() }
+      {
+        label: "01",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "02",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "03",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "04",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "05",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "06",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
     ],
+  },
+  chartOptions: {
+    seriesType: "trend",
+    split: {
+      splitX: 2,
+      trend: "pictorial",
+    },
   },
 };
 </script>
