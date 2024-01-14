@@ -230,6 +230,50 @@ setConfig({
 - 默认值: `"auto"`
 - 描述: 设置图例距离右侧的距离。
 
+#### Legend 图例富文本配置
+
+##### `legendRichSize`
+
+- 类型: `number`
+- 默认值: `14`
+- 描述: 设置图例文本的字体大小。
+
+##### `legendRichWeight`
+
+- 类型: `number`
+- 默认值: `500`
+- 描述: 设置图例文本的字体粗细。
+
+##### `legendRichWidth`
+
+- 类型: `number`
+- 默认值: `70`
+- 描述: 设置图例项的宽度。
+
+##### `legendRichAlign`
+
+- 类型: `string`
+- 默认值: `"right"`
+- 描述: 设置图例文本的对齐方式。
+
+##### `legendRichColor`
+
+- 类型: `string`
+- 默认值: `"rgba(0, 0, 0, 0.85)"`
+- 描述: 设置图例文本的颜色。
+
+##### `legendRichPadding`
+
+- 类型: `Array<number>`
+- 默认值: `[0, 0, 0, 5]`
+- 描述: 设置图例项的内边距，数组格式表示上、右、下、左的内边距。
+
+##### `legendRichFamily`
+
+- 类型: `string`
+- 默认值: `"Source Han Sans CN-Medium"`
+- 描述: 设置图例文本的字体家族。
+
 #### Grid 配置
 
 ##### `gridTop`
@@ -591,6 +635,23 @@ setConfig({
 
 - 类型: `SecondYAxisType | boolean`
 - 描述: 配置或启用第二个 Y 轴。如果为 `true`，将使用默认的第二 Y 轴配置。如果提供了 `SecondYAxisType` 对象，则可以自定义第二个 Y 轴的配置，Y 轴配置属性参考全局 Y 轴配置属性。
+
+#### `legendRichOptions`
+
+- 类型: `LegendRichOptions` 或 `Array<LegendRichOptions>`
+- 描述: 用于自定义图例项的富文本样式。可以为图例中的每个项（如名称、值、百分比）指定不同的样式。
+
+每个 `LegendRichOptions` 对象可以包含以下属性：
+
+##### `field`
+
+- 类型: `string`
+- 描述: 指定要自定义样式的图例项字段，例如 `name`、`value` 或 `percent`。
+
+##### `styles`
+
+- 类型: `Partial<typeof legendRichConfig>`
+- 描述: 一个包含样式属性的对象，这些样式将应用于指定的图例项字段。这是一个可选属性，如果提供，它将覆盖默认的富文本样式。
 
 ### styleOptions
 
@@ -1126,4 +1187,5 @@ const options = {
 </style>
 
 ```
+
 ![带具体信息图例的饼图](https://github.com/isamxus/echart-sphere-assets/blob/568174c7640f6649c9533745ffe28a570698fc1f/assets/pie/%E5%B8%A6%E5%85%B7%E4%BD%93%E4%BF%A1%E6%81%AF%E5%9B%BE%E4%BE%8B%E7%9A%84%E9%A5%BC%E5%9B%BE.png)
