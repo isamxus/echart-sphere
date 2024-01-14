@@ -4,6 +4,7 @@ import { handleDataItems } from "../../properties/useDataProperties";
 import { buildNormalLegend } from "../useChartLegend";
 import { getIndexFormatStringByUnitType } from "../../hooks/useMeasureType";
 import { DataFormatType } from "../../constants/dataFormatConst";
+import { handlePieLegendRich } from "../../properties/useLegendProperties";
 
 // 默认饼图图例
 export function buildPieNormalLegend(props: RenderPropOptions) {
@@ -37,39 +38,14 @@ export function buildPieWithDetailLegend(props: RenderPropOptions) {
       percent: value / total,
     };
   });
-
+  const richOptions = handlePieLegendRich(props);
   Object.assign(options, {
     data: legendData,
     orient: "vertical",
     top: dataItem.legendTop || "center",
     left: dataItem.legendLeft || "50%",
     textStyle: {
-      rich: {
-        name: {
-          fontSize: 14,
-          fontWeight: 400,
-          width: 60,
-          padding: [0, 0, 0, 5],
-          color: "rgba(0, 0, 0, 0.65)",
-          fontFamily: "Source Han Sans CN-Regular",
-        },
-        value: {
-          fontSize: 14,
-          fontWeight: 500,
-          width: 50,
-          align: "right",
-          color: "rgba(0, 0, 0, 0.85)",
-          fontFamily: "Source Han Sans CN-Medium",
-        },
-        percent: {
-          fontSize: 14,
-          fontWeight: 500,
-          width: 70,
-          align: "right",
-          color: "rgba(0, 0, 0, 0.85)",
-          fontFamily: "Source Han Sans CN-Medium",
-        },
-      },
+      rich: richOptions
     },
     formatter: function (params) {
       const legendItem = legendData.find((item) => item.name === params);

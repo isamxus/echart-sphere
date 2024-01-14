@@ -2,9 +2,10 @@ import { SeriesOption } from "echarts/types/dist/shared";
 import {
   DataItemWithStyleOptions,
   GlobalConfigkeys,
+  LegendRichOptions,
   RenderPropOptions,
 } from "../models/propOptionModel";
-import globalConfig from "../constants/globalConfig";
+import globalConfig, { legendRichConfig } from "../constants/globalConfig";
 const itemTypeToOptionsMap = new Map<string, any>([
   ["bar", getNormalBarOptions],
   ["line", getNormalLineOptions],
@@ -98,6 +99,21 @@ export function getNormalPieOptions(
       show: getPropertie("pieLabelshow"),
     },
   } as SeriesOption;
+}
+
+// 公共图例富文本配置
+export function getNormalLegendRichOptions(item?: LegendRichOptions["styles"]) {
+  const getPropertie = (key: keyof typeof legendRichConfig) =>
+    item?.[key] || legendRichConfig[key];
+  return {
+    fontSize: getPropertie("legendRichSize"),
+    fontWeight: getPropertie("legendRichWeight"),
+    width: getPropertie("legendRichWidth"),
+    align: getPropertie("legendRichAlign"),
+    padding: getPropertie("legendRichPadding"),
+    color: getPropertie("legendRichColor"),
+    fontFamily: getPropertie("legendRichFamily"),
+  };
 }
 
 // 根据传入的itemType获取公共样式

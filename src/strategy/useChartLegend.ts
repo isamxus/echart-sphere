@@ -17,8 +17,8 @@ export function buildNormalLegend(props: RenderPropOptions) {
     itemHeight: getProperties("legendHeight"),
     bottom: getProperties("legendBottom"),
     top: getProperties("legendTop"),
-    left: getProperties("legendLeft"),
-    right: getProperties("legendRight"),
+    /* left: getProperties("legendLeft"),
+    right: getProperties("legendRight"), */
     textStyle: {
       fontSize: getProperties("legendSize"),
     },

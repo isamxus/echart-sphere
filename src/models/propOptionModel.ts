@@ -1,6 +1,10 @@
 import { RegisteredSeriesOption } from "echarts/types/dist/shared";
-import globalConfig, { yAxisConfig } from "../constants/globalConfig";
+import globalConfig, {
+  legendRichConfig,
+  yAxisConfig,
+} from "../constants/globalConfig";
 import * as echarts from "echarts";
+import { Arrayable } from "./buildChartModel";
 // 图表自适应选项
 export interface ChartSelfAdaptionOptions {
   // 自适应选项
@@ -62,6 +66,13 @@ export interface ChartSplitPointOptions {
 // 第二个Y轴配置
 export type SecondYAxisType = typeof yAxisConfig;
 
+// 图例富文本配置接口
+export interface LegendRichOptions {
+  // 指定字段
+  field: string;
+  // 样式
+  styles?: Partial<typeof legendRichConfig>;
+}
 // 图表自定义属性接口
 export interface ChartPropertiesOptions {
   // 是否堆叠
@@ -72,6 +83,8 @@ export interface ChartPropertiesOptions {
   split?: ChartSplitPointOptions;
   // 第二个Y轴配置
   secondYAxis?: SecondYAxisType | boolean;
+  // 图例富文本配置
+  legendRichOptions?: Arrayable<LegendRichOptions>;
 }
 // 图表配置接口
 export interface ChartPropOptions extends ChartPropertiesOptions {

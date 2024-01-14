@@ -29,4 +29,3 @@ export function handleBarGap(props: RenderPropOptions, options: Array<SeriesOpti
   });
 }
 
-// 分割点使用pictorial处理

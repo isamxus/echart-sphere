@@ -55,6 +55,17 @@ export const legendConfig = {
   legendRight: "auto",
 };
 
+// 图例富文本配置
+export const legendRichConfig = {
+  legendRichSize: 14,
+  legendRichWeight: 500,
+  legendRichWidth: 70,
+  legendRichAlign: "right",
+  legendRichColor: "rgba(0, 0, 0, 0.85)",
+  legendRichPadding: [0, 0, 0, 5],
+  legendRichFamily: "Source Han Sans CN-Medium",
+};
+
 // 系列配置
 export const seriesConfig = {
   // 默认的取值字段
@@ -102,7 +113,7 @@ export const pieConfig = {
   pieBottom: 0,
   pieWidth: "auto",
   pieHeight: "auto",
-  pieLabelshow: false
+  pieLabelshow: false,
 };
 // 自适应配置
 export const chartSelfAdaptionConfig = {
@@ -153,6 +164,7 @@ export default {
   ...xAxisConfig,
   ...yAxisConfig,
   ...pieConfig,
+  ...legendRichConfig,
   ...chartSelfAdaptionConfig,
   ...normalLoadingConfig,
 };

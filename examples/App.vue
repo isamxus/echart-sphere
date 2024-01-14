@@ -49,7 +49,13 @@ const options = {
     ],
   },
   chartOptions: {
-    chartType: "detail-ple"
+    chartType: "detail-ple",
+    legendRichOptions: {
+      field: "name",
+      styles: {
+        legendRichAlign: "right"
+      }
+    }
   },
 };
 </script>
