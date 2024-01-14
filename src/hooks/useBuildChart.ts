@@ -3,8 +3,8 @@ import { deepCopy } from "../utils/objectUtils";
 import { chartResizeSet } from "../constants/chartEventConst";
 import { DataFormatType } from "../constants/dataFormatConst";
 import { StrategyOptions } from "../models/buildChartModel";
+import { getIndexConvertValueByUnitType } from "./useMeasureType";
 import globalConfig from "../constants/globalConfig";
-import useMeasureType from "./useMeasureType";
 import * as echarts from "echarts";
 import useFlexible from "./useFlexible";
 import useGetStrategy from "./useGetStrategy";
@@ -20,7 +20,6 @@ function handleMeasure(props: RenderPropOptions) {
     formatter,
   } = props.dataOptions;
   if (!isFormatter) return;
-  const { getIndexConvertValueByUnitType } = useMeasureType();
   const tranFieldsMap = new Map<
     string,
     {
@@ -145,7 +144,7 @@ export default function useBuildChart(props: RenderPropOptions) {
   // 设置选项
   function setOption(opitons: echarts.EChartsCoreOption) {
     echartInstance.setOption(opitons);
-    chartResize()
+    chartResize();
   }
   // 最终渲染前处理选项
   function handleOptionBeforeRender(opitons: echarts.EChartsCoreOption) {

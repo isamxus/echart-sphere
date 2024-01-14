@@ -200,6 +200,36 @@ setConfig({
 - 默认值: `12`
 - 描述: 设置图例字体的大小。
 
+##### `legendTop`
+
+- 类型: `string`
+- 默认值: `"auto"`
+- 描述: 设置图例距离顶部的距离。
+
+##### `legendOrient`
+
+- 类型: `string`
+- 默认值: `"horizontal"`
+- 描述: 设置图例的排列方向。
+
+##### `legendType`
+
+- 类型: `string`
+- 默认值: `"plain"`
+- 描述: 设置图例的类型。
+
+##### `legendLeft`
+
+- 类型: `string`
+- 默认值: `"auto"`
+- 描述: 设置图例距离左侧的距离。
+
+##### `legendRight`
+
+- 类型: `string`
+- 默认值: `"auto"`
+- 描述: 设置图例距离右侧的距离。
+
 #### Grid 配置
 
 ##### `gridTop`
@@ -1025,4 +1055,75 @@ const options = {
 
 ```
 
-![基础饼图](https://github.com/isamxus/echart-sphere-assets/blob/9d4ef2cbe5776336f8cb9347a3affc80180ec101/assets/pie/%E5%9F%BA%E7%A1%80%E9%A5%BC%E5%9B%BE.png)
+![基础饼图](https://github.com/isamxus/echart-sphere-assets/blob/bd5f27b8cee0dfc80701cd0470c847f24b7dca00/assets/pie/%E5%9F%BA%E7%A1%80%E9%A5%BC%E5%9B%BE.png)
+
+### 带具体信息图例的饼图
+
+通过设置 chartOptions 中的 chartType 为 `detail-ple`，我们可以创建一个带具体信息图例的饼图
+
+```
+<template>
+  <div class="echart-sphere-wrapper">
+    <NormalChart v-bind="options"></NormalChart>
+  </div>
+</template>
+<script lang="ts" setup>
+import { NormalChart } from "../src";
+const getValue = () => Math.floor(Math.random() * 10000);
+const options = {
+  dataOptions: {
+    dataItems: [{ name: "测试1", labelX: "label", labelY: "value" }],
+    data: [
+      {
+        label: "01",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "02",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "03",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "04",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "05",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+      {
+        label: "06",
+        value: getValue(),
+        value1: getValue(),
+        value2: getValue(),
+      },
+    ],
+  },
+  chartOptions: {
+    chartType: "detail-ple"
+  },
+};
+</script>
+<style lang="css">
+.echart-sphere-wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+
+```
+![带具体信息图例的饼图](https://github.com/isamxus/echart-sphere-assets/blob/568174c7640f6649c9533745ffe28a570698fc1f/assets/pie/%E5%B8%A6%E5%85%B7%E4%BD%93%E4%BF%A1%E6%81%AF%E5%9B%BE%E4%BE%8B%E7%9A%84%E9%A5%BC%E5%9B%BE.png)

@@ -8,9 +8,14 @@ import {
   XAxisTypeEnum,
   YAxisTypeEnum,
 } from "./chartTypeConst";
+import {
+  normalPieChartTypeConfig,
+  pieWithDetailChartTypeConfig,
+} from "./pieChartTypeConfigConst";
 export const enum ChartTypeEnum {
   NORMAL_CHART = "normal",
   PIE = "pie",
+  DETAIL_PIE = "detail-ple",
 }
 
 // 默认图表组件策略配置
@@ -24,14 +29,8 @@ export const normalChartTypeConfig = {
   dataZoomType: DataZoomTypeEnum.NORMAL,
 };
 
-// 默认饼图组件策略配置
-export const normalPieChartTypeConfig = {
-  legendType: LegendTypeEnum.NORMAL,
-  tooltipType: TooltipTypeEnum.PIE,
-  seriesType: SeriesTypeEnum.PIE,
-};
-
 export const chartTypeConfigMap = new Map<string, StrategyOptions>([
   [ChartTypeEnum.NORMAL_CHART, normalChartTypeConfig],
   [ChartTypeEnum.PIE, normalPieChartTypeConfig],
+  [ChartTypeEnum.DETAIL_PIE, pieWithDetailChartTypeConfig],
 ]);

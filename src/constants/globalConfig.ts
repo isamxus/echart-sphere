@@ -44,14 +44,15 @@ export const gridConfig = {
 
 // 图例配置
 export const legendConfig = {
-  // 图例宽度
   legendWidth: 10,
-  // 图例高度
   legendHeight: 4,
-  // 图例距离底部的距离
   legendBottom: 0,
-  // 图例字体大小
+  legendTop: "auto",
   legendSize: 12,
+  legendOrient: "horizontal",
+  legendType: "plain",
+  legendLeft: "auto",
+  legendRight: "auto",
 };
 
 // 系列配置
@@ -74,7 +75,7 @@ export const tooltipConfig = {
   tooltipTriggerType: "axis",
   tooltipAxisPointer: "shadow",
   tooltipShadowColor: "rgba(153, 153, 153, 0.4)",
-  tooltipFormatter: null
+  tooltipFormatter: null,
 };
 
 // X轴配置
@@ -95,8 +96,14 @@ export const yAxisConfig = {
 
 // 饼图配置
 export const pieConfig = {
-
-}
+  pieLeft: 0,
+  pieTop: 0,
+  pieRight: 0,
+  pieBottom: 0,
+  pieWidth: "auto",
+  pieHeight: "auto",
+  pieLabelshow: false
+};
 // 自适应配置
 export const chartSelfAdaptionConfig = {
   // 设计稿默认宽度

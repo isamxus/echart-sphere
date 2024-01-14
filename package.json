@@ -1,6 +1,6 @@
 {
   "name": "echart-sphere",
-  "version": "0.0.33",
+  "version": "0.0.34",
   "description": "",
   "main": "dist/echart-sphere.esm.js",
   "types": "dist/types/index.d.ts",
@@ -40,5 +40,9 @@
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isamxus/echart-sphere.git"
   }
 }

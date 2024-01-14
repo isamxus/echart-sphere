@@ -11,24 +11,31 @@ const itemTypeToOptionsMap = new Map<string, any>([
   ["pie", getNormalPieOptions],
 ]);
 
+export function getPropertieMethod(
+  props: RenderPropOptions,
+  item?: DataItemWithStyleOptions
+) {
+  return (key: GlobalConfigkeys) => {
+    const { styleOptions } = props;
+    return item?.[key] || styleOptions?.[key] || globalConfig[key];
+  };
+}
+
 // 公共柱状图options
 export function getNormalBarOptions(
   props: RenderPropOptions,
   item?: DataItemWithStyleOptions
 ) {
-  const { styleOptions } = props;
-  const getProperties = (key: GlobalConfigkeys) => {
-    return item?.[key] || styleOptions?.[key] || globalConfig[key];
-  };
+  const getPropertie = getPropertieMethod(props, item);
   return {
-    barWidth: getProperties("barWidth"),
-    barGap: getProperties("barGap"),
+    barWidth: getPropertie("barWidth"),
+    barGap: getPropertie("barGap"),
     type: "bar",
     itemStyle: {
-      color: getProperties("barColor"),
-      borderWidth: getProperties("barBorderWidth"),
-      borderColor: getProperties("barBorderColor"),
-      borderType: getProperties("barBorderType"),
+      color: getPropertie("barColor"),
+      borderWidth: getPropertie("barBorderWidth"),
+      borderColor: getPropertie("barBorderColor"),
+      borderType: getPropertie("barBorderType"),
     },
   } as SeriesOption;
 }
@@ -38,20 +45,18 @@ export function getNormalLineOptions(
   props: RenderPropOptions,
   item?: DataItemWithStyleOptions
 ) {
-  const { styleOptions } = props;
-  const getProperties = (key: GlobalConfigkeys) => {
-    return item?.[key] || styleOptions?.[key] || globalConfig[key];
-  };
+  const getPropertie = getPropertieMethod(props, item);
+
   return {
     type: "line",
-    smooth: getProperties("lineSmooth"),
-    showSymbol: getProperties("showSymbol"),
+    smooth: getPropertie("lineSmooth"),
+    showSymbol: getPropertie("showSymbol"),
     itemStyle: {
-      color: getProperties("lineColor"),
+      color: getPropertie("lineColor"),
     },
     lineStyle: {
-      color: getProperties("lineColor"),
-      type: getProperties("lineType"),
+      color: getPropertie("lineColor"),
+      type: getPropertie("lineType"),
     },
   };
 }
@@ -61,20 +66,17 @@ export function getNormalPictorialOptions(
   props: RenderPropOptions,
   item?: DataItemWithStyleOptions
 ) {
-  const { styleOptions } = props;
-  const getProperties = (key: GlobalConfigkeys) => {
-    return item?.[key] || styleOptions?.[key] || globalConfig[key];
-  };
+  const getPropertie = getPropertieMethod(props, item);
   return {
     ...getNormalBarOptions(props, item),
     type: "pictorialBar",
-    symbolClip: getProperties("barSymbolClip"),
-    symbolRepeat: getProperties("barSymbolRepeat"),
-    symbolMargin: getProperties("barSymbolMargin"),
-    symbol: getProperties("barSymbol"),
-    symbolOffset: getProperties("barSymbolOffset"),
-    symbolSize: getProperties("barSymbolSize"),
-    symbolPosition: getProperties("barSymbolPosition"),
+    symbolClip: getPropertie("barSymbolClip"),
+    symbolRepeat: getPropertie("barSymbolRepeat"),
+    symbolMargin: getPropertie("barSymbolMargin"),
+    symbol: getPropertie("barSymbol"),
+    symbolOffset: getPropertie("barSymbolOffset"),
+    symbolSize: getPropertie("barSymbolSize"),
+    symbolPosition: getPropertie("barSymbolPosition"),
   } as SeriesOption;
 }
 
@@ -83,8 +85,18 @@ export function getNormalPieOptions(
   props: RenderPropOptions,
   item?: DataItemWithStyleOptions
 ) {
+  const getPropertie = getPropertieMethod(props, item);
   return {
     type: "pie",
+    left: getPropertie("pieLeft"),
+    top: getPropertie("pieTop"),
+    right: getPropertie("pieRight"),
+    bottom: getPropertie("pieBottom"),
+    width: getPropertie("pieWidth"),
+    height: getPropertie("pieHeight"),
+    label: {
+      show: getPropertie("pieLabelshow"),
+    },
   } as SeriesOption;
 }
 

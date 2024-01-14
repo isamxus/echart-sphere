@@ -1,7 +1,6 @@
 import { buildNormalGrid } from "../strategy/useChartGrid";
 import { buildNormalLegend } from "../strategy/useChartLegend";
 import {
-  buildNormalPieSeries,
   buildNormalSeries,
   buildTrendSeries,
 } from "../strategy/useChartSeries";
@@ -12,6 +11,14 @@ import {
 import { buildNormalCategoryXAxis } from "../strategy/useChartXAxis";
 import { buildNormalYAxis } from "../strategy/useChartYAxis";
 import { buildNormalDataZoom } from "../strategy/useChartDataZoom";
+import {
+  buildNormalPieSeries,
+  buildPieWithDetailSeries,
+} from "../strategy/pieStrategy/usePieSeries";
+import {
+  buildPieNormalLegend,
+  buildPieWithDetailLegend,
+} from "../strategy/pieStrategy/usePieLegend";
 
 export const chartComponentMap = new Map<string, any>([]);
 
@@ -34,9 +41,13 @@ export const YAxisTypeToStrategyMap = new Map<string, any>([
 // legend图例类型枚举&类型映射
 export const enum LegendTypeEnum {
   NORMAL = "normal",
+  PIE = "pie",
+  DETAIL_PIE = "detail-pie",
 }
 export const LegendTypeToStrategyMap = new Map<string, any>([
   [LegendTypeEnum.NORMAL, buildNormalLegend],
+  [LegendTypeEnum.PIE, buildPieNormalLegend],
+  [LegendTypeEnum.DETAIL_PIE, buildPieWithDetailLegend],
 ]);
 
 // grid类型枚举&映射
@@ -62,11 +73,13 @@ export const enum SeriesTypeEnum {
   NORMAL = "normal",
   TREND = "trend",
   PIE = "pie",
+  DETAIL_PIE = "detail-pie",
 }
 export const SeriesTypeToStrategyMap = new Map<string, any>([
   [SeriesTypeEnum.NORMAL, buildNormalSeries],
   [SeriesTypeEnum.TREND, buildTrendSeries],
   [SeriesTypeEnum.PIE, buildNormalPieSeries],
+  [SeriesTypeEnum.DETAIL_PIE, buildPieWithDetailSeries],
 ]);
 
 // series类型枚举&映射

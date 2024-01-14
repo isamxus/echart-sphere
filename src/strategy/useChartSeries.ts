@@ -1,14 +1,11 @@
-import {
-  DataItemWithStyleOptions,
-  RenderPropOptions,
-} from "../models/propOptionModel";
+import { RenderPropOptions } from "../models/propOptionModel";
 import { SeriesOption } from "echarts/types/dist/shared";
 import { handleSplitPoint } from "../properties/useChartProperties";
 import { handleBarGap, handleBarStack } from "../properties/useBarProperties";
 import { getNormalOptions, getNormalPieOptions } from "../hooks/useGetOptions";
 import { handleDataItems } from "../properties/useDataProperties";
 import globalConfig from "../constants/globalConfig";
-// 默认的柱状图series配置
+// 默认series配置
 export function buildNormalSeries(props: RenderPropOptions) {
   const { data = [] } = props.dataOptions;
   const dataItems = handleDataItems(props);
@@ -41,23 +38,4 @@ export function buildTrendSeries(
   const opitons = handleSplitPoint(props, normalOptions);
 
   return opitons;
-}
-
-// 默认饼图系列
-export function buildNormalPieSeries(props: RenderPropOptions) {
-  const { data = [] } = props.dataOptions;
-  const dataItems = handleDataItems(props);
-  const pieItem = dataItems[0];
-  const options = {
-    ...getNormalPieOptions(props, pieItem),
-    name: pieItem.name,
-    data: data.map((item) => {
-      return {
-        value: item[pieItem.labelY],
-        name: item[pieItem.labelX]
-      };
-    }),
-  } as SeriesOption;
-
-  return options;
 }

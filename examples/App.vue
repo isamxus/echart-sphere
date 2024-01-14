@@ -8,20 +8,7 @@ import { NormalChart } from "../src";
 const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
-    dataItems: [
-      { name: "测试1", labelX: "label", labelY: "value", barColor: "blue" },
-      { name: "测试2", labelX: "label", labelY: "value1" },
-      {
-        name: "测试3",
-        labelX: "label",
-        labelY: "value2",
-        itemType: "line",
-        lineColor: "orange",
-        split: {
-          trend: "line"
-        },
-      },
-    ],
+    dataItems: [{ name: "测试1", labelX: "label", labelY: "value" }],
     data: [
       {
         label: "01",
@@ -62,11 +49,7 @@ const options = {
     ],
   },
   chartOptions: {
-    seriesType: "trend",
-    split: {
-      splitX: 2,
-      trend: "pictorial",
-    },
+    chartType: "detail-ple"
   },
 };
 </script>
