@@ -1189,3 +1189,68 @@ const options = {
 ```
 
 ![带具体信息图例的饼图](https://github.com/isamxus/echart-sphere-assets/blob/568174c7640f6649c9533745ffe28a570698fc1f/assets/pie/%E5%B8%A6%E5%85%B7%E4%BD%93%E4%BF%A1%E6%81%AF%E5%9B%BE%E4%BE%8B%E7%9A%84%E9%A5%BC%E5%9B%BE.png)
+
+### 子母饼图
+
+通过设置 chartOptions 中的 componentType 为 `parent-child-ple`，我们可以创建一个子母饼图
+
+```
+<template>
+  <div class="echart-sphere-wrapper">
+    <NormalChart v-bind="options"></NormalChart>
+  </div>
+</template>
+<script lang="ts" setup>
+import { NormalChart } from "../src";
+const getValue = () => Math.floor(Math.random() * 10000);
+const options = {
+  dataOptions: {
+    dataItems: [
+      { name: "母图", labelX: "label", labelY: "value" },
+      { name: "子图", labelX: "label", labelY: "value" },
+    ],
+    data: [
+      // 父节点
+      { id: "01", label: "Parent 1", value: getValue() },
+      { id: "02", label: "Parent 2", value: getValue() },
+      { id: "03", label: "Parent 3", value: getValue() },
+      { id: "04", label: "Parent 4", value: getValue() },
+
+      // Parent 1 的子节点
+      { id: "05", parentId: "01", label: "Child 1.1", value: getValue() },
+      { id: "06", parentId: "01", label: "Child 1.2", value: getValue() },
+      { id: "07", parentId: "01", label: "Child 1.3", value: getValue() },
+
+      // Parent 2 的子节点
+      { id: "08", parentId: "02", label: "Child 2.1", value: getValue() },
+      { id: "09", parentId: "02", label: "Child 2.2", value: getValue() },
+      { id: "10", parentId: "02", label: "Child 2.3", value: getValue() },
+
+      // Parent 3 的子节点
+      { id: "11", parentId: "03", label: "Child 3.1", value: getValue() },
+      { id: "12", parentId: "03", label: "Child 3.2", value: getValue() },
+      { id: "13", parentId: "03", label: "Child 3.3", value: getValue() },
+
+      // Parent 4 的子节点
+      { id: "14", parentId: "04", label: "Child 4.1", value: getValue() },
+      { id: "15", parentId: "04", label: "Child 4.2", value: getValue() },
+      { id: "16", parentId: "04", label: "Child 4.3", value: getValue() },
+      { id: "17", parentId: "04", label: "Child 4.4", value: getValue() },
+    ],
+  },
+  chartOptions: {
+    componentType: "parent-child-pie",
+  },
+};
+</script>
+<style lang="css">
+.echart-sphere-wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+
+```
+
+![子母饼图](https://github.com/isamxus/echart-sphere-assets/blob/1bc9c0f4f66560eb1c18e18d16a5a3be669c124f/assets/pie/%E5%AD%90%E6%AF%8D%E5%9B%BE.png)

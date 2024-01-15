@@ -1,15 +1,24 @@
 <template>
-  <component v-if="renderComponent" :is="renderComponent"></component>
-  <div v-else class="universal-echart-component-wrapper" ref="chartRef"></div>
+  <component
+    class="universal-echart-component-wrapper"
+    v-if="renderComponent"
+    :is="renderComponent"
+    v-bind="props"
+    ref="chartComponentRef"
+  ></component>
 </template>
 <script lang="ts" setup>
 import useNormalChart from "./hooks/useNormalChart";
 import { RenderPropOptions } from "../models/propOptionModel";
+import { onMounted } from "vue";
 const props = defineProps<RenderPropOptions>();
-const { chartRef, renderComponent, context } = useNormalChart(props);
-defineExpose({
-  ...context
-})
+const { renderComponent, chartComponentRef, exposeMethods } = useNormalChart(props);
+defineExpose(exposeMethods);
+onMounted(() => {
+  Object.assign(exposeMethods, {
+    ...chartComponentRef.value
+  })
+});
 </script>
 <style>
 .universal-echart-component-wrapper {

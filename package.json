@@ -16,7 +16,7 @@
   "author": "lijiancong",
   "license": "ISC",
   "peerDependencies": {
-    "echarts": "^5.4.2",
+    "echarts": ">=4.9.0",
     "vue": "^3.3.4"
   },
   "dependencies": {

@@ -153,6 +153,12 @@ export const normalLoadingConfig = {
   fontFamily: "sans-serif",
 };
 
+// 树型配置
+export const treeConfig = {
+  idKey: "id",
+  parentKey: "parentId"
+}
+
 export default {
   ...barConfig,
   ...lineConfig,
@@ -166,5 +172,5 @@ export default {
   ...pieConfig,
   ...legendRichConfig,
   ...chartSelfAdaptionConfig,
-  ...normalLoadingConfig,
+  ...normalLoadingConfig
 };

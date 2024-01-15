@@ -1,6 +1,7 @@
 import { RegisteredSeriesOption } from "echarts/types/dist/shared";
 import globalConfig, {
   legendRichConfig,
+  treeConfig,
   yAxisConfig,
 } from "../constants/globalConfig";
 import * as echarts from "echarts";
@@ -33,6 +34,9 @@ export interface DataItemOptions extends ChartPropertiesOptions {
   itemType?: keyof RegisteredSeriesOption;
 }
 
+// 树型数据类型
+export type TreeConfigType = Partial<typeof treeConfig>;
+
 export type DataItemWithStyleOptions = DataItemOptions &
   Partial<StyleOptionsType>;
 // 源数据配置接口
@@ -44,6 +48,8 @@ export interface DataPropOptions extends DataItemOptions {
   data?: Array<any>;
   // 是否开启数据格式化
   isFormatter?: boolean;
+  // 树型数据配置
+  treeConfig?: TreeConfigType;
 }
 // 图表分割点配置接口
 export interface ChartSplitPointOptions {

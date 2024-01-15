@@ -1,5 +1,5 @@
 import { RenderPropOptions } from "../models/propOptionModel";
-import { deepCopy } from "../utils/objectUtils";
+import { deepCopy } from "../utils/dataUtils";
 import { chartResizeSet } from "../constants/chartEventConst";
 import { DataFormatType } from "../constants/dataFormatConst";
 import { StrategyOptions } from "../models/buildChartModel";
@@ -71,11 +71,10 @@ export default function useBuildChart(props: RenderPropOptions) {
   const { chartOptions } = props;
 
   // 初始化echart
-  function initChart(dom: HTMLElement, isRender: boolean = true) {
+  function initChart(dom: HTMLElement, isRender?: boolean) {
     if (echartInstance) return;
     echartInstance = echarts.init(dom);
     chartResizeSet.add(echartInstance);
-    isRender && renderChart();
   }
   function setStrategyType(options?: StrategyOptions) {
     Object.assign(strategyTypeOptions, options);

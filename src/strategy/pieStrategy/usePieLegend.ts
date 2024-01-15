@@ -45,7 +45,7 @@ export function buildPieWithDetailLegend(props: RenderPropOptions) {
     top: dataItem.legendTop || "center",
     left: dataItem.legendLeft || "50%",
     textStyle: {
-      rich: richOptions
+      rich: richOptions,
     },
     formatter: function (params) {
       const legendItem = legendData.find((item) => item.name === params);
@@ -59,4 +59,12 @@ export function buildPieWithDetailLegend(props: RenderPropOptions) {
     },
   });
   return options as LegendOption;
+}
+
+// 子母饼图图例
+export function buildParentChildPieLegend(props: RenderPropOptions) {
+  return {
+    orient: "horizontal",
+    bottom: "left"
+  } as LegendOption;
 }
