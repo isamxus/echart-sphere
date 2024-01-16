@@ -4,9 +4,10 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { ref } from "vue";
 import { NormalChart } from "../src";
 const getValue = () => Math.floor(Math.random() * 10000);
-const options = {
+const options = ref({
   dataOptions: {
     dataItems: [
       { name: "雷达图1", labelX: "label", labelY: "value"},
@@ -24,7 +25,8 @@ const options = {
   chartOptions: {
     componentType: "radar"
   }
-};
+});
+
 </script>
 <style lang="css">
 .echart-sphere-wrapper {

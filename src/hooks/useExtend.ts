@@ -30,6 +30,7 @@ import {
   h,
   toRaw,
   onBeforeUnmount,
+  watch,
 } from "vue";
 import { ChartExtendFn } from "../models/extendOptionModel";
 import useBuildChart from "./useBuildChart";
@@ -118,12 +119,20 @@ export const extendOptions = {
             chartDispose,
           } = chartContext;
           useWatch(props, chartContext);
-
-          onMounted(() => {
-            initChart(chartRef.value);
+          function render() {
             const result = callback(rawProps, chartContext);
             result ? handleRender(result) : renderChart();
-
+          }
+          watch(
+            () => props.dataOptions,
+            () => {
+              render();
+            },
+            { deep: true }
+          );
+          onMounted(() => {
+            initChart(chartRef.value);
+            render();
             const instance = getInstance();
             instance &&
               instance.on("click", (data) => {
