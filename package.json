@@ -1,6 +1,6 @@
 {
   "name": "echart-sphere",
-  "version": "0.0.53",
+  "version": "0.0.54",
   "description": "",
   "main": "dist/echart-sphere.esm.js",
   "types": "dist/types/index.d.ts",
@@ -17,11 +17,11 @@
   "license": "ISC",
   "peerDependencies": {
     "echarts": ">=4.9.0",
-    "vue": ">=2.6.0"
+    "vue": "^2.6.12 || >=3.0.0"
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "vue-demi": "^0.14.6",
+    "vue-demi": "latest",
     "xe-utils": "^3.5.14"
   },
   "devDependencies": {
