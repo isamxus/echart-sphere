@@ -2,9 +2,7 @@ import { markRaw, ref } from "vue";
 import { RenderPropOptions } from "../../models/propOptionModel";
 import { chartComponentMap } from "../../constants/chartTypeConst";
 
-export default function useNormalChart(
-  props: RenderPropOptions
-) {
+export default function useNormalChart(props: RenderPropOptions) {
   const { componentType = "normal" } = props.chartOptions || {};
   const chartComponentRef = ref();
   const exposeMethods = {};
@@ -18,6 +16,6 @@ export default function useNormalChart(
   return {
     renderComponent,
     exposeMethods,
-    chartComponentRef
+    chartComponentRef,
   };
 }

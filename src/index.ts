@@ -1,16 +1,9 @@
 import { extendOptions } from "./hooks/useExtend";
 import { chartResizeSet } from "./constants/chartEventConst";
 import { debounce } from "lodash";
-import NormalChart from "./components/NormalChart.vue";
 import { registerExtendComponents } from "./extendComponent";
 import { VueVersionEnum } from "./constants/globalConfig";
 import { setVueVersion } from "./hooks/useGlobalConfig";
-import { PropType } from "vue";
-import {
-  ChartPropOptions,
-  DataPropOptions,
-  StyleOptionsType,
-} from "./models/propOptionModel";
 import { chartComponentMap } from "./constants/chartTypeConst";
 export { setConfig } from "./hooks/useGlobalConfig";
 
@@ -39,14 +32,14 @@ export default {
         </component>`,
         props: {
           dataOptions: {
-            type: Object as PropType<DataPropOptions>,
+            type: Object,
             required: true,
           },
           chartOptions: {
-            type: Object as PropType<ChartPropOptions>,
+            type: Object,
           },
           styleOptions: {
-            type: Object as PropType<Partial<StyleOptionsType>>,
+            type: Object
           },
         },
         data() {
@@ -63,12 +56,10 @@ export default {
         },
       });
     } else {
-      Vue.component("normal-chart", NormalChart);
+      Vue.component("normal-chart", require("./components/NormalChart.vue").default);
     }
 
     // 注册定制组件
     registerExtendComponents(Vue);
   },
 };
-
-export { NormalChart };

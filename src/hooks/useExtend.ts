@@ -22,20 +22,9 @@ import {
   YAxisTypeToStrategyMap,
   chartComponentMap,
 } from "../constants/chartTypeConst";
-import {
-  defineComponent,
-  PropType,
-  ref,
-  onMounted,
-  h,
-  toRaw,
-  onBeforeUnmount,
-  watch,
-} from "vue";
 import { ChartExtendFn } from "../models/extendOptionModel";
 import useBuildChart from "./useBuildChart";
 import { usePropsValidate } from "./useValidate";
-import useWatch from "./useWatch";
 import { ChartEventEnum, chartEvents } from "../constants/chartEventConst";
 import {
   VueVersionEnum,
@@ -97,25 +86,24 @@ export const extendOptions = {
   // 图表类型扩展
   chartExtend: {
     extend(type: string, callback: ChartExtendFn) {
-      const props = {
-        dataOptions: {
-          type: Object as PropType<DataPropOptions>,
-          required: true,
-        },
-        chartOptions: {
-          type: Object as PropType<ChartPropOptions>,
-        },
-        styleOptions: {
-          type: Object as PropType<Partial<StyleOptionsType>>,
-        },
-      };
       // vue2版本
       if (vueConfig.version === VueVersionEnum.VUE_2) {
         const Vue2 = vueConfig.context;
         if (Vue2) {
           const chartComponent = Vue2.extend({
             template: `<div ref="chartRef"></div>`,
-            props,
+            props: {
+              dataOptions: {
+                type: Object,
+                required: true,
+              },
+              chartOptions: {
+                type: Object,
+              },
+              styleOptions: {
+                type: Object,
+              },
+            },
             data() {
               return {
                 chartContext: null,
@@ -152,10 +140,7 @@ export const extendOptions = {
               if (!usePropsValidate(this.$props)) return;
               this.rawProps = { ...this.$props };
               this.chartContext = useBuildChart(this.rawProps);
-              const {
-                initChart,
-                getInstance,
-              } = this.chartContext;
+              const { initChart, getInstance } = this.chartContext;
               initChart(this.$refs.chartRef);
               this.render();
               const instance = getInstance();
@@ -164,20 +149,41 @@ export const extendOptions = {
                   this.$emit(ChartEventEnum.CHART_CLICK, data);
                 });
             },
-            beforeDestroy(){
+            beforeDestroy() {
               this.chartContext.chartDispose();
-            }
+            },
           });
           chartComponentMap.set(type, chartComponent);
         }
         return;
       }
-
+      
       // vue3版本
+      const {
+        defineComponent,
+        ref,
+        onMounted,
+        h,
+        toRaw,
+        onBeforeUnmount,
+        watch,
+      } = require("vue");
+
       const chartComponent = defineComponent({
-        props,
+        props: {
+          dataOptions: {
+            type: Object,
+            required: true,
+          },
+          chartOptions: {
+            type: Object,
+          },
+          styleOptions: {
+            type: Object,
+          },
+        },
         emits: [...chartEvents],
-        setup(props, context) {
+        setup(props: RenderPropOptions, context) {
           if (!usePropsValidate(props)) return;
           const chartRef = ref();
           const rawProps = toRaw(props);
@@ -189,7 +195,6 @@ export const extendOptions = {
             getInstance,
             chartDispose,
           } = chartContext;
-          useWatch(props, chartContext);
           function render() {
             const result = callback(rawProps, chartContext);
             result ? handleRender(result) : renderChart();
@@ -201,6 +206,22 @@ export const extendOptions = {
             },
             { deep: true }
           );
+
+          if (props.chartOptions) {
+            // 监听loading状态
+            watch(
+              () => props.chartOptions.loading,
+              (value) => {
+                if (value) {
+                  return getInstance().showLoading(
+                    "default",
+                    normalLoadingConfig
+                  );
+                }
+                getInstance().hideLoading();
+              }
+            );
+          }
           onMounted(() => {
             initChart(chartRef.value);
             render();

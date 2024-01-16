@@ -11,6 +11,7 @@
 import useNormalChart from "./hooks/useNormalChart";
 import { RenderPropOptions } from "../models/propOptionModel";
 import { onMounted } from "vue";
+
 const props = defineProps<RenderPropOptions>();
 const { renderComponent, chartComponentRef, exposeMethods } = useNormalChart(props);
 defineExpose(exposeMethods);
