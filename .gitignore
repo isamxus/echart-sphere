@@ -1,3 +1,5 @@
 dist
 node_modules
 .npmignore
+example_v2
+.npmignore

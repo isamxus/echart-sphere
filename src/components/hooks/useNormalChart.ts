@@ -1,4 +1,4 @@
-import { markRaw, reactive, ref } from "vue";
+import { markRaw, ref } from "vue";
 import { RenderPropOptions } from "../../models/propOptionModel";
 import { chartComponentMap } from "../../constants/chartTypeConst";
 

@@ -9,7 +9,7 @@ const componentMap = new Map([
   ["radar", radarComponent],
 ]);
 
-export function registerExtendComponents() {
+export function registerExtendComponents(Vue?: any) {
   [...componentMap.entries()].forEach((item) => {
     extendOptions.chartExtend.extend(item[0], item[1]);
   });

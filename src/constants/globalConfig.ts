@@ -1,3 +1,14 @@
+// Vue版本
+export const enum VueVersionEnum {
+  VUE_2,
+  VUE_3,
+}
+
+export const vueConfig = {
+  version: VueVersionEnum.VUE_3,
+  context: null
+};
+
 // 柱图配置
 export const barConfig = {
   barWidth: 20,
@@ -24,9 +35,7 @@ export const lineConfig = {
 };
 
 // 散点图配置
-export const scatterConfig = {
-  
-}
+export const scatterConfig = {};
 // 缩放组件配置
 export const dataZoomConfig = {
   dataZoomType: "inside",
@@ -161,8 +170,8 @@ export const normalLoadingConfig = {
 // 树型配置
 export const treeConfig = {
   idKey: "id",
-  parentKey: "parentId"
-}
+  parentKey: "parentId",
+};
 
 export default {
   ...barConfig,
@@ -178,5 +187,5 @@ export default {
   ...pieConfig,
   ...legendRichConfig,
   ...chartSelfAdaptionConfig,
-  ...normalLoadingConfig
+  ...normalLoadingConfig,
 };

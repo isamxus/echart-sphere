@@ -37,6 +37,11 @@ import useBuildChart from "./useBuildChart";
 import { usePropsValidate } from "./useValidate";
 import useWatch from "./useWatch";
 import { ChartEventEnum, chartEvents } from "../constants/chartEventConst";
+import {
+  VueVersionEnum,
+  normalLoadingConfig,
+  vueConfig,
+} from "../constants/globalConfig";
 
 export default function useExtend<T>(map: Map<string, any>) {
   // 扩展类型函数
@@ -92,19 +97,85 @@ export const extendOptions = {
   // 图表类型扩展
   chartExtend: {
     extend(type: string, callback: ChartExtendFn) {
-      const chartComponent = defineComponent({
-        props: {
-          dataOptions: {
-            type: Object as PropType<DataPropOptions>,
-            required: true,
-          },
-          chartOptions: {
-            type: Object as PropType<ChartPropOptions>,
-          },
-          styleOptions: {
-            type: Object as PropType<Partial<StyleOptionsType>>,
-          },
+      const props = {
+        dataOptions: {
+          type: Object as PropType<DataPropOptions>,
+          required: true,
         },
+        chartOptions: {
+          type: Object as PropType<ChartPropOptions>,
+        },
+        styleOptions: {
+          type: Object as PropType<Partial<StyleOptionsType>>,
+        },
+      };
+      // vue2版本
+      if (vueConfig.version === VueVersionEnum.VUE_2) {
+        const Vue2 = vueConfig.context;
+        if (Vue2) {
+          const chartComponent = Vue2.extend({
+            template: `<div ref="chartRef"></div>`,
+            props,
+            data() {
+              return {
+                chartContext: null,
+                rawProps: null,
+              };
+            },
+            methods: {
+              render() {
+                const result = callback(this.rawProps, this.chartContext);
+                result
+                  ? this.chartContext.handleRender(result)
+                  : this.chartContext.renderChart();
+              },
+            },
+            watch: {
+              dataOptions: {
+                handler() {
+                  this.render();
+                },
+                deep: true,
+              },
+              "chartOptions.loading": {
+                handler(value) {
+                  if (value) {
+                    return this.chartContext
+                      .getInstance()
+                      .showLoading("default", normalLoadingConfig);
+                  }
+                  this.chartContext.getInstance().hideLoading();
+                },
+              },
+            },
+            mounted() {
+              if (!usePropsValidate(this.$props)) return;
+              this.rawProps = { ...this.$props };
+              this.chartContext = useBuildChart(this.rawProps);
+              const {
+                initChart,
+                getInstance,
+              } = this.chartContext;
+              initChart(this.$refs.chartRef);
+              this.render();
+              const instance = getInstance();
+              instance &&
+                instance.on("click", (data) => {
+                  this.$emit(ChartEventEnum.CHART_CLICK, data);
+                });
+            },
+            beforeDestroy(){
+              this.chartContext.chartDispose();
+            }
+          });
+          chartComponentMap.set(type, chartComponent);
+        }
+        return;
+      }
+
+      // vue3版本
+      const chartComponent = defineComponent({
+        props,
         emits: [...chartEvents],
         setup(props, context) {
           if (!usePropsValidate(props)) return;

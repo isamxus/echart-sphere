@@ -1,11 +1,10 @@
 <template>
   <div class="echart-sphere-wrapper">
-    <NormalChart v-bind="options"></NormalChart>
+    <normal-chart v-bind="options" />
   </div>
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
-import { NormalChart } from "../src";
 const getValue = () => Math.floor(Math.random() * 10000);
 const options = ref({
   dataOptions: {

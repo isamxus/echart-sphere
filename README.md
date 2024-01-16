@@ -1,10 +1,11 @@
 # Echart Sphere 介绍
 
-echart-sphere 是一个基于 Vue 3 和 ECharts 的高度可定制和灵活的图表组件库。它允许开发者通过传递 `dataOptions`、`chartOptions` 和 `styleOptions` 来快速创建和定制多种图表。此组件库旨在提供一个简单的方式来集成和扩展 ECharts，使得创建交互式和响应式图表变得轻而易举。
+echart-sphere 是一个高度可定制和灵活的图表组件库，现已支持 Vue 2 和 Vue 3 以及 ECharts。它允许开发者通过传递 `dataOptions`、`chartOptions` 和 `styleOptions` 来快速创建和定制多种图表。此组件库旨在提供一个简单的方式来集成和扩展 ECharts，使得创建交互式和响应式图表变得轻而易举。
 
 ## 特性
 
 - **ECharts 集成**: 利用 ECharts 强大的图表渲染能力。
+- **Vue 全版本支持**: 兼容 Vue 2 和 Vue 3，适用于各种项目需求。
 - **配置灵活**: 通过 `dataOptions`、`chartOptions` 和 `styleOptions` 提供丰富的配置选项。
 - **类型多样**: 支持多种预设图表类型，如柱形图、折线图、饼图等。
 - **可扩展性**: 用户可以根据需求扩展新的图表类型或通过 `componentType` 渲染自定义组件。
@@ -19,26 +20,74 @@ or
 
 ## 快速上手
 
+对于 `Vue3.x` 项目，在入口文件中：
+
+```
+import { createApp } from "vue";
+import App from "./App.vue"; // 假设你的Vue根组件在这里
+import EchartSphere from "echart-sphere";
+const app = createApp(App);
+app.use(EchartSphere);
+app.mount("#app");
+
+```
+
+在组件中使用：
+
 ```
 <template>
-<VueECharts v-bind="config" />
+  <div class="echart-sphere-wrapper">
+    <normal-chart v-bind="options" />
+  </div>
 </template>
-
-<script setup>
-import VueECharts from 'echart-sphere';
+<script lang="ts" setup>
 import { ref } from "vue";
-const config = ref({
-    dataOptions: {
-    // ...配置你的数据源
-    },
-    chartOptions: {
-     // ...配置你的数据源
-    },
-    styleOptions: {
-     // ...配置你的样式选项
-    }
-})
+const getValue = () => Math.floor(Math.random() * 10000);
+const options = ref({
+  dataOptions: {
+     // 这里写配置
+  }
+});
+
 </script>
+```
+
+对于 `Vue2.x` 项目，在入口文件中：
+
+```
+// main.ts
+import Vue from "vue";
+import App from "./App.vue"; // 引入根组件
+import EchartSphere from "echart-sphere";
+Vue.use(EchartSphere);
+new Vue({
+  render: (h) => h(App),
+}).$mount("#app");
+```
+
+在组件中使用：
+
+```
+<template>
+  <div
+    class="echart-sphere-wrapper"
+    style="width: 600px; height: 400px; background-color: aliceblue"
+  >
+    <normal-chart :dataOptions="dataOptions"></normal-chart>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      dataOptions: {
+        // 这里写配置
+      },
+    };
+  },
+};
+</script>
+
 ```
 
 ## 配置优先级说明
