@@ -1,6 +1,6 @@
 {
   "name": "echart-sphere",
-  "version": "0.0.49",
+  "version": "0.0.50",
   "description": "",
   "main": "dist/echart-sphere.esm.js",
   "types": "dist/types/index.d.ts",
