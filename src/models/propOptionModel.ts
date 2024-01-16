@@ -84,7 +84,7 @@ export interface ChartPropertiesOptions {
   // 是否堆叠
   stack?: string;
   // 是否重叠
-  overlap?: string;
+  overlap?: boolean | string;
   // 图表分割点
   split?: ChartSplitPointOptions;
   // 第二个Y轴配置

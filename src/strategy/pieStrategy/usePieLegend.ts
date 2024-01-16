@@ -63,8 +63,7 @@ export function buildPieWithDetailLegend(props: RenderPropOptions) {
 
 // 子母饼图图例
 export function buildParentChildPieLegend(props: RenderPropOptions) {
-  return {
-    orient: "horizontal",
-    bottom: "left"
-  } as LegendOption;
+  const options = buildNormalLegend(props);
+  delete options.data;
+  return options;
 }

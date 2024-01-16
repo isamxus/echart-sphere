@@ -73,7 +73,7 @@ setConfig({
 ##### `barWidth`
 
 - 类型: `number`
-- 默认值: `5`
+- 默认值: `20`
 - 描述: 设置柱的宽度。
 
 ##### `barColor`
@@ -808,6 +808,93 @@ const options = {
 ```
 
 ![基础柱状图](https://github.com/isamxus/echart-sphere-assets/blob/0b448c8f4eb646c04e49c5b1d189e153726541d9/assets/bar/normalBar.png)
+
+### 堆叠柱状图
+
+通过设置 `chartOptions`中的`stack` 为任意字符串可实现堆叠柱状图
+
+```
+<template>
+  <div class="echart-sphere-wrapper">
+    <NormalChart v-bind="options"></NormalChart>
+  </div>
+</template>
+<script lang="ts" setup>
+import { NormalChart } from "../src";
+const getValue = () => Math.floor(Math.random() * 10000);
+const options = {
+  dataOptions: {
+    dataItems: [
+      { name: "堆叠图1", labelX: "label", labelY: "value", barColor: "red" },
+      { name: "堆叠图2", labelX: "label", labelY: "value1", barcolor: "blue"},
+      { name: "堆叠图3", labelX: "label", labelY: "value2", barColor: "yellow" },
+    ],
+    data: [
+      { id: "01", label: "Parent 1", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "02", label: "Parent 2", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "03", label: "Parent 3", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "04", label: "Parent 4", value: getValue(), value1: getValue(), value2: getValue() }
+    ],
+  },
+  chartOptions: {
+    stack: "stack"
+  }
+};
+</script>
+<style lang="css">
+.echart-sphere-wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+```
+
+![堆叠柱状图](https://github.com/isamxus/echart-sphere-assets/blob/c05d3b7b67d2c1cd9b6a483d05e03644d6803bcc/assets/bar/%E5%A0%86%E5%8F%A0%E6%9F%B1%E5%9B%BE.png)
+
+### 重叠柱状图
+
+通过设置 `chartOptions`中的`overlap` 为`true`实现重叠柱状图
+
+```
+<template>
+  <div class="echart-sphere-wrapper">
+    <NormalChart v-bind="options"></NormalChart>
+  </div>
+</template>
+<script lang="ts" setup>
+import { NormalChart } from "../src";
+const getValue = () => Math.floor(Math.random() * 10000);
+const options = {
+  dataOptions: {
+    dataItems: [
+      { name: "重叠图1", labelX: "label", labelY: "value", barColor: "red" },
+      { name: "重叠图2", labelX: "label", labelY: "value1", barcolor: "blue"},
+      { name: "重叠图3", labelX: "label", labelY: "value2", barColor: "yellow" },
+    ],
+    data: [
+      { id: "01", label: "Parent 1", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "02", label: "Parent 2", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "03", label: "Parent 3", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "04", label: "Parent 4", value: getValue(), value1: getValue(), value2: getValue() }
+    ],
+  },
+  chartOptions: {
+    overlap: true
+  }
+};
+</script>
+<style lang="css">
+.echart-sphere-wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+
+```
+
+![重叠柱状图](https://github.com/isamxus/echart-sphere-assets/blob/5548caf0e7eb218208d748182746a1a06a03886f/assets/bar/%E9%87%8D%E5%8F%A0%E6%9F%B1%E5%9B%BE.png)
 
 ## 折线图示例
 

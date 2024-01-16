@@ -1,6 +1,6 @@
 // 柱图配置
 export const barConfig = {
-  barWidth: 5,
+  barWidth: 20,
   barColor: "rgba(132, 212, 232, 1)",
   barBorderType: "#fff",
   barBorderColor: "solid",
@@ -94,7 +94,7 @@ export const xAxisConfig = {
   // 默认的取值字段
   xAxisField: "label",
   // 默认的X轴字体大小,
-  xAxisLabelSize: 8,
+  xAxisLabelSize: 14,
   // 是否显示X轴刻度
   xAxisTickShow: false,
 };
@@ -102,7 +102,7 @@ export const xAxisConfig = {
 // Y轴配置
 export const yAxisConfig = {
   // 默认的y轴字体大小,
-  yAxisLabelSize: 10,
+  yAxisLabelSize: 14,
 };
 
 // 饼图配置
