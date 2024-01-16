@@ -22,6 +22,11 @@ export const lineConfig = {
   lineType: "solid",
   showSymbol: false,
 };
+
+// 散点图配置
+export const scatterConfig = {
+  
+}
 // 缩放组件配置
 export const dataZoomConfig = {
   dataZoomType: "inside",
@@ -162,6 +167,7 @@ export const treeConfig = {
 export default {
   ...barConfig,
   ...lineConfig,
+  ...scatterConfig,
   ...dataZoomConfig,
   ...gridConfig,
   ...legendConfig,

@@ -1341,3 +1341,50 @@ const options = {
 ```
 
 ![子母饼图](https://github.com/isamxus/echart-sphere-assets/blob/1bc9c0f4f66560eb1c18e18d16a5a3be669c124f/assets/pie/%E5%AD%90%E6%AF%8D%E5%9B%BE.png)
+
+## 散点图
+
+### 基础散点图
+
+通过设置`itemType`属性为`scatter`可以实现散点图
+
+```
+<template>
+  <div class="echart-sphere-wrapper">
+    <NormalChart v-bind="options"></NormalChart>
+  </div>
+</template>
+<script lang="ts" setup>
+import { NormalChart } from "../src";
+const getValue = () => Math.floor(Math.random() * 10000);
+const options = {
+  dataOptions: {
+    dataItems: [
+      { name: "散点图1", labelX: "label", labelY: "value", itemType: "scatter" },
+      { name: "散点图2", labelX: "label", labelY: "value1", itemType: "scatter" },
+      { name: "散点图3", labelX: "label", labelY: "value2", itemType: "scatter" },
+    ],
+    data: [
+      { id: "01", label: "scatter 1", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "02", label: "scatter 2", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "03", label: "scatter 3", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "04", label: "scatter 4", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "04", label: "scatter 5", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "04", label: "scatter 6", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "04", label: "scatter 7", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "04", label: "scatter 8", value: getValue(), value1: getValue(), value2: getValue() },
+    ],
+  },
+};
+</script>
+<style lang="css">
+.echart-sphere-wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+
+```
+
+![基础散点图](https://github.com/isamxus/echart-sphere-assets/blob/effa7f6b00e5d9ce1dcfeec207c69aa9ebe99d21/assets/scatter/%E6%95%A3%E7%82%B9%E5%9B%BE.png)

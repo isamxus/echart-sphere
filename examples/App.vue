@@ -9,20 +9,21 @@ const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
     dataItems: [
-      { name: "重叠图1", labelX: "label", labelY: "value", barColor: "red" },
-      { name: "重叠图2", labelX: "label", labelY: "value1", barcolor: "blue"},
-      { name: "重叠图3", labelX: "label", labelY: "value2", barColor: "yellow" },
+      { name: "散点图1", labelX: "label", labelY: "value", itemType: "scatter" },
+      { name: "散点图2", labelX: "label", labelY: "value1", itemType: "scatter" },
+      { name: "散点图3", labelX: "label", labelY: "value2", itemType: "scatter" },
     ],
     data: [
-      { id: "01", label: "Parent 1", value: getValue(), value1: getValue(), value2: getValue() },
-      { id: "02", label: "Parent 2", value: getValue(), value1: getValue(), value2: getValue() },
-      { id: "03", label: "Parent 3", value: getValue(), value1: getValue(), value2: getValue() },
-      { id: "04", label: "Parent 4", value: getValue(), value1: getValue(), value2: getValue() }
+      { id: "01", label: "scatter 1", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "02", label: "scatter 2", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "03", label: "scatter 3", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "04", label: "scatter 4", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "04", label: "scatter 5", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "04", label: "scatter 6", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "04", label: "scatter 7", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "04", label: "scatter 8", value: getValue(), value1: getValue(), value2: getValue() },
     ],
   },
-  chartOptions: {
-    overlap: true
-  }
 };
 </script>
 <style lang="css">

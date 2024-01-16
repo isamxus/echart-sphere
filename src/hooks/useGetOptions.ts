@@ -10,6 +10,7 @@ const itemTypeToOptionsMap = new Map<string, any>([
   ["bar", getNormalBarOptions],
   ["line", getNormalLineOptions],
   ["pie", getNormalPieOptions],
+  ["scatter", getNormalScatterOptions]
 ]);
 
 export function getPropertieMethod(
@@ -60,6 +61,17 @@ export function getNormalLineOptions(
       type: getPropertie("lineType"),
     },
   };
+}
+
+// 公共散点图样式
+export function getNormalScatterOptions(
+  props: RenderPropOptions,
+  item?: DataItemWithStyleOptions
+) {
+  const getPropertie = getPropertieMethod(props, item);
+  return {
+    type: "scatter"
+  }
 }
 
 // 公共pictorialBar样式
