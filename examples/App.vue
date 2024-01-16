@@ -9,21 +9,21 @@ const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
     dataItems: [
-      { name: "散点图1", labelX: "label", labelY: "value", itemType: "scatter" },
-      { name: "散点图2", labelX: "label", labelY: "value1", itemType: "scatter" },
-      { name: "散点图3", labelX: "label", labelY: "value2", itemType: "scatter" },
+      { name: "雷达图1", labelX: "label", labelY: "value"},
+      { name: "雷达图2", labelX: "label", labelY: "value1"}
     ],
     data: [
-      { id: "01", label: "scatter 1", value: getValue(), value1: getValue(), value2: getValue() },
-      { id: "02", label: "scatter 2", value: getValue(), value1: getValue(), value2: getValue() },
-      { id: "03", label: "scatter 3", value: getValue(), value1: getValue(), value2: getValue() },
-      { id: "04", label: "scatter 4", value: getValue(), value1: getValue(), value2: getValue() },
-      { id: "04", label: "scatter 5", value: getValue(), value1: getValue(), value2: getValue() },
-      { id: "04", label: "scatter 6", value: getValue(), value1: getValue(), value2: getValue() },
-      { id: "04", label: "scatter 7", value: getValue(), value1: getValue(), value2: getValue() },
-      { id: "04", label: "scatter 8", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "01", label: "radar 1", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "02", label: "radar 2", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "03", label: "radar 3", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "04", label: "radar 4", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "05", label: "radar 5", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "06", label: "radar 6", value: getValue(), value1: getValue(), max: 10000 }
     ],
   },
+  chartOptions: {
+    componentType: "radar"
+  }
 };
 </script>
 <style lang="css">

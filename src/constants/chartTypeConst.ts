@@ -21,6 +21,7 @@ import {
   buildPieNormalLegend,
   buildPieWithDetailLegend,
 } from "../strategy/pieStrategy/usePieLegend";
+import { buildNormalRadarSeries } from "../strategy/radarStrategy/useRadarSeries";
 
 export const chartComponentMap = new Map<string, any>([]);
 
@@ -79,6 +80,7 @@ export const enum SeriesTypeEnum {
   PIE = "pie",
   DETAIL_PIE = "detail-pie",
   PARENT_CHILD_PIE = "parent-child-pie",
+  RADAR = "radar",
 }
 export const SeriesTypeToStrategyMap = new Map<string, any>([
   [SeriesTypeEnum.NORMAL, buildNormalSeries],
@@ -86,6 +88,7 @@ export const SeriesTypeToStrategyMap = new Map<string, any>([
   [SeriesTypeEnum.PIE, buildNormalPieSeries],
   [SeriesTypeEnum.DETAIL_PIE, buildPieWithDetailSeries],
   [SeriesTypeEnum.PARENT_CHILD_PIE, buildParentChildPieSeries],
+  [SeriesTypeEnum.RADAR, buildNormalRadarSeries],
 ]);
 
 // series类型枚举&映射

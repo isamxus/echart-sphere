@@ -174,6 +174,7 @@ export default function useBuildChart(props: RenderPropOptions) {
     setStrategyType,
     handleRender,
     initChart,
+    getOption,
     renderChart,
     chartDispose,
     chartResize,

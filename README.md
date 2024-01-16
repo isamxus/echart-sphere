@@ -1388,3 +1388,50 @@ const options = {
 ```
 
 ![基础散点图](https://github.com/isamxus/echart-sphere-assets/blob/effa7f6b00e5d9ce1dcfeec207c69aa9ebe99d21/assets/scatter/%E6%95%A3%E7%82%B9%E5%9B%BE.png)
+
+## 雷达图
+
+### 基础雷达图
+
+通过设置`chartOptions`的`componentType`为`radar`可以实现雷达图，需在 data 中设置`label`和`max`字段分别指定雷达图顶点和最大值
+
+```
+<template>
+  <div class="echart-sphere-wrapper">
+    <NormalChart v-bind="options"></NormalChart>
+  </div>
+</template>
+<script lang="ts" setup>
+import { NormalChart } from "../src";
+const getValue = () => Math.floor(Math.random() * 10000);
+const options = {
+  dataOptions: {
+    dataItems: [
+      { name: "雷达图1", labelX: "label", labelY: "value"},
+      { name: "雷达图2", labelX: "label", labelY: "value1"}
+    ],
+    data: [
+      { id: "01", label: "radar 1", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "02", label: "radar 2", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "03", label: "radar 3", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "04", label: "radar 4", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "05", label: "radar 5", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "06", label: "radar 6", value: getValue(), value1: getValue(), max: 10000 }
+    ],
+  },
+  chartOptions: {
+    componentType: "radar"
+  }
+};
+</script>
+<style lang="css">
+.echart-sphere-wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+
+```
+
+![基础雷达图](https://github.com/isamxus/echart-sphere-assets/blob/a9455e6a68d9c0796d3eb669214a41d5b3519b87/assets/radar/%E5%9F%BA%E7%A1%80%E9%9B%B7%E8%BE%BE%E5%9B%BE.png)
