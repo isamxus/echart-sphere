@@ -17,7 +17,7 @@ export interface ChartSelfAdaptionOptions {
 }
 
 // 数据项配置接口
-export interface DataItemOptions extends ChartPropertiesOptions {
+export interface DataItemOptions {
   // 名称
   name?: string;
   // 指定数据中作为X轴值的字段
@@ -34,10 +34,23 @@ export interface DataItemOptions extends ChartPropertiesOptions {
   itemType?: keyof RegisteredSeriesOption;
 }
 
+// 地图配置接口
+export interface MapOptions {
+  // 是否使用内置地图
+  isBuiltIn?: boolean;
+  // 地图json数据
+  mapJson?: any;
+  // 地图名字
+  name?: string;
+  // 行政编码
+  code?: string | number;
+}
+
 // 树型数据类型
 export type TreeConfigType = Partial<typeof treeConfig>;
 
 export type DataItemWithStyleOptions = DataItemOptions &
+  ChartPropertiesOptions &
   Partial<StyleOptionsType>;
 // 源数据配置接口
 export interface DataPropOptions extends DataItemOptions {
@@ -50,6 +63,8 @@ export interface DataPropOptions extends DataItemOptions {
   isFormatter?: boolean;
   // 树型数据配置
   treeConfig?: TreeConfigType;
+  // 地图数据配置
+  mapConfig?: MapOptions;
 }
 // 图表分割点配置接口
 export interface ChartSplitPointOptions {
@@ -91,7 +106,10 @@ export interface ChartPropertiesOptions {
   secondYAxis?: SecondYAxisType | boolean;
   // 图例富文本配置
   legendRichOptions?: Arrayable<LegendRichOptions>;
+  // 是否启用高亮
+  isHightlight?: boolean;
 }
+
 // 图表配置接口
 export interface ChartPropOptions extends ChartPropertiesOptions {
   // 图表类型
@@ -116,6 +134,8 @@ export interface ChartPropOptions extends ChartPropertiesOptions {
   seriesType?: string;
   // dataZoom类型
   dataZoomType?: string;
+  // visualMap类型
+  visualMapType?: string;
   // 使用组件直接渲染
   componentType?: string;
 }
@@ -139,4 +159,6 @@ export interface RenderPropOptions {
   chartOptions?: ChartPropOptions;
   // 样式配置
   styleOptions?: Partial<StyleOptionsType>;
+  // 扩展属性，用于上下文在各种系列中传递数据
+  extendOptions?: any
 }

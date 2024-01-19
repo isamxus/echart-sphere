@@ -5,6 +5,7 @@
     "moduleResolution": "node",
     "outDir": "./dist/types",
     "lib": ["dom", "esnext"],
+    "removeComments": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,

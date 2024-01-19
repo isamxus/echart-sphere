@@ -39,7 +39,7 @@ export default {
             type: Object,
           },
           styleOptions: {
-            type: Object
+            type: Object,
           },
         },
         data() {
@@ -56,7 +56,10 @@ export default {
         },
       });
     } else {
-      Vue.component("normal-chart", require("./components/NormalChart.vue").default);
+      Vue.component(
+        "normal-chart",
+        require("./components/NormalChart.vue").default
+      );
     }
 
     // 注册定制组件

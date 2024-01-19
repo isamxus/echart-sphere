@@ -7,19 +7,14 @@ import {
   YAXisOption,
 } from "echarts/types/dist/shared";
 import { Arrayable } from "../models/buildChartModel";
+import { RenderPropOptions } from "../models/propOptionModel";
 import {
-  ChartPropOptions,
-  DataPropOptions,
-  RenderPropOptions,
-  StyleOptionsType,
-} from "../models/propOptionModel";
-import {
-  GridTypeToStrategyMap,
-  LegendTypeToStrategyMap,
-  SeriesTypeToStrategyMap,
-  TooltipTypeToStrategyMap,
-  XAxisTypeToStrategyMap,
-  YAxisTypeToStrategyMap,
+  gridTypeToStrategyMap,
+  legendTypeToStrategyMap,
+  seriesTypeToStrategyMap,
+  tooltipTypeToStrategyMap,
+  xAxisTypeToStrategyMap,
+  yAxisTypeToStrategyMap,
   chartComponentMap,
 } from "../constants/chartTypeConst";
 import { ChartExtendFn } from "../models/extendOptionModel";
@@ -72,17 +67,17 @@ export default function useExtend<T>(map: Map<string, any>) {
 
 export const extendOptions = {
   // X轴类型扩展
-  xAxisExtend: useExtend<XAXisOption>(XAxisTypeToStrategyMap),
+  xAxisExtend: useExtend<XAXisOption>(xAxisTypeToStrategyMap),
   // y轴类型扩展
-  yAxisExtend: useExtend<YAXisOption>(YAxisTypeToStrategyMap),
+  yAxisExtend: useExtend<YAXisOption>(yAxisTypeToStrategyMap),
   // grid类型扩展
-  gridExtend: useExtend<GridOption>(GridTypeToStrategyMap),
+  gridExtend: useExtend<GridOption>(gridTypeToStrategyMap),
   // tooltip类型扩展
-  tooltipExtend: useExtend<TooltipOption>(TooltipTypeToStrategyMap),
+  tooltipExtend: useExtend<TooltipOption>(tooltipTypeToStrategyMap),
   // legend图例类型扩展
-  legendExtend: useExtend<LegendOption>(LegendTypeToStrategyMap),
+  legendExtend: useExtend<LegendOption>(legendTypeToStrategyMap),
   // series类型扩展
-  seriesExtend: useExtend<SeriesOption>(SeriesTypeToStrategyMap),
+  seriesExtend: useExtend<SeriesOption>(seriesTypeToStrategyMap),
   // 图表类型扩展
   chartExtend: {
     extend(type: string, callback: ChartExtendFn) {
@@ -113,6 +108,14 @@ export const extendOptions = {
             methods: {
               render() {
                 const result = callback(this.rawProps, this.chartContext);
+                if (result instanceof Promise) {
+                  result.then((res) => {
+                    res
+                      ? this.chartContext.handleRender(res)
+                      : this.chartContext.renderChart();
+                  });
+                  return;
+                }
                 result
                   ? this.chartContext.handleRender(result)
                   : this.chartContext.renderChart();
@@ -157,7 +160,7 @@ export const extendOptions = {
         }
         return;
       }
-      
+
       // vue3版本
       const {
         defineComponent,
@@ -197,6 +200,12 @@ export const extendOptions = {
           } = chartContext;
           function render() {
             const result = callback(rawProps, chartContext);
+            if (result instanceof Promise) {
+              result.then((res) => {
+                res ? handleRender(res) : renderChart();
+              });
+              return;
+            }
             result ? handleRender(result) : renderChart();
           }
           watch(

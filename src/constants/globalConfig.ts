@@ -6,7 +6,7 @@ export const enum VueVersionEnum {
 
 export const vueConfig = {
   version: VueVersionEnum.VUE_3,
-  context: null
+  context: null,
 };
 
 // 柱图配置
@@ -26,6 +26,20 @@ export const barConfig = {
   barSymbolClip: true,
 };
 
+// 高亮配置
+export const hightlightConfig = {
+  colorHl: "auto",
+  borderColorHl: "#000",
+  borderWidthHl: 0,
+  borderTypeHl: "solid",
+  borderRadiusHl: 0,
+  shadowBlurHl: 10,
+  shadowColorHl: "auto",
+  shadowOffsetXHl: 0,
+  shadowOffsetYHl: 0,
+  opacityHl: 1,
+};
+
 // 折线图配置
 export const lineConfig = {
   lineColor: "rgba(45, 174, 194, 1)",
@@ -36,6 +50,19 @@ export const lineConfig = {
 
 // 散点图配置
 export const scatterConfig = {};
+
+// 地图配置
+export const mapConfig = {
+  mapZoom: 1,
+  mapColor: "#c8def1",
+  mapLabelShow: false,
+  mapLabelSize: 10,
+  mapColorHL: "#337ab7",
+  mapLableColorHL: "#fff",
+  mapSelectedColor: "#337ab7",
+  mapSelectedLabelColor: "#fff"
+}
+
 // 缩放组件配置
 export const dataZoomConfig = {
   dataZoomType: "inside",
@@ -175,6 +202,7 @@ export const treeConfig = {
 
 export default {
   ...barConfig,
+  ...hightlightConfig,
   ...lineConfig,
   ...scatterConfig,
   ...dataZoomConfig,
@@ -185,6 +213,7 @@ export default {
   ...xAxisConfig,
   ...yAxisConfig,
   ...pieConfig,
+  ...mapConfig,
   ...legendRichConfig,
   ...chartSelfAdaptionConfig,
   ...normalLoadingConfig,

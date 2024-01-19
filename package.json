@@ -1,6 +1,6 @@
 {
   "name": "echart-sphere",
-  "version": "0.0.55",
+  "version": "0.0.56",
   "description": "",
   "main": "dist/echart-sphere.esm.js",
   "types": "dist/types/index.d.ts",
@@ -20,6 +20,7 @@
     "vue": ">=2.6.12"
   },
   "dependencies": {
+    "china-map-echarts": "^1.0.5",
     "lodash": "^4.17.21",
     "xe-utils": "^3.5.14"
   },
@@ -32,6 +33,7 @@
     "html-webpack-plugin": "^5.6.0",
     "rimraf": "^5.0.5",
     "style-loader": "^3.3.3",
+    "terser-webpack-plugin": "^5.3.10",
     "ts-loader": "^9.4.4",
     "typescript": "^5.2.2",
     "vue-loader": "^17.2.2",

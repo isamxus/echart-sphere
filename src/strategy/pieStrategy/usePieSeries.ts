@@ -44,10 +44,10 @@ export function buildPieWithDetailSeries(props: RenderPropOptions) {
 // 子母图
 export function buildParentChildPieSeries(props: RenderPropOptions) {
   const { idKey = "id" } = props.dataOptions.treeConfig || treeConfig;
-  const dataOptions = props.dataOptions as any;
-  const treeData = dataOptions.treeData;
+  const extendOptions = props.extendOptions;
+  const treeData = extendOptions.treeData;
   let dataItems = handleDataItems(props);
-  const currentChildData = dataOptions.currentChildData;
+  const currentChildData = extendOptions.currentChildData;
   dataItems = dataItems.slice(0, 2);
   if (dataItems.length > 1) {
     const parentItem = dataItems[0];

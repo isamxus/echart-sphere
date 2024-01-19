@@ -22,6 +22,9 @@ import {
   buildPieWithDetailLegend,
 } from "../strategy/pieStrategy/usePieLegend";
 import { buildNormalRadarSeries } from "../strategy/radarStrategy/useRadarSeries";
+import { buildNormalMapSeries } from "../strategy/mapStrategy/useMapSeries";
+import { buildMapVisualMap } from "../strategy/mapStrategy/useVisualMap";
+import { buildMapTooltip } from "../strategy/mapStrategy/useMapTooltip";
 
 export const chartComponentMap = new Map<string, any>([]);
 
@@ -29,7 +32,7 @@ export const chartComponentMap = new Map<string, any>([]);
 export const enum XAxisTypeEnum {
   NORMAL = "normal",
 }
-export const XAxisTypeToStrategyMap = new Map<string, any>([
+export const xAxisTypeToStrategyMap = new Map<string, any>([
   [XAxisTypeEnum.NORMAL, buildNormalCategoryXAxis],
 ]);
 
@@ -37,7 +40,7 @@ export const XAxisTypeToStrategyMap = new Map<string, any>([
 export const enum YAxisTypeEnum {
   NORMAL = "normal",
 }
-export const YAxisTypeToStrategyMap = new Map<string, any>([
+export const yAxisTypeToStrategyMap = new Map<string, any>([
   [YAxisTypeEnum.NORMAL, buildNormalYAxis],
 ]);
 
@@ -48,7 +51,7 @@ export const enum LegendTypeEnum {
   DETAIL_PIE = "detail-pie",
   PARENT_CHILD_PIE = "parent-child-pie",
 }
-export const LegendTypeToStrategyMap = new Map<string, any>([
+export const legendTypeToStrategyMap = new Map<string, any>([
   [LegendTypeEnum.NORMAL, buildNormalLegend],
   [LegendTypeEnum.PIE, buildPieNormalLegend],
   [LegendTypeEnum.DETAIL_PIE, buildPieWithDetailLegend],
@@ -59,7 +62,7 @@ export const LegendTypeToStrategyMap = new Map<string, any>([
 export const enum GridTypeEnum {
   NORMAL = "normal",
 }
-export const GridTypeToStrategyMap = new Map<string, any>([
+export const gridTypeToStrategyMap = new Map<string, any>([
   [GridTypeEnum.NORMAL, buildNormalGrid],
 ]);
 
@@ -67,10 +70,12 @@ export const GridTypeToStrategyMap = new Map<string, any>([
 export const enum TooltipTypeEnum {
   NORMAL = "normal",
   PIE = "pie",
+  MAP = "map",
 }
-export const TooltipTypeToStrategyMap = new Map<string, any>([
+export const tooltipTypeToStrategyMap = new Map<string, any>([
   [TooltipTypeEnum.NORMAL, buildNormalTooltip],
   [TooltipTypeEnum.PIE, buildPieTooltip],
+  [TooltipTypeEnum.MAP, buildMapTooltip],
 ]);
 
 // series类型枚举&映射
@@ -81,20 +86,30 @@ export const enum SeriesTypeEnum {
   DETAIL_PIE = "detail-pie",
   PARENT_CHILD_PIE = "parent-child-pie",
   RADAR = "radar",
+  MAP = "map",
 }
-export const SeriesTypeToStrategyMap = new Map<string, any>([
+export const seriesTypeToStrategyMap = new Map<string, any>([
   [SeriesTypeEnum.NORMAL, buildNormalSeries],
   [SeriesTypeEnum.TREND, buildTrendSeries],
   [SeriesTypeEnum.PIE, buildNormalPieSeries],
   [SeriesTypeEnum.DETAIL_PIE, buildPieWithDetailSeries],
   [SeriesTypeEnum.PARENT_CHILD_PIE, buildParentChildPieSeries],
   [SeriesTypeEnum.RADAR, buildNormalRadarSeries],
+  [SeriesTypeEnum.MAP, buildNormalMapSeries],
 ]);
 
 // series类型枚举&映射
 export const enum DataZoomTypeEnum {
   NORMAL = "normal",
 }
-export const DataZoomTypeToStrategyMap = new Map<string, any>([
+export const dataZoomTypeToStrategyMap = new Map<string, any>([
   [DataZoomTypeEnum.NORMAL, buildNormalDataZoom],
+]);
+
+// visualMap类型&映射
+export const enum visualMapTypeEnum {
+  MAP = "map",
+}
+export const visualMapTypeToStrategyMap = new Map<string, any>([
+  [visualMapTypeEnum.MAP, buildMapVisualMap],
 ]);

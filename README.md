@@ -223,6 +223,56 @@ setConfig({
 - 默认值: `false`
 - 描述: 设置是否显示折线图的数据点。
 
+#### 地图配置
+
+##### `mapZoom`
+
+- 类型: `number`
+- 默认值: `1`
+- 描述: 设置地图的缩放级别。
+
+##### `mapColor`
+
+- 类型: `string`
+- 默认值: `"#c8def1"`
+- 描述: 设置地图的默认颜色。
+
+##### `mapLabelShow`
+
+- 类型: `boolean`
+- 默认值: `false`
+- 描述: 设置是否显示地图上的标签。
+
+##### `mapLabelSize`
+
+- 类型: `number`
+- 默认值: `10`
+- 描述: 设置地图标签的字体大小。
+
+##### `mapColorHL`
+
+- 类型: `string`
+- 默认值: `"#337ab7"`
+- 描述: 设置地图上高亮区域的颜色。
+
+##### `mapLableColorHL`
+
+- 类型: `string`
+- 默认值: `"#fff"`
+- 描述: 设置地图上高亮标签的颜色。
+
+##### `mapSelectedColor`
+
+- 类型: `string`
+- 默认值: `"#337ab7"`
+- 描述: 设置地图上选中区域的颜色。
+
+##### `mapSelectedLabelColor`
+
+- 类型: `string`
+- 默认值: `"#fff"`
+- 描述: 设置地图上选中区域标签的颜色。
+
 #### Legend 图例配置
 
 ##### `legendWidth`
@@ -507,6 +557,68 @@ setConfig({
 - baseSize: 类型为 number，默认值为 14，用于设置基准字体大小。
 - flexible: 类型为 boolean，默认值为 false，用于设置是否启用自适应功能。
 
+#### 高亮配置
+
+##### `colorHl`
+
+- 类型: `string`
+- 默认值: `"auto"`
+- 描述: 设置高亮时的颜色。
+
+##### `borderColorHl`
+
+- 类型: `string`
+- 默认值: `"#000"`
+- 描述: 设置高亮时的边框颜色。
+
+##### `borderWidthHl`
+
+- 类型: `number`
+- 默认值: `0`
+- 描述: 设置高亮时的边框宽度。
+
+##### `borderTypeHl`
+
+- 类型: `string`
+- 默认值: `"solid"`
+- 描述: 设置高亮时的边框类型。
+
+##### `borderRadiusHl`
+
+- 类型: `number`
+- 默认值: `0`
+- 描述: 设置高亮时的边框圆角大小。
+
+##### `shadowBlurHl`
+
+- 类型: `number`
+- 默认值: `10`
+- 描述: 设置高亮时的阴影模糊大小。
+
+##### `shadowColorHl`
+
+- 类型: `string`
+- 默认值: `"auto"`
+- 描述: 设置高亮时的阴影颜色。
+
+##### `shadowOffsetXHl`
+
+- 类型: `number`
+- 默认值: `0`
+- 描述: 设置高亮时的阴影在 X 轴的偏移。
+
+##### `shadowOffsetYHl`
+
+- 类型: `number`
+- 默认值: `0`
+- 描述: 设置高亮时的阴影在 Y 轴的偏移。
+
+##### `opacityHl`
+
+- 类型: `number`
+- 默认值: `1`
+- 描述: 设置高亮时的透明度。
+
 ## Props 说明
 
 ### dataOptions
@@ -581,11 +693,54 @@ setConfig({
 
 - 类型: `Array<any>`
 - 描述: 图表的源数据数组。
+-
 
 #### `isFormatter`
 
 - 类型: `boolean`
 - 描述: 是否开启数据项的值格式化。
+
+#### `mapConfig`
+
+- 类型: `object`
+- 描述: 用于配置地图的选项。
+
+##### `isBuiltIn`
+
+- 类型: `boolean`
+- 描述: 指定是否使用内置的地图。如果为 `true`，则使用库提供的内置地图数据。为了使用内置地图类型，您需要安装 `china-map-echarts` 库。如果没有安装并在入口文件中引入这个库，将会抛出警告，并且地图无法渲染。
+- 要安装 `china-map-echarts` 库，请运行以下命令：
+
+```
+npm install china-map-echarts --save
+```
+
+或者，如果你使用 `yarn`：
+
+```
+yarn add china-map-echarts
+```
+
+安装完成后，在你的项目入口文件中引入这个库：
+
+```
+import 'china-map-echarts';
+```
+
+##### `mapJson`
+
+- 类型: `any`
+- 描述: 自定义地图的 JSON 数据。如果提供，将使用此数据而不是内置地图。
+
+##### `name`
+
+- 类型: `string`
+- 描述: 地图的名称。通常用于显示或引用地图。
+
+##### `code`
+
+- 类型: `string | number`
+- 描述: 地图的行政区划编码。用于指定显示行政区域编码对应的地图，在`isBuiltIn`为 true 时生效。
 
 ### chartOptions
 
@@ -701,6 +856,11 @@ setConfig({
 
 - 类型: `Partial<typeof legendRichConfig>`
 - 描述: 一个包含样式属性的对象，这些样式将应用于指定的图例项字段。这是一个可选属性，如果提供，它将覆盖默认的富文本样式。
+
+#### `isHightlight`
+
+- 类型: `boolean`
+- 描述: 设置是否启用数据项的高亮显示功能。当设置为 `true` 时，可以通过设置高亮样式使图表高亮。
 
 ### styleOptions
 
@@ -1484,3 +1644,51 @@ const options = {
 ```
 
 ![基础雷达图](https://github.com/isamxus/echart-sphere-assets/blob/a9455e6a68d9c0796d3eb669214a41d5b3519b87/assets/radar/%E5%9F%BA%E7%A1%80%E9%9B%B7%E8%BE%BE%E5%9B%BE.png)
+
+## 地图
+
+### 基础地图
+
+基础地图展示了中国各省份的简单数据可视化，通过内置的地图配置 `isBuiltIn: true` 来使用预设的中国地图。
+
+```
+<template>
+  <div class="echart-sphere-wrapper">
+    <normal-chart v-bind="options" />
+  </div>
+</template>
+<script lang="ts" setup>
+import { ref } from "vue";
+const getValue = () => Math.floor(Math.random() * 10000);
+const options = ref({
+  dataOptions: {
+    dataItems: [{ name: "中国地图", labelX: "label", labelY: "value" }],
+    data: [
+      { id: "01", label: "广东省", value: getValue() },
+      { id: "02", label: "湖南省", value: getValue() },
+      { id: "03", label: "青海省", value: getValue() },
+      { id: "04", label: "西藏自治区", value: getValue() },
+      { id: "05", label: "黑龙江省", value: getValue() },
+      { id: "06", label: "吉林省", value: getValue() },
+    ],
+    mapConfig: {
+      name: "china",
+      isBuiltIn: true,
+    },
+  },
+  chartOptions: {
+    componentType: "map",
+  },
+});
+</script>
+<style lang="css">
+.echart-sphere-wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+
+```
+
+![基础地图](https://github.com/isamxus/echart-sphere-assets/blob/61c4a284c8a542f6b0c0df60bef2d021be8fe6a5/assets/map/%E5%9C%B0%E5%9B%BE.png)

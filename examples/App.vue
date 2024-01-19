@@ -8,24 +8,24 @@ import { ref } from "vue";
 const getValue = () => Math.floor(Math.random() * 10000);
 const options = ref({
   dataOptions: {
-    dataItems: [
-      { name: "雷达图1", labelX: "label", labelY: "value"},
-      { name: "雷达图2", labelX: "label", labelY: "value1"}
-    ],
+    dataItems: [{ name: "中国地图", labelX: "label", labelY: "value" }],
     data: [
-      { id: "01", label: "radar 1", value: getValue(), value1: getValue(), max: 10000 },
-      { id: "02", label: "radar 2", value: getValue(), value1: getValue(), max: 10000 },
-      { id: "03", label: "radar 3", value: getValue(), value1: getValue(), max: 10000 },
-      { id: "04", label: "radar 4", value: getValue(), value1: getValue(), max: 10000 },
-      { id: "05", label: "radar 5", value: getValue(), value1: getValue(), max: 10000 },
-      { id: "06", label: "radar 6", value: getValue(), value1: getValue(), max: 10000 }
+      { id: "01", label: "广东省", value: getValue() },
+      { id: "02", label: "湖南省", value: getValue() },
+      { id: "03", label: "青海省", value: getValue() },
+      { id: "04", label: "西藏自治区", value: getValue() },
+      { id: "05", label: "黑龙江省", value: getValue() },
+      { id: "06", label: "吉林省", value: getValue() },
     ],
+    mapConfig: {
+      name: "china",
+      isBuiltIn: true,
+    },
   },
   chartOptions: {
-    componentType: "radar"
-  }
+    componentType: "map",
+  },
 });
-
 </script>
 <style lang="css">
 .echart-sphere-wrapper {

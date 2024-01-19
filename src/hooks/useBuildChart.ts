@@ -7,7 +7,16 @@ import { getIndexConvertValueByUnitType } from "./useMeasureType";
 import globalConfig from "../constants/globalConfig";
 import * as echarts from "echarts";
 import useFlexible from "./useFlexible";
-import useGetStrategy from "./useGetStrategy";
+import {
+  getDataZoomStrategy,
+  getGridStrategy,
+  getLegendStrategy,
+  getSeriesStrategy,
+  getTooltipStrategy,
+  getVisualMapStrategy,
+  getXAxisStrategy,
+  getYAxisStrategy,
+} from "./useGetStrategy";
 // 处理计量单位
 function handleMeasure(props: RenderPropOptions) {
   const {
@@ -66,7 +75,6 @@ export default function useBuildChart(props: RenderPropOptions) {
   let echartInstance: echarts.ECharts;
   // 组装策略配置
   const strategyTypeOptions: StrategyOptions = {};
-  const strategyMethods = useGetStrategy();
   const { transOptionFlexible } = useFlexible(props);
   const { chartOptions } = props;
 
@@ -93,17 +101,19 @@ export default function useBuildChart(props: RenderPropOptions) {
       legendType = strategyTypeOptions.legendType,
       seriesType = strategyTypeOptions.seriesType,
       dataZoomType = strategyTypeOptions.dataZoomType,
+      visualMapType = strategyTypeOptions.visualMapType,
     } = chartOptions || {};
     const propsData = deepCopy(props) as RenderPropOptions;
     // 处理计量单位
     handleMeasure(propsData);
-    const xAxisStrategy = strategyMethods.getXAxisStrategy(xAxisType);
-    const yAxisStrategy = strategyMethods.getYAxisStrategy(yAxisType);
-    const tooltipStrategy = strategyMethods.getTooltipStrategy(tooltipType);
-    const gridStrategy = strategyMethods.getGridStrategy(gridType);
-    const legendStrategy = strategyMethods.getLegendStrategy(legendType);
-    const seriesStrategy = strategyMethods.getSeriesStrategy(seriesType);
-    const dataZoomStrategy = strategyMethods.getDataZoomStrategy(dataZoomType);
+    const xAxisStrategy = getXAxisStrategy(xAxisType);
+    const yAxisStrategy = getYAxisStrategy(yAxisType);
+    const tooltipStrategy = getTooltipStrategy(tooltipType);
+    const gridStrategy = getGridStrategy(gridType);
+    const legendStrategy = getLegendStrategy(legendType);
+    const seriesStrategy = getSeriesStrategy(seriesType);
+    const dataZoomStrategy = getDataZoomStrategy(dataZoomType);
+    const visualMapStrategy = getVisualMapStrategy(visualMapType);
     // 合并配置
     const finalOption: echarts.EChartsCoreOption = {};
     xAxisStrategy &&
@@ -133,6 +143,10 @@ export default function useBuildChart(props: RenderPropOptions) {
     dataZoomStrategy &&
       Object.assign(finalOption, {
         dataZoom: dataZoomStrategy(propsData),
+      });
+    visualMapStrategy &&
+      Object.assign(finalOption, {
+        visualMap: visualMapStrategy(propsData),
       });
     return finalOption;
   }

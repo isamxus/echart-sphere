@@ -10,7 +10,7 @@ const itemTypeToOptionsMap = new Map<string, any>([
   ["bar", getNormalBarOptions],
   ["line", getNormalLineOptions],
   ["pie", getNormalPieOptions],
-  ["scatter", getNormalScatterOptions]
+  ["scatter", getNormalScatterOptions],
 ]);
 
 export function getPropertieMethod(
@@ -29,7 +29,8 @@ export function getNormalBarOptions(
   item?: DataItemWithStyleOptions
 ) {
   const getPropertie = getPropertieMethod(props, item);
-  return {
+  const isHightlight = item.isHightlight || false;
+  const option = {
     barWidth: getPropertie("barWidth"),
     barGap: getPropertie("barGap"),
     type: "bar",
@@ -40,6 +41,25 @@ export function getNormalBarOptions(
       borderType: getPropertie("barBorderType"),
     },
   } as SeriesOption;
+
+  isHightlight &&
+    Object.assign(option, {
+      emphasis: {
+        itemStyle: {
+          color: getPropertie("colorHl"),
+          borderColor: getPropertie("borderColorHl"),
+          borderWidth: getPropertie("borderWidthHl"),
+          borderType: getPropertie("borderTypeHl"),
+          borderRadius: getPropertie("borderRadiusHl"),
+          shadowBlur: getPropertie("shadowBlurHl"),
+          shadowColor: getPropertie("shadowColorHl"),
+          shadowOffsetX: getPropertie("shadowOffsetXHl"),
+          shadowOffsetY: getPropertie("shadowOffsetYHl"),
+          opacity: getPropertie("opacityHl"),
+        },
+      },
+    });
+  return option;
 }
 
 // 公共折线图样式
@@ -70,8 +90,8 @@ export function getNormalScatterOptions(
 ) {
   const getPropertie = getPropertieMethod(props, item);
   return {
-    type: "scatter"
-  }
+    type: "scatter",
+  };
 }
 
 // 公共pictorialBar样式
@@ -111,6 +131,42 @@ export function getNormalPieOptions(
       show: getPropertie("pieLabelshow"),
     },
   } as SeriesOption;
+}
+
+// 公共地图样式
+export function getNormalMapOptions(
+  props: RenderPropOptions,
+  item?: DataItemWithStyleOptions
+) {
+  const getPropertie = getPropertieMethod(props, item);
+  //#c8def1
+  const options = {
+    zoom: getPropertie("mapZoom"),
+    label: {
+      show: getPropertie("mapLabelShow"),
+      fontSize: getPropertie("mapLabelSize"),
+    },
+    itemStyle: {
+      areaColor: getPropertie("mapColor"),
+    },
+    emphasis: {
+      itemStyle: {
+        areaColor: getPropertie("mapColorHL"),
+      },
+      label: {
+        color: getPropertie("mapLableColorHL"),
+      },
+    },
+    select: {
+      itemStyle: {
+        areaColor: getPropertie("mapSelectedColor"),
+      },
+      label: {
+        color: getPropertie("mapSelectedLabelColor"),
+      },
+    },
+  } as SeriesOption;
+  return options;
 }
 
 // 公共图例富文本配置

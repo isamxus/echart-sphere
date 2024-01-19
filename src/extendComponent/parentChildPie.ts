@@ -18,15 +18,15 @@ export default function parentChildPieComponent(
   const { setStrategyType, getInstance, renderChart } = chartContext;
   const treeData = listToTree(data);
 
-  const dataOptions = props.dataOptions as any;
-  dataOptions.treeData = treeData;
-  dataOptions.currentChildData = treeData.length ? treeData[0].children : [];
-
+  props.extendOptions = {
+    treeData,
+    currentChildData: treeData.length ? treeData[0].children : []
+  };
   const chartInstance = getInstance();
   chartInstance.on("click", (data: any) => {
     const findItem = treeData.find((item) => item[idKey] === data.data.id);
     if (findItem) {
-      dataOptions.currentChildData = findItem.children;
+      props.extendOptions.currentChildData = findItem.children;
       renderChart();
     }
   });

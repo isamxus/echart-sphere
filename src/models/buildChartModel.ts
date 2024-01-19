@@ -15,4 +15,6 @@ export interface StrategyOptions {
   seriesType?: string;
   // dataZoom策略
   dataZoomType?: string;
+  // visualMap策略
+  visualMapType?: string;
 }

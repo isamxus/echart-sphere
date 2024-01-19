@@ -8,7 +8,6 @@ export function handleDataItems(props: RenderPropOptions) {
     labelY = globalConfig.yAxisField,
     dataItems = [],
   } = props.dataOptions;
-
   return dataItems.length
     ? dataItems
     : [

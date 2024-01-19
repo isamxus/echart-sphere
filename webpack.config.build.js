@@ -1,5 +1,7 @@
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
+const TerserPlugin = require("terser-webpack-plugin");
+const webpack = require("webpack");
 // const CopyPlugin = require("copy-webpack-plugin");
 // 定义公共配置
 const commonConfig = {
@@ -10,6 +12,19 @@ const commonConfig = {
     alias: {
       vue: "@vue/runtime-dom",
     },
+  },
+  optimization: {
+    minimize: true,
+    /* minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: /webpackIgnore/,
+          },
+        },
+        extractComments: false,
+      }),
+    ], */
   },
   module: {
     rules: [
@@ -31,22 +46,19 @@ const commonConfig = {
       },
     ],
   },
-  externals: {
-    vue: "Vue",
-  },
   plugins: [
     new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      __DEV__: JSON.stringify(false),
+    }),
     /* new CopyPlugin({
       patterns: [{ from: "src", to: "src" }],
     }) */
   ],
-  optimization: {
-    minimize: true,
-  },
   externals: {
     vue: "Vue",
-    echarts: 'echarts'
-  }
+    echarts: "echarts"
+  },
 };
 
 // 定义UMD配置
@@ -58,7 +70,7 @@ const umdConfig = {
     library: {
       name: "echart-sphere",
       type: "umd",
-    }
+    },
   },
 };
 
@@ -74,7 +86,7 @@ const esmConfig = {
     library: {
       type: "module",
     },
-  }
+  },
 };
 
 module.exports = [umdConfig, esmConfig];
