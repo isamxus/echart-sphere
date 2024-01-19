@@ -1,6 +1,10 @@
 # Echart Sphere 介绍
 
-echart-sphere 是一个高度可定制和灵活的图表组件库，现已支持 Vue 2 和 Vue 3 以及 ECharts。它允许开发者通过传递 `dataOptions`、`chartOptions` 和 `styleOptions` 来快速创建和定制多种图表。此组件库旨在提供一个简单的方式来集成和扩展 ECharts，使得创建交互式和响应式图表变得轻而易举。
+选择阅读语言版本 / Choose your reading language:
+
+- [中文版](README.md)
+- [English Version](README.en.md)(Updates ongoing)
+- echart-sphere 是一个高度可定制和灵活的图表组件库，现已支持 Vue 2 和 Vue 3 以及 ECharts。它允许开发者通过传递 `dataOptions`、`chartOptions` 和 `styleOptions` 来快速创建和定制多种图表。此组件库旨在提供一个简单的方式来集成和扩展 ECharts，使得创建交互式和响应式图表变得轻而易举。
 
 ## 特性
 
