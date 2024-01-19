@@ -110,6 +110,10 @@ echart-sphere 提供了几种方法来设置全局配置，这些配置将作为
 
 `setConfig` 方法允许您设置通用的图表配置项，如颜色方案、字体大小、工具提示，自定义图表的加载状态显示。您可以设置加载文本、颜色、字体大小等属性，指定设计稿的默认宽度、基准字体大小以及是否启用自适应功能。
 
+### `setLoadingConfig`
+
+`setLoadingConfig`方法用于设置图表加载动画的样式，字体大小等。
+
 ```
 import { setConfig } from 'echart-sphere';
 
@@ -196,10 +200,6 @@ setConfig({
 - 描述: 设置图形相对于柱体的位置。`'start'` 表示图形位于柱体的起始端。
 
 ##### `barSymbolClip`
-
-- 类型: `boolean`
-- 默认值: `true`
-- 描述: 设置是否对超出柱体部分的图形进行裁剪。
 
 - 类型: `boolean`
 - 默认值: `true`
@@ -1111,11 +1111,10 @@ echart-sphere 是一个基于 Vue 3 和 ECharts 的高度可定制和灵活的�
 ```
 <template>
   <div class="chart-container">
-    <NormalChart v-bind="options"></NormalChart>
+    <normal-chart v-bind="options" />
   </div>
 </template>
 <script lang="ts" setup>
-import { NormalChart } from "echart-sphere";
 const options = {
   dataOptions: {
     name: "测试",
@@ -1150,11 +1149,10 @@ const options = {
 ```
 <template>
   <div class="echart-sphere-wrapper">
-    <NormalChart v-bind="options"></NormalChart>
+    <normal-chart v-bind="options" />
   </div>
 </template>
 <script lang="ts" setup>
-import { NormalChart } from "../src";
 const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
@@ -1193,11 +1191,10 @@ const options = {
 ```
 <template>
   <div class="echart-sphere-wrapper">
-    <NormalChart v-bind="options"></NormalChart>
+    <normal-chart v-bind="options" />
   </div>
 </template>
 <script lang="ts" setup>
-import { NormalChart } from "../src";
 const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
@@ -1239,11 +1236,10 @@ const options = {
 ```
 <template>
   <div class="chart-container">
-    <NormalChart v-bind="options"></NormalChart>
+    <normal-chart v-bind="options" />
   </div>
 </template>
 <script lang="ts" setup>
-import { NormalChart } from "echart-sphere";
 const options = {
   dataOptions: {
     name: "测试",
@@ -1281,11 +1277,10 @@ const options = {
 ```
 <template>
   <div class="chart-container">
-    <NormalChart v-bind="options"></NormalChart>
+    <normal-chart v-bind="options" />
   </div>
 </template>
 <script lang="ts" setup>
-import { NormalChart } from "echart-sphere";
 const options = {
   dataOptions: {
     dataItems: [
@@ -1321,11 +1316,10 @@ const options = {
 ```
 <template>
   <div class="echart-sphere-wrapper">
-    <NormalChart v-bind="options"></NormalChart>
+    <normal-chart v-bind="options" />
   </div>
 </template>
 <script lang="ts" setup>
-import { NormalChart } from "../src";
 const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
@@ -1365,11 +1359,10 @@ const options = {
 ```
 <template>
   <div class="echart-sphere-wrapper">
-    <NormalChart v-bind="options"></NormalChart>
+    <normal-chart v-bind="options" />
   </div>
 </template>
 <script lang="ts" setup>
-import { NormalChart } from "../src";
 const options = {
   dataOptions: {
     dataItems: [
@@ -1412,11 +1405,10 @@ const options = {
 ```
 <template>
   <div class="echart-sphere-wrapper">
-    <NormalChart v-bind="options"></NormalChart>
+    <normal-chart v-bind="options" />
   </div>
 </template>
 <script lang="ts" setup>
-import { NormalChart } from "../src";
 const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
@@ -1503,11 +1495,10 @@ const options = {
 ```
 <template>
   <div class="echart-sphere-wrapper">
-    <NormalChart v-bind="options"></NormalChart>
+    <normal-chart v-bind="options" />
   </div>
 </template>
 <script lang="ts" setup>
-import { NormalChart } from "../src";
 const options = {
   dataOptions: {
     dataItems: [
@@ -1546,11 +1537,10 @@ const options = {
 ```
 <template>
   <div class="echart-sphere-wrapper">
-    <NormalChart v-bind="options"></NormalChart>
+    <normal-chart v-bind="options" />
   </div>
 </template>
 <script lang="ts" setup>
-import { NormalChart } from "../src";
 const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
@@ -1618,11 +1608,10 @@ const options = {
 ```
 <template>
   <div class="echart-sphere-wrapper">
-    <NormalChart v-bind="options"></NormalChart>
+    <normal-chart v-bind="options" />
   </div>
 </template>
 <script lang="ts" setup>
-import { NormalChart } from "../src";
 const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
@@ -1685,11 +1674,10 @@ const options = {
 ```
 <template>
   <div class="echart-sphere-wrapper">
-    <NormalChart v-bind="options"></NormalChart>
+    <normal-chart v-bind="options"></normal-chart>
   </div>
 </template>
 <script lang="ts" setup>
-import { NormalChart } from "../src";
 const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
@@ -1732,11 +1720,10 @@ const options = {
 ```
 <template>
   <div class="echart-sphere-wrapper">
-    <NormalChart v-bind="options"></NormalChart>
+    <normal-chart v-bind="options" />
   </div>
 </template>
 <script lang="ts" setup>
-import { NormalChart } from "../src";
 const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
