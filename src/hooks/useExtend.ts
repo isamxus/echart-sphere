@@ -133,7 +133,20 @@ export const extendOptions = {
                   if (value) {
                     return this.chartContext
                       .getInstance()
-                      .showLoading("default", normalLoadingConfig);
+                      .showLoading("default", {
+                        text: normalLoadingConfig.loadingText,
+                        color: normalLoadingConfig.loadingColor,
+                        textColor: normalLoadingConfig.loadingTextColor,
+                        maskColor: normalLoadingConfig.loadingMaskColor,
+                        zlevel: normalLoadingConfig.loadingZlevel,
+                        fontSize: normalLoadingConfig.loadingFontSize,
+                        showSpinner: normalLoadingConfig.loadingShowSpinner,
+                        spinnerRadius: normalLoadingConfig.loadingSpinnerRadius,
+                        lineWidth: normalLoadingConfig.loadingLineWidth,
+                        fontWeight: normalLoadingConfig.loadingFontWeight,
+                        fontStyle: normalLoadingConfig.loadingFontStyle,
+                        fontFamily: normalLoadingConfig.loadingFontFamily,
+                      });
                   }
                   this.chartContext.getInstance().hideLoading();
                 },
@@ -222,10 +235,20 @@ export const extendOptions = {
               () => props.chartOptions.loading,
               (value) => {
                 if (value) {
-                  return getInstance().showLoading(
-                    "default",
-                    normalLoadingConfig
-                  );
+                  return getInstance().showLoading("default", {
+                    text: normalLoadingConfig.loadingText,
+                    color: normalLoadingConfig.loadingColor,
+                    textColor: normalLoadingConfig.loadingTextColor,
+                    maskColor: normalLoadingConfig.loadingMaskColor,
+                    zlevel: normalLoadingConfig.loadingZlevel,
+                    fontSize: normalLoadingConfig.loadingFontSize,
+                    showSpinner: normalLoadingConfig.loadingShowSpinner,
+                    spinnerRadius: normalLoadingConfig.loadingSpinnerRadius,
+                    lineWidth: normalLoadingConfig.loadingLineWidth,
+                    fontWeight: normalLoadingConfig.loadingFontWeight,
+                    fontStyle: normalLoadingConfig.loadingFontStyle,
+                    fontFamily: normalLoadingConfig.loadingFontFamily,
+                  });
                 }
                 getInstance().hideLoading();
               }

@@ -5,7 +5,7 @@ import { registerExtendComponents } from "./extendComponent";
 import { VueVersionEnum } from "./constants/globalConfig";
 import { setVueVersion } from "./hooks/useGlobalConfig";
 import { chartComponentMap } from "./constants/chartTypeConst";
-export { setConfig } from "./hooks/useGlobalConfig";
+export { setConfig, setLoadingConfig } from "./hooks/useGlobalConfig";
 
 export default {
   ...extendOptions,

@@ -134,14 +134,14 @@ setConfig({
 ##### `barBorderType`
 
 - 类型: `string`
-- 默认值: `'solid'`
-- 描述: 设置柱边框的样式。
+- 默认值: `'#fff'`
+- 描述: 设置柱边框的颜色。
 
 ##### `barBorderColor`
 
 - 类型: `string`
-- 默认值: `'#fff'`
-- 描述: 设置柱边框的颜色。
+- 默认值: `'solid'`
+- 描述: 设置柱边框的样式。
 
 ##### `barBorderWidth`
 
@@ -197,6 +197,10 @@ setConfig({
 - 默认值: `true`
 - 描述: 设置是否对超出柱体部分的图形进行裁剪。
 
+- 类型: `boolean`
+- 默认值: `true`
+- 描述: 设置是否对超出柱体部分的图形进行裁剪。
+
 #### 折线图配置
 
 ##### `lineColor`
@@ -208,7 +212,7 @@ setConfig({
 ##### `lineSmooth`
 
 - 类型: `boolean`
-- 默认值: `true`
+- 默认值: `false`
 - 描述: 设置折线是否平滑显示，`true` 为平滑曲线，`false` 为直线连接。
 
 ##### `lineType`
@@ -222,6 +226,50 @@ setConfig({
 - 类型: `boolean`
 - 默认值: `false`
 - 描述: 设置是否显示折线图的数据点。
+
+#### 饼图配置
+
+##### `pieLeft`
+
+- 类型: `number`
+- 默认值: `0`
+- 描述: 设置饼图距离容器左侧的距离。
+
+##### `pieTop`
+
+- 类型: `number`
+- 默认值: `0`
+- 描述: 设置饼图距离容器顶部的距离。
+
+##### `pieRight`
+
+- 类型: `number`
+- 默认值: `0`
+- 描述: 设置饼图距离容器右侧的距离。
+
+##### `pieBottom`
+
+- 类型: `number`
+- 默认值: `0`
+- 描述: 设置饼图距离容器底部的距离。
+
+##### `pieWidth`
+
+- 类型: `string`
+- 默认值: `"auto"`
+- 描述: 设置饼图的宽度。当值为 `"auto"` 时，宽度会自适应容器。
+
+##### `pieHeight`
+
+- 类型: `string`
+- 默认值: `"auto"`
+- 描述: 设置饼图的高度。当值为 `"auto"` 时，高度会自适应容器。
+
+##### `pieLabelshow`
+
+- 类型: `boolean`
+- 默认值: `false`
+- 描述: 设置是否显示饼图中的标签。
 
 #### 地图配置
 
@@ -532,30 +580,97 @@ setConfig({
 
 #### loading 配置
 
-- 类型: object
-- 描述: 设置图表的加载状态显示。以下是可用的配置项：
+##### `loadingText`
 
-- text: 类型为 string，默认值为 "正在加载图表"，用于设置加载状态的文本。
-- color: 类型为 string，默认值为 "#009C84"，用于设置加载图标的颜色。
-- textColor: 类型为 string，默认值为 "#009C84"，用于设置加载文本的颜色。
-- maskColor: 类型为 string，默认值为 "rgba(255, 255, 255, 0.8)"，用于设置加载遮罩的颜色。
-- zlevel: 类型为 number，默认值为 0，用于设置加载图层的层级。
-- fontSize: 类型为 number，默认值为 12，用于设置加载文本的字体大小。
-- showSpinner: 类型为 boolean，默认值为 true，用于设置是否显示加载图标。
-- spinnerRadius: 类型为 number，默认值为 10，用于设置加载图标的半径。
-- lineWidth: 类型为 number，默认值为 2，用于设置加载图标的线宽。
-- fontWeight: 类型为 string，默认值为 "normal"，用于设置加载文本的字体粗细。
-- fontStyle: 类型为 string，默认值为 "normal"，用于设置加载文本的字体样式。
-- fontFamily: 类型为 string，默认值为 "sans-serif"，用于设置加载文本的字体系列。
+- 类型: `string`
+- 默认值: `"正在加载图表"`
+- 描述: 设置加载时显示的文本。
+
+##### `loadingColor`
+
+- 类型: `string`
+- 默认值: `"#009C84"`
+- 描述: 设置加载图标的颜色。
+
+##### `loadingTextColor`
+
+- 类型: `string`
+- 默认值: `"#009C84"`
+- 描述: 设置加载文本的颜色。
+
+##### `loadingMaskColor`
+
+- 类型: `string`
+- 默认值: `"rgba(255, 255, 255, 0.8)"`
+- 描述: 设置加载时遮罩层的颜色。
+
+##### `loadingZlevel`
+
+- 类型: `number`
+- 默认值: `0`
+- 描述: 设置加载图层的 Z 轴层级。
+
+##### `loadingFontSize`
+
+- 类型: `number`
+- 默认值: `12`
+- 描述: 设置加载文本的字体大小。
+
+##### `loadingShowSpinner`
+
+- 类型: `boolean`
+- 默认值: `true`
+- 描述: 设置是否显示加载旋转器。
+
+##### `loadingSpinnerRadius`
+
+- 类型: `number`
+- 默认值: `10`
+- 描述: 设置加载旋转器的半径大小。
+
+##### `loadingLineWidth`
+
+- 类型: `number`
+- 默认值: `2`
+- 描述: 设置加载旋转器线条的宽度。
+
+##### `loadingFontWeight`
+
+- 类型: `string`
+- 默认值: `"normal"`
+- 描述: 设置加载文本的字体粗细。
+
+##### `loadingFontStyle`
+
+- 类型: `string`
+- 默认值: `"normal"`
+- 描述: 设置加载文本的字体样式。
+
+##### `loadingFontFamily`
+
+- 类型: `string`
+- 默认值: `"sans-serif"`
+- 描述: 设置加载文本的字体族。
 
 #### 自适应配置
 
-- 类型: object
-- 描述: 设置图表的自适应配置。以下是可用的配置项：
+##### `designWidth`
 
-- designWidth: 类型为 number，默认值为 375，用于设置设计稿的默认宽度。
-- baseSize: 类型为 number，默认值为 14，用于设置基准字体大小。
-- flexible: 类型为 boolean，默认值为 false，用于设置是否启用自适应功能。
+- 类型: `number`
+- 默认值: `375`
+- 描述: 设计稿的默认宽度，用于自适应计算的基准宽度。
+
+##### `baseSize`
+
+- 类型: `number`
+- 默认值: `14`
+- 描述: 自适应布局时的基准字体大小。
+
+##### `flexible`
+
+- 类型: `boolean`
+- 默认值: `false`
+- 描述: 是否开启自适应布局，当设置为 `true` 时，图表大小将根据屏幕宽度自动缩放。
 
 #### 高亮配置
 
@@ -750,7 +865,7 @@ import 'china-map-echarts';
 
 - 类型: `string`
 - 默认值: `"normal"`
-- 描述: 指定内置的图表类型。这决定了图表的整体呈现方式和交互行为。默认为 `"normal"`，表示标准图表。您可以选择其他预定义的图表类型，如 `'customLine'`, `'customBar'`, `'customPie'` 等。
+- 描述: 指定内置的图表类型。这决定了图表的整体呈现方式和交互行为。默认为 `"normal"`。
 
 #### `optionFormatter`
 
@@ -803,6 +918,12 @@ import 'china-map-echarts';
 - 类型: `string`
 - 默认值: `"normal"`
 - 描述: 指定数据区域缩放组件的内置类型。默认为 `"normal"`。
+
+### `visualMapType`
+
+- 类型: `string`
+- 默认值: `"normal"`
+- 描述: 指定视觉映射组件的内置类型。默认为 `"normal"`，表示使用标准的视觉映射配置。
 
 #### `componentType`
 
@@ -875,8 +996,8 @@ echart-sphere 提供了一套扩展机制，允许开发者自定义和扩展不
 使用 `xAxisExtend` 方法来扩展或自定义 X 轴的行为。您可以注册一个新的 X 轴类型，并提供一个函数来定义它的行为。
 
 ```
-import Vue3Charts from "echart-sphere";
-Vue3Charts.xAxisExtend.extend('customXType', (props) => {
+import EchartSphere from "echart-sphere";
+EchartSphere.xAxisExtend.extend('customXType', (props) => {
 // 自定义 X 轴的行为
 });
 ```
@@ -886,8 +1007,8 @@ Vue3Charts.xAxisExtend.extend('customXType', (props) => {
 类似地，`yAxisExtend` 允许您扩展 Y 轴的行为。通过提供一个类型和一个函数，您可以定义 Y 轴的新行为。
 
 ```
-import Vue3Charts from "echart-sphere";
-Vue3Charts.yAxisExtend.extend('customXType', (props) => {
+import EchartSphere from "echart-sphere";
+EchartSphere.yAxisExtend.extend('customXType', (props) => {
 // 自定义 Y 轴的行为
 });
 ```
@@ -897,8 +1018,8 @@ Vue3Charts.yAxisExtend.extend('customXType', (props) => {
 使用 `gridExtend` 来自定义网格的配置和行为。您可以为网格定义一个新的类型和相应的行为。
 
 ```
-import Vue3Charts from "echart-sphere";
-Vue3Charts.gridExtend.extend('customXType', (props) => {
+import EchartSphere from "echart-sphere";
+EchartSphere.gridExtend.extend('customXType', (props) => {
 // 自定义网格的配置和行为
 });
 ```
@@ -908,8 +1029,8 @@ Vue3Charts.gridExtend.extend('customXType', (props) => {
 `tooltipExtend` 允许您自定义提示框的显示方式。通过注册一个新类型，您可以控制提示框的渲染和行为。
 
 ```
-import Vue3Charts from "echart-sphere";
-Vue3Charts.tooltipExtend.extend('customXType', (props) => {
+import EchartSphere from "echart-sphere";
+EchartSphere.tooltipExtend.extend('customXType', (props) => {
 // 自定义提示框的显示方式
 });
 ```
@@ -919,8 +1040,8 @@ Vue3Charts.tooltipExtend.extend('customXType', (props) => {
 使用 `legendExtend` 来自定义图例的样式和行为。您可以定义新的图例类型来改变其默认的显示和交互。
 
 ```
-import Vue3Charts from "echart-sphere";
-Vue3Charts.legendExtend.extend('customXType', (props) => {
+import EchartSphere from "echart-sphere";
+EchartSphere.legendExtend.extend('customXType', (props) => {
 // 自定义图例的样式和行为
 });
 ```
@@ -931,8 +1052,8 @@ Vue3Charts.legendExtend.extend('customXType', (props) => {
 
 ```
 
-import Vue3Charts from "echart-sphere";
-Vue3Charts.seriesExtend.extend('customXType', (props) => {
+import EchartSphere from "echart-sphere";
+EchartSphere.seriesExtend.extend('customXType', (props) => {
 // 自定义系列的渲染方式
 });
 ```
@@ -951,8 +1072,8 @@ Vue3Charts.seriesExtend.extend('customXType', (props) => {
 
 ```
 
-import Vue3Charts from "echart-sphere";
-Vue3Charts.seriesExtend.afterHook('customXType', (props) => {
+import EchartSphere from "echart-sphere";
+EchartSphere.seriesExtend.afterHook('customXType', (props) => {
 // 自定义系列的渲染方式
 });
 ```
@@ -965,8 +1086,8 @@ Vue3Charts.seriesExtend.afterHook('customXType', (props) => {
 
 ```
 
-import Vue3Charts from "echart-sphere";
-Vue3Charts.chartExtend.extend('customXType', (props) => {
+import EchartSphere from "echart-sphere";
+EchartSphere.chartExtend.extend('customXType', (props) => {
 // 自定义整个图表的渲染逻辑
 });
 ```

@@ -180,18 +180,18 @@ export const flexibleFieldsSet = new Set([
 ]);
 // loading配置
 export const normalLoadingConfig = {
-  text: "正在加载图表",
-  color: "#009C84",
-  textColor: "#009C84",
-  maskColor: "rgba(255, 255, 255, 0.8)",
-  zlevel: 0,
-  fontSize: 12,
-  showSpinner: true,
-  spinnerRadius: 10,
-  lineWidth: 2,
-  fontWeight: "normal",
-  fontStyle: "normal",
-  fontFamily: "sans-serif",
+  loadingText: "正在加载图表",
+  loadingColor: "#009C84",
+  loadingTextColor: "#009C84",
+  loadingMaskColor: "rgba(255, 255, 255, 0.8)",
+  loadingZlevel: 0,
+  loadingFontSize: 12,
+  loadingShowSpinner: true,
+  loadingSpinnerRadius: 10,
+  loadingLineWidth: 2,
+  loadingFontWeight: "normal",
+  loadingFontStyle: "normal",
+  loadingFontFamily: "sans-serif",
 };
 
 // 树型配置
@@ -215,6 +215,5 @@ export default {
   ...pieConfig,
   ...mapConfig,
   ...legendRichConfig,
-  ...chartSelfAdaptionConfig,
-  ...normalLoadingConfig,
+  ...chartSelfAdaptionConfig
 };
