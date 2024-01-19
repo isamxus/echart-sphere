@@ -1,6 +1,6 @@
 {
   "name": "echart-sphere",
-  "version": "0.0.57",
+  "version": "0.0.59",
   "description": "",
   "main": "dist/echart-sphere.esm.js",
   "types": "dist/types/index.d.ts",
@@ -16,11 +16,11 @@
   "author": "lijiancong",
   "license": "ISC",
   "peerDependencies": {
+    "china-map-echarts": "^1.0.5",
     "echarts": ">=4.9.0",
     "vue": ">=2.6.12"
   },
   "dependencies": {
-    "china-map-echarts": "^1.0.5",
     "lodash": "^4.17.21",
     "xe-utils": "^3.5.14"
   },
