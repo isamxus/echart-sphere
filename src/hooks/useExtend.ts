@@ -16,11 +16,11 @@ import {
   xAxisTypeToStrategyMap,
   yAxisTypeToStrategyMap,
   chartComponentMap,
-} from "../constants/chartTypeConst";
+} from "../constants/chartStrageConfig";
 import { ChartExtendFn } from "../models/extendOptionModel";
 import useBuildChart from "./useBuildChart";
 import { usePropsValidate } from "./useValidate";
-import { ChartEventEnum, chartEvents } from "../constants/chartEventConst";
+import { ChartEventEnum, chartEvents } from "../constants/chartEventConfig";
 import {
   VueVersionEnum,
   normalLoadingConfig,

@@ -1,10 +1,10 @@
 import { extendOptions } from "./hooks/useExtend";
-import { chartResizeSet } from "./constants/chartEventConst";
+import { chartResizeSet } from "./constants/chartEventConfig";
 import { debounce } from "lodash";
 import { registerExtendComponents } from "./extendComponent";
 import { VueVersionEnum } from "./constants/globalConfig";
 import { setVueVersion } from "./hooks/useGlobalConfig";
-import { chartComponentMap } from "./constants/chartTypeConst";
+import { chartComponentMap } from "./constants/chartStrageConfig";
 export { setConfig, setLoadingConfig } from "./hooks/useGlobalConfig";
 
 export default {

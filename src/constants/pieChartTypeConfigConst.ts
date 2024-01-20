@@ -2,7 +2,7 @@ import {
   LegendTypeEnum,
   SeriesTypeEnum,
   TooltipTypeEnum,
-} from "./chartTypeConst";
+} from "./chartStrageConfig";
 
 // 默认饼图组件策略配置
 export const normalPieChartTypeConfig = {

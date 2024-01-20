@@ -1,6 +1,6 @@
 import { markRaw, ref } from "vue";
 import { RenderPropOptions } from "../../models/propOptionModel";
-import { chartComponentMap } from "../../constants/chartTypeConst";
+import { chartComponentMap } from "../../constants/chartStrageConfig";
 
 export default function useNormalChart(props: RenderPropOptions) {
   const { componentType = "normal" } = props.chartOptions || {};

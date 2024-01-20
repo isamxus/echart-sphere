@@ -5,25 +5,34 @@
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
-const getValue = () => Math.floor(Math.random() * 10000);
+const getRandomValue = () => Math.floor(Math.random() * 10000);
+const getOHLC = () => {
+  let open = getRandomValue();
+  let close = getRandomValue();
+  let low = Math.min(open, close) - Math.floor(Math.random() * 500);
+  let high = Math.max(open, close) + Math.floor(Math.random() * 500);
+  return { open, high, low, close };
+};
 const options = ref({
   dataOptions: {
-    dataItems: [{ name: "中国地图", labelX: "label", labelY: "value" }],
+    dataItems: [{ name: "K线图", labelX: "label" }],
     data: [
-      { id: "01", label: "广东省", value: getValue() },
-      { id: "02", label: "湖南省", value: getValue() },
-      { id: "03", label: "青海省", value: getValue() },
-      { id: "04", label: "西藏自治区", value: getValue() },
-      { id: "05", label: "黑龙江省", value: getValue() },
-      { id: "06", label: "吉林省", value: getValue() },
+      { id: "01", label: "2023-11-30", ...getOHLC() },
+      { id: "02", label: "2023-12-30", ...getOHLC() },
+      { id: "03", label: "2024-1-30", ...getOHLC() },
+      { id: "04", label: "2024-2-26", ...getOHLC() },
+      { id: "05", label: "2024-3-30", ...getOHLC() },
+      { id: "06", label: "2024-4-20", ...getOHLC() },
     ],
-    mapConfig: {
-      name: "china",
-      isBuiltIn: true,
-    },
   },
   chartOptions: {
-    componentType: "map",
+    chartType: "candlestick",
+    candlestick: {
+      open: "open",
+      close: "close",
+      lowest: "low",
+      highest: "open",
+    },
   },
 });
 </script>

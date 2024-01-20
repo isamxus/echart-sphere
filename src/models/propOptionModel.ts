@@ -1,5 +1,6 @@
 import { RegisteredSeriesOption } from "echarts/types/dist/shared";
 import globalConfig, {
+  chartSelfAdaptionConfig,
   legendRichConfig,
   treeConfig,
   yAxisConfig,
@@ -94,6 +95,17 @@ export interface LegendRichOptions {
   // 样式
   styles?: Partial<typeof legendRichConfig>;
 }
+// K线图配置接口
+export interface CandlestickOptions {
+  // 开盘值字段,
+  open?: string;
+  // 收盘值字段
+  close?: string;
+  // 最低值字段
+  lowest?: string;
+  // 最高值字段
+  highest?: string;
+}
 // 图表自定义属性接口
 export interface ChartPropertiesOptions {
   // 是否堆叠
@@ -138,6 +150,10 @@ export interface ChartPropOptions extends ChartPropertiesOptions {
   visualMapType?: string;
   // 使用组件直接渲染
   componentType?: string;
+  // 自适应配置
+  flexibleConfig?: Partial<typeof chartSelfAdaptionConfig>;
+  // K线图配置
+  candlestick?: CandlestickOptions;
 }
 
 export type StyleConfigType = typeof globalConfig & {
@@ -160,5 +176,5 @@ export interface RenderPropOptions {
   // 样式配置
   styleOptions?: Partial<StyleOptionsType>;
   // 扩展属性，用于上下文在各种系列中传递数据
-  extendOptions?: any
+  extendOptions?: any;
 }

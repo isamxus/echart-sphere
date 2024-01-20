@@ -1,7 +1,7 @@
 import { RenderPropOptions } from "../models/propOptionModel";
 import { deepCopy } from "../utils/dataUtils";
-import { chartResizeSet } from "../constants/chartEventConst";
-import { DataFormatType } from "../constants/dataFormatConst";
+import { chartResizeSet } from "../constants/chartEventConfig";
+import { DataFormatType } from "../constants/dataFormatConfig";
 import { StrategyOptions } from "../models/buildChartModel";
 import { getIndexConvertValueByUnitType } from "./useMeasureType";
 import globalConfig from "../constants/globalConfig";

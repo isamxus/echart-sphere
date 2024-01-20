@@ -2,7 +2,7 @@ import {
   LegendTypeEnum,
   SeriesTypeEnum,
   TooltipTypeEnum,
-} from "../constants/chartTypeConst";
+} from "../constants/chartStrageConfig";
 import { treeConfig } from "../constants/globalConfig";
 import { ChartContextType } from "../models/extendOptionModel";
 import { RenderPropOptions } from "../models/propOptionModel";

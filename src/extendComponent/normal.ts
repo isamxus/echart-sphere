@@ -1,4 +1,4 @@
-import { chartTypeConfigMap } from "../constants/chartTypeConfigConst";
+import { chartTypeConfigMap } from "../constants/chartTypeConfig";
 import { ChartContextType } from "../models/extendOptionModel";
 import { RenderPropOptions } from "../models/propOptionModel";
 

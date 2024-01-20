@@ -987,6 +987,33 @@ import 'china-map-echarts';
 - 类型: `boolean`
 - 描述: 设置是否启用数据项的高亮显示功能。当设置为 `true` 时，可以通过设置高亮样式使图表高亮。
 
+#### `candlestick`
+
+- 类型: `CandlestickOptions`
+- 描述: 用于配置 K 线图（蜡烛图）的选项。这些选项指定了数据中各个字段对应的 K 线图数据点。
+
+每个 `CandlestickOptions` 对象可以包含以下属性：
+
+##### `open`
+
+- 类型: `string`
+- 描述: 指定数据中表示开盘价的字段。
+
+##### `close`
+
+- 类型: `string`
+- 描述: 指定数据中表示收盘价的字段。
+
+##### `lowest`
+
+- 类型: `string`
+- 描述: 指定数据中表示最低价的字段。
+
+##### `highest`
+
+- 类型: `string`
+- 描述: 指定数据中表示最高价的字段。
+
 ### styleOptions
 
 #### `styleOptions` 是一个对象，用于自定义图表的样式。它包含了一系列属性，这些属性与全局配置的属性同名，允许您在单个图表级别上覆盖全局样式设置。这些属性包括但不限于颜色方案、字体大小、边距等。
@@ -1804,3 +1831,60 @@ const options = ref({
 ```
 
 ![基础地图](https://github.com/isamxus/echart-sphere-assets/blob/61c4a284c8a542f6b0c0df60bef2d021be8fe6a5/assets/map/%E5%9C%B0%E5%9B%BE.png)
+
+## K 线图
+
+### 基础 K 线图
+
+通过设置`chartType`为`candlestick`，并且设置`candlestick`的开盘值，收盘值，最低值，最高值可以创建基础 K 线图
+
+```
+<template>
+  <div class="echart-sphere-wrapper">
+    <normal-chart v-bind="options" />
+  </div>
+</template>
+<script lang="ts" setup>
+import { ref } from "vue";
+const getRandomValue = () => Math.floor(Math.random() * 10000);
+const getOHLC = () => {
+  let open = getRandomValue();
+  let close = getRandomValue();
+  let low = Math.min(open, close) - Math.floor(Math.random() * 500);
+  let high = Math.max(open, close) + Math.floor(Math.random() * 500);
+  return { open, high, low, close };
+};
+const options = ref({
+  dataOptions: {
+    dataItems: [{ name: "K线图", labelX: "label" }],
+    data: [
+      { id: "01", label: "2023-11-30", ...getOHLC() },
+      { id: "02", label: "2023-12-30", ...getOHLC() },
+      { id: "03", label: "2024-1-30", ...getOHLC() },
+      { id: "04", label: "2024-2-26", ...getOHLC() },
+      { id: "05", label: "2024-3-30", ...getOHLC() },
+      { id: "06", label: "2024-4-20", ...getOHLC() },
+    ],
+  },
+  chartOptions: {
+    chartType: "candlestick",
+    candlestick: {
+      open: "open",
+      close: "close",
+      lowest: "low",
+      highest: "open",
+    },
+  },
+});
+</script>
+<style lang="css">
+.echart-sphere-wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+
+```
+
+![基础K线图](https://github.com/isamxus/echart-sphere-assets/blob/13a3074ca475f61c4a542e7343dc96bb3ce7c234/assets/candlestick/%E5%9F%BA%E7%A1%80K%E7%BA%BF%E5%9B%BE.png)

@@ -7,7 +7,7 @@ import {
   seriesTypeToStrategyMap,
   dataZoomTypeToStrategyMap,
   visualMapTypeToStrategyMap
-} from "../constants/chartTypeConst";
+} from "../constants/chartStrageConfig";
 
  // 获取内置X轴策略
 export function getXAxisStrategy(type?: string) {

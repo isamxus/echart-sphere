@@ -1,4 +1,4 @@
-import { LegendTypeEnum, SeriesTypeEnum } from "../constants/chartTypeConst";
+import { LegendTypeEnum, SeriesTypeEnum } from "../constants/chartStrageConfig";
 import { ChartContextType } from "../models/extendOptionModel";
 import { RenderPropOptions } from "../models/propOptionModel";
 

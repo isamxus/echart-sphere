@@ -51,6 +51,9 @@ export const lineConfig = {
 // 散点图配置
 export const scatterConfig = {};
 
+// K线图配置
+export const candlestickConfig = {};
+
 // 地图配置
 export const mapConfig = {
   mapZoom: 1,
@@ -60,8 +63,8 @@ export const mapConfig = {
   mapColorHL: "#337ab7",
   mapLableColorHL: "#fff",
   mapSelectedColor: "#337ab7",
-  mapSelectedLabelColor: "#fff"
-}
+  mapSelectedLabelColor: "#fff",
+};
 
 // 缩放组件配置
 export const dataZoomConfig = {
@@ -167,16 +170,47 @@ export const chartSelfAdaptionConfig = {
 };
 // 需要进行自适应的字段集合
 export const flexibleFieldsSet = new Set([
-  "bottom",
-  "left",
-  "right",
-  "top",
-  "itemHeight",
-  "itemWidth",
   "fontSize",
-  "barWidth",
+  "lineHeight",
+  "fontWeight",
+  "width",
+  "height",
+  "textBorderWidth",
+  "textBorderDashOffset",
+  "textShadowBlur",
+  "textShadowOffsetX",
+  "textShadowOffsetY",
+  "padding",
+  "itemGap",
+  "left",
+  "top",
+  "right",
+  "bottom",
   "borderWidth",
-  "symbolMargin",
+  "borderRadius",
+  "shadowBlur",
+  "shadowOffsetX",
+  "shadowOffsetY",
+  "itemWidth",
+  "itemHeight",
+  "dashOffset",
+  "shadowBlur",
+  "inactiveWidth",
+  "inactiveBorderWidth",
+  "pageButtonItemGap",
+  "pageButtonGap",
+  "pageIconSize",
+  "distance",
+  "offset",
+  "selectorItemGap",
+  "selectorButtonGap",
+  "margin",
+  "position",
+  "nameGap",
+  "nameRotate",
+  "maxWidth",
+  "symbolSize",
+  "symbolOffset",
 ]);
 // loading配置
 export const normalLoadingConfig = {
@@ -215,5 +249,5 @@ export default {
   ...pieConfig,
   ...mapConfig,
   ...legendRichConfig,
-  ...chartSelfAdaptionConfig
+  ...candlestickConfig
 };

@@ -2,7 +2,7 @@ import {
   SeriesTypeEnum,
   TooltipTypeEnum,
   visualMapTypeEnum,
-} from "../constants/chartTypeConst";
+} from "../constants/chartStrageConfig";
 import { ChartContextType } from "../models/extendOptionModel";
 import { RenderPropOptions } from "../models/propOptionModel";
 import * as echarts from "echarts";

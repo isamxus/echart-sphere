@@ -1,4 +1,5 @@
 import { StrategyOptions } from "../models/buildChartModel";
+import { normalCandlestickChartTypeConfig } from "./candlestickChartTypeConfig";
 import {
   DataZoomTypeEnum,
   GridTypeEnum,
@@ -7,7 +8,7 @@ import {
   TooltipTypeEnum,
   XAxisTypeEnum,
   YAxisTypeEnum,
-} from "./chartTypeConst";
+} from "./chartStrageConfig";
 import {
   normalPieChartTypeConfig,
   pieWithDetailChartTypeConfig,
@@ -16,6 +17,7 @@ export const enum ChartTypeEnum {
   NORMAL_CHART = "normal",
   PIE = "pie",
   DETAIL_PIE = "detail-ple",
+  CANDLESTICK = "candlestick",
 }
 
 // 默认图表组件策略配置
@@ -33,4 +35,5 @@ export const chartTypeConfigMap = new Map<string, StrategyOptions>([
   [ChartTypeEnum.NORMAL_CHART, normalChartTypeConfig],
   [ChartTypeEnum.PIE, normalPieChartTypeConfig],
   [ChartTypeEnum.DETAIL_PIE, pieWithDetailChartTypeConfig],
+  [ChartTypeEnum.CANDLESTICK, normalCandlestickChartTypeConfig],
 ]);

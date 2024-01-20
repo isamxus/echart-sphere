@@ -3,7 +3,7 @@ import { RenderPropOptions } from "../../models/propOptionModel";
 import { handleDataItems } from "../../properties/useDataProperties";
 import { buildNormalLegend } from "../useChartLegend";
 import { getIndexFormatStringByUnitType } from "../../hooks/useMeasureType";
-import { DataFormatType } from "../../constants/dataFormatConst";
+import { DataFormatType } from "../../constants/dataFormatConfig";
 import { handlePieLegendRich } from "../../properties/useLegendProperties";
 
 // 默认饼图图例
