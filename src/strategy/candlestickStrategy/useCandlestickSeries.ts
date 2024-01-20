@@ -5,7 +5,7 @@ import { handleDataItems } from "../../properties/useDataProperties";
 // 默认K线图系列
 export function buildNormalCandleStickSeries(props: RenderPropOptions) {
   const dataItems = handleDataItems(props);
-  const { candlestick = {} } = props.chartOptions;
+  const { candlestick = {} } = props.chartOptions || {};
   const { data } = props.dataOptions;
   const { open, close, lowest, highest } = candlestick;
   const options = dataItems.map((item) => {

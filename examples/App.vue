@@ -4,37 +4,29 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref } from "vue";
-const getRandomValue = () => Math.floor(Math.random() * 10000);
-const getOHLC = () => {
-  let open = getRandomValue();
-  let close = getRandomValue();
-  let low = Math.min(open, close) - Math.floor(Math.random() * 500);
-  let high = Math.max(open, close) + Math.floor(Math.random() * 500);
-  return { open, high, low, close };
-};
-const options = ref({
+const getValue = () => Math.floor(Math.random() * 10000);
+const options = {
   dataOptions: {
-    dataItems: [{ name: "K线图", labelX: "label" }],
+    dataItems: [
+      { name: "雷达图1", labelX: "label", labelY: "value"},
+      { name: "雷达图2", labelX: "label", labelY: "value1"}
+    ],
     data: [
-      { id: "01", label: "2023-11-30", ...getOHLC() },
-      { id: "02", label: "2023-12-30", ...getOHLC() },
-      { id: "03", label: "2024-1-30", ...getOHLC() },
-      { id: "04", label: "2024-2-26", ...getOHLC() },
-      { id: "05", label: "2024-3-30", ...getOHLC() },
-      { id: "06", label: "2024-4-20", ...getOHLC() },
+      { id: "01", label: "radar 1", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "02", label: "radar 2", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "03", label: "radar 3", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "04", label: "radar 4", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "05", label: "radar 5", value: getValue(), value1: getValue(), max: 10000 },
+      { id: "06", label: "radar 6", value: getValue(), value1: getValue(), max: 10000 }
     ],
   },
   chartOptions: {
-    chartType: "candlestick",
-    candlestick: {
-      open: "open",
-      close: "close",
-      lowest: "low",
-      highest: "open",
-    },
-  },
-});
+    componentType: "radar",
+    radar: {
+      max: 'max'
+    }
+  }
+};
 </script>
 <style lang="css">
 .echart-sphere-wrapper {

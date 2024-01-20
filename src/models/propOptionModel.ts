@@ -95,6 +95,13 @@ export interface LegendRichOptions {
   // 样式
   styles?: Partial<typeof legendRichConfig>;
 }
+// 雷达图配置接口
+export interface RadarOptions {
+  // 最大值字段
+  max?: string;
+  // 最小值字段
+  min?: string;
+}
 // K线图配置接口
 export interface CandlestickOptions {
   // 开盘值字段,
@@ -154,6 +161,8 @@ export interface ChartPropOptions extends ChartPropertiesOptions {
   flexibleConfig?: Partial<typeof chartSelfAdaptionConfig>;
   // K线图配置
   candlestick?: CandlestickOptions;
+  // 雷达图配置
+  radar?: RadarOptions;
 }
 
 export type StyleConfigType = typeof globalConfig & {

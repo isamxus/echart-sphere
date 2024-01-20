@@ -1014,6 +1014,23 @@ import 'china-map-echarts';
 - 类型: `string`
 - 描述: 指定数据中表示最高价的字段。
 
+#### `radar`
+
+- 类型: `RadarOptions`
+- 描述: 配置雷达图的选项。这些选项定义了雷达图指标的最大值和最小值字段，允许您根据数据范围自定义雷达图的显示。
+
+每个 `RadarOptions` 对象可以包含以下属性：
+
+##### `max`
+
+- 类型: `string`
+- 描述: 指定数据中表示最大值的字段。这个字段的值用于在雷达图的每个轴上设置最大值，以确保所有数据点都能按比例正确显示。
+
+##### `min`
+
+- 类型: `string`
+- 描述: 指定数据中表示最小值的字段。这个字段的值用于在雷达图的每个轴上设置最小值，以确保所有数据点都能在雷达图的范围内显示。
+
 ### styleOptions
 
 #### `styleOptions` 是一个对象，用于自定义图表的样式。它包含了一系列属性，这些属性与全局配置的属性同名，允许您在单个图表级别上覆盖全局样式设置。这些属性包括但不限于颜色方案、字体大小、边距等。
@@ -1742,7 +1759,7 @@ const options = {
 
 ### 基础雷达图
 
-通过设置`chartOptions`的`componentType`为`radar`可以实现雷达图，需在 data 中设置`label`和`max`字段分别指定雷达图顶点和最大值
+通过设置`chartOptions`的`componentType`为`radar`可以实现雷达图，并设置`rader`选项的`max`字段指定顶点最大值。
 
 ```
 <template>
@@ -1768,7 +1785,10 @@ const options = {
     ],
   },
   chartOptions: {
-    componentType: "radar"
+    componentType: "radar",
+    radar: {
+      max: 'max'
+    }
   }
 };
 </script>

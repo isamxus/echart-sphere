@@ -978,6 +978,23 @@ Each `CandlestickOptions` object can include the following properties:
 - Type: `string`
 - Description: Specifies the field in the data that represents the highest price.
 
+#### `radar`
+
+- Type: `RadarOptions`
+- Description: Configuration options for the radar chart. These options define the fields for the maximum and minimum values of the radar chart indicators, allowing you to customize the display of the radar chart according to the data range.
+
+Each `RadarOptions` object can contain the following properties:
+
+##### `max`
+
+- Type: `string`
+- Description: Specifies the field in the data that represents the maximum value. The value of this field is used to set the maximum value on each axis of the radar chart, ensuring that all data points are displayed correctly in proportion.
+
+##### `min`
+
+- Type: `string`
+- Description: Specifies the field in the data that represents the minimum value. The value of this field is used to set the minimum value on each axis of the radar chart, ensuring that all data points are displayed within the range of the radar chart.
+
 ### styleOptions
 
 #### `styleOptions` is an object used to customize the style of the chart. It contains a series of properties that have the same names as the global configuration properties, allowing you to override global style settings at the individual chart level. These properties include, but are not limited to, color schemes, font sizes, margins, etc.
@@ -1875,7 +1892,7 @@ const options = {
 
 ### Basic Radar Chart
 
-By setting the `componentType` in `chartOptions` to `radar`, we can create a radar chart. It is necessary to set the `label` and `max` fields in the data to specify the vertices of the radar chart and the maximum value, respectively.
+By setting the `componentType` in `chartOptions` to `radar`, a radar chart can be created, and the `max` field within the `radar` options can be set to specify the maximum value for each vertex.
 
 ```
 <template>
@@ -1938,6 +1955,9 @@ const options = {
   },
   chartOptions: {
     componentType: "radar",
+    radar: {
+      max: "max"
+    }
   },
 };
 </script>
