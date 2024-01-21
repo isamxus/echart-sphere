@@ -4,6 +4,7 @@ const { VueLoaderPlugin } = require("vue-loader");
 // karma.conf.js
 module.exports = function (config) {
   config.set({
+    singleRun: true,
     frameworks: ["mocha", "chai", "webpack"],
     files: [
       // 所有的测试文件的路径
