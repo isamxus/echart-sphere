@@ -19,6 +19,8 @@
 
 # Introduction to Echart Sphere
 
+[![codecov](https://codecov.io/gh/isamxus/echart-sphere/graph/badge.svg?token=VA785T0R54)](https://codecov.io/gh/isamxus/echart-sphere)
+
 - echart-sphere is a highly customizable and flexible chart component library that now supports Vue 2, Vue 3, and ECharts. It allows developers to quickly create and customize a variety of charts by passing `dataOptions`, `chartOptions`, and `styleOptions`. This library is designed to provide a simple way to integrate and extend ECharts, making it effortless to create interactive and responsive charts.
 
 ## Features

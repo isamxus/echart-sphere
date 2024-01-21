@@ -19,6 +19,7 @@
 
 # Echart Sphere 介绍
 
+[![codecov](https://codecov.io/gh/isamxus/echart-sphere/graph/badge.svg?token=VA785T0R54)](https://codecov.io/gh/isamxus/echart-sphere)
 选择阅读语言版本 / Choose your reading language:
 
 - [中文版](README.md)
