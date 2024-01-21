@@ -80,7 +80,7 @@ export default function useBuildChart(props: RenderPropOptions) {
 
   // 初始化echart
   function initChart(dom: HTMLElement, isRender?: boolean) {
-    if (echartInstance) return;
+    if (echartInstance) echartInstance.dispose();
     echartInstance = echarts.init(dom);
     chartResizeSet.add(echartInstance);
   }

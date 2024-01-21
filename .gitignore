@@ -3,3 +3,5 @@ node_modules
 .npmignore
 example_v2
 .npmignore
+coverage
+karma.conf

@@ -123,8 +123,8 @@ export const extendOptions = {
             },
             watch: {
               dataOptions: {
-                handler() {
-                  this.render();
+                handler(value) {
+                  value && this.render();
                 },
                 deep: true,
               },
@@ -223,8 +223,8 @@ export const extendOptions = {
           }
           watch(
             () => props.dataOptions,
-            () => {
-              render();
+            (value) => {
+              value && render();
             },
             { deep: true }
           );

@@ -3,8 +3,18 @@ import { RenderPropOptions } from "./propOptionModel";
 
 // echart扩展函数类型
 export interface ChartExtendFn {
-  (props: RenderPropOptions, chartContext: ChartContextType): void | echarts.EChartsCoreOption;
+  (
+    props: RenderPropOptions,
+    chartContext: ChartContextType
+  ): void | echarts.EChartsCoreOption;
 }
 
 // echart扩展上下文
 export type ChartContextType = ReturnType<typeof useBuildChart>;
+
+export type ParentChildPieChartClickContext = {
+  treeData: any[];
+  idKey: string;
+  props: RenderPropOptions;
+  renderChart: () => void;
+};

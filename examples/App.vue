@@ -7,10 +7,12 @@
 const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
-    dataItems: [
+/*     dataItems: [
       { name: "雷达图1", labelX: "label", labelY: "value"},
       { name: "雷达图2", labelX: "label", labelY: "value1"}
-    ],
+    ], */
+    labelX: "label",
+    labelY: "value",
     data: [
       { id: "01", label: "radar 1", value: getValue(), value1: getValue(), max: 10000 },
       { id: "02", label: "radar 2", value: getValue(), value1: getValue(), max: 10000 },
@@ -20,12 +22,12 @@ const options = {
       { id: "06", label: "radar 6", value: getValue(), value1: getValue(), max: 10000 }
     ],
   },
-  chartOptions: {
+  /* chartOptions: {
     componentType: "radar",
     radar: {
       max: 'max'
     }
-  }
+  } */
 };
 </script>
 <style lang="css">
