@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import { defineComponent, nextTick, ref } from "vue";
+import { defineComponent, ref } from "vue";
 import EchartSphere from "../../src";
 import { expect } from "chai";
 import sinon from "sinon";

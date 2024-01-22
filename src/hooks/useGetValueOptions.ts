@@ -7,7 +7,7 @@ export function getBarValueOptions(styles?: Partial<StyleOptionsType>) {
   if (!styles) return {};
   return {
     itemStyle: {
-      color: styles.barColor,
+      color: styles?.barColor,
       borderColor: styles?.barBorderColor,
       borderWidth: styles?.barBorderWidth,
       borderType: styles?.barBorderType

@@ -1,7 +1,7 @@
 // Vue版本
 export const enum VueVersionEnum {
-  VUE_2,
-  VUE_3,
+  VUE_2 = "2.x",
+  VUE_3 = "3.x",
 }
 
 export const vueConfig = {
