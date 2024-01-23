@@ -1,8 +1,8 @@
 import { isNumber as _isNumber, commafy, toNumber } from "xe-utils";
 import { DataFormatType } from "../constants/dataFormatConfig";
 import { CurrencyFormatOption } from "../models/dataFormatModel";
-import globalConfig from "@/constants/globalConfig";
-import { RenderPropOptions } from "@/models/propOptionModel";
+import globalConfig from "../constants/globalConfig";
+import { RenderPropOptions } from "../models/propOptionModel";
 
 // 货币格式化默认配置
 export const DEFAULT_NUMBER_FORMAT_OPTIONS = {
