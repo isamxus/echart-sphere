@@ -26,6 +26,7 @@ import { buildNormalMapSeries } from "../strategy/mapStrategy/useMapSeries";
 import { buildMapVisualMap } from "../strategy/mapStrategy/useVisualMap";
 import { buildMapTooltip } from "../strategy/mapStrategy/useMapTooltip";
 import { buildNormalCandleStickSeries } from "../strategy/candlestickStrategy/useCandlestickSeries";
+import { buildNormalGaugeSeries } from "../strategy/gaugeStragety/useGaugeSeries";
 
 export const chartComponentMap = new Map<string, any>([]);
 
@@ -89,6 +90,7 @@ export const enum SeriesTypeEnum {
   RADAR = "radar",
   MAP = "map",
   CANDLESTICK = "candlestick",
+  GAUGE = "gauge"
 }
 export const seriesTypeToStrategyMap = new Map<string, any>([
   [SeriesTypeEnum.NORMAL, buildNormalSeries],
@@ -99,6 +101,7 @@ export const seriesTypeToStrategyMap = new Map<string, any>([
   [SeriesTypeEnum.RADAR, buildNormalRadarSeries],
   [SeriesTypeEnum.MAP, buildNormalMapSeries],
   [SeriesTypeEnum.CANDLESTICK, buildNormalCandleStickSeries],
+  [SeriesTypeEnum.GAUGE, buildNormalGaugeSeries],
 ]);
 
 // series类型枚举&映射

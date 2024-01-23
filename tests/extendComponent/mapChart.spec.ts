@@ -121,4 +121,5 @@ describe("mapChart.ts", () => {
     ).to.be.true;
     consoleWarnSpy.restore();
   });
+
 });

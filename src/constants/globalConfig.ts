@@ -234,6 +234,9 @@ export const treeConfig = {
   parentKey: "parentId",
 };
 
+// 仪表盘图表配置
+export const gaugeConfig = {}
+
 export default {
   ...barConfig,
   ...hightlightConfig,
@@ -249,5 +252,6 @@ export default {
   ...pieConfig,
   ...mapConfig,
   ...legendRichConfig,
-  ...candlestickConfig
+  ...candlestickConfig,
+  ...gaugeConfig
 };

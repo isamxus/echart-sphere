@@ -16,6 +16,7 @@
   - [雷达图](#雷达图)
   - [地图](#地图)
   - [K 线图](#k-线图)
+  - [仪表盘](#仪表盘)
 
 # Echart Sphere 介绍
 
@@ -1929,3 +1930,35 @@ const options = ref({
 ```
 
 ![基础K线图](https://github.com/isamxus/echart-sphere-assets/blob/13a3074ca475f61c4a542e7343dc96bb3ce7c234/assets/candlestick/%E5%9F%BA%E7%A1%80K%E7%BA%BF%E5%9B%BE.png)
+
+## 仪表盘
+
+### 通过设置`chartType`为`gauge`，可以创建基础仪表盘
+
+```
+<template>
+  <div class="echart-sphere-wrapper">
+    <normal-chart v-bind="options" />
+  </div>
+</template>
+<script lang="ts" setup>
+const getValue = () => Math.floor(Math.random() * 100);
+const options = {
+  dataOptions: {
+    dataItems: [{ name: "仪表盘", labelX: "label", labelY: "value" }],
+    data: [{ id: "01", label: "gauge 1", value: getValue() }],
+  },
+  chartOptions: {
+    chartType: "gauge",
+  },
+};
+</script>
+<style lang="css">
+.echart-sphere-wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+```
+![基础仪表盘](https://github.com/isamxus/echart-sphere-assets/blob/45ea2eb6ea74234ebd3327b92a9686a5362aa28e/assets/gauge/%E5%9F%BA%E7%A1%80%E4%BB%AA%E8%A1%A8%E7%9B%98.png)

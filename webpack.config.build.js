@@ -11,6 +11,14 @@ const commonConfig = {
     extensions: [".ts", ".js", ".vue", ".json"],
     alias: {
       vue: "@vue/runtime-dom",
+      "@": path.resolve(__dirname, "src/"),
+      "@utils": path.resolve(__dirname, "src/utils"),
+      "@strategy": path.resolve(__dirname, "src/strategy"),
+      "@models": path.resolve(__dirname, "src/models"),
+      "@properties": path.resolve(__dirname, "src/properties"),
+      "@hooks": path.resolve(__dirname, "src/hooks"),
+      "@extendComponent": path.resolve(__dirname, "src/extendComponent"),
+      "@constants": path.resolve(__dirname, "src/constants"),
     },
   },
   optimization: {

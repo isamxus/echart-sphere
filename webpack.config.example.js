@@ -37,8 +37,8 @@ module.exports = {
       template: "./examples/index.html",
     }),
     new webpack.DefinePlugin({
-      __DEV__: JSON.stringify(true)
-    })
+      __DEV__: JSON.stringify(true),
+    }),
   ],
   devServer: {
     static: "./dist",
@@ -47,6 +47,14 @@ module.exports = {
   resolve: {
     alias: {
       vue: "@vue/runtime-dom",
+      "@": path.resolve(__dirname, "src/"),
+      "@utils": path.resolve(__dirname, "src/utils"),
+      "@strategy": path.resolve(__dirname, "src/strategy"),
+      "@models": path.resolve(__dirname, "src/models"),
+      "@properties": path.resolve(__dirname, "src/properties"),
+      "@hooks": path.resolve(__dirname, "src/hooks"),
+      "@extendComponent": path.resolve(__dirname, "src/extendComponent"),
+      "@constants": path.resolve(__dirname, "src/constants"),
     },
     extensions: [".ts", ".js", ".vue", ".json"],
   },

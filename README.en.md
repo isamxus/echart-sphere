@@ -16,6 +16,7 @@
   - [Radar Charts](#radar-charts)
   - [Maps](#maps)
   - [Candlestick Chart](#candlestick-chart)
+  - [Dashboard](#dashboard)
 
 # Introduction to Echart Sphere
 
@@ -2098,3 +2099,36 @@ const options = ref({
 ```
 
 ![Basic Candlestick Chart](https://github.com/isamxus/echart-sphere-assets/blob/13a3074ca475f61c4a542e7343dc96bb3ce7c234/assets/candlestick/%E5%9F%BA%E7%A1%80K%E7%BA%BF%E5%9B%BE.png)
+
+## Dashboard
+
+### By setting `chartType` to `gauge`, you can create a basic dashboard gauge
+
+```
+<template>
+  <div class="echart-sphere-wrapper">
+    <normal-chart v-bind="options" />
+  </div>
+</template>
+<script lang="ts" setup>
+const getValue = () => Math.floor(Math.random() * 100);
+const options = {
+  dataOptions: {
+    dataItems: [{ name: "Dashboard", labelX: "label", labelY: "value" }],
+    data: [{ id: "01", label: "gauge 1", value: getValue() }],
+  },
+  chartOptions: {
+    chartType: "gauge",
+  },
+};
+</script>
+<style lang="css">
+.echart-sphere-wrapper {
+  width: 600px;
+  height: 400px;
+  background-color: aliceblue;
+}
+</style>
+```
+
+![Basic Dashboard Gauge](https://github.com/isamxus/echart-sphere-assets/blob/45ea2eb6ea74234ebd3327b92a9686a5362aa28e/assets/gauge/%E5%9F%BA%E7%A1%80%E4%BB%AA%E8%A1%A8%E7%9B%98.png)

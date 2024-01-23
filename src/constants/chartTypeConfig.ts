@@ -9,6 +9,7 @@ import {
   XAxisTypeEnum,
   YAxisTypeEnum,
 } from "./chartStrageConfig";
+import { normalGaugeChartTypeConfig } from "./gaugeChartTypeConfig";
 import {
   normalPieChartTypeConfig,
   pieWithDetailChartTypeConfig,
@@ -18,6 +19,7 @@ export const enum ChartTypeEnum {
   PIE = "pie",
   DETAIL_PIE = "detail-ple",
   CANDLESTICK = "candlestick",
+  GAUGE = "gauge",
 }
 
 // 默认图表组件策略配置
@@ -36,4 +38,5 @@ export const chartTypeConfigMap = new Map<string, StrategyOptions>([
   [ChartTypeEnum.PIE, normalPieChartTypeConfig],
   [ChartTypeEnum.DETAIL_PIE, pieWithDetailChartTypeConfig],
   [ChartTypeEnum.CANDLESTICK, normalCandlestickChartTypeConfig],
+  [ChartTypeEnum.GAUGE, normalGaugeChartTypeConfig],
 ]);
