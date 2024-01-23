@@ -7,10 +7,8 @@ export default function radarComponent(
   chartContext: ChartContextType
 ) {
   const { data } = props.dataOptions;
-  console.log(props.chartOptions, "props.dataOptions")
   const { radar = {} } = props.chartOptions || {};
-  const { max = "maxf" } = radar;
-  console.log(radar)
+  const { max = "max" } = radar;
   const { setStrategyType, getOption } = chartContext;
   setStrategyType({
     legendType: LegendTypeEnum.NORMAL,

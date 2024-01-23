@@ -29,7 +29,7 @@ export function getNormalBarOptions(
   item?: DataItemWithStyleOptions
 ) {
   const getPropertie = getPropertieMethod(props, item);
-  const isHightlight = item.isHightlight || false;
+  const isHightlight = item?.isHightlight || false;
   const option = {
     barWidth: getPropertie("barWidth"),
     barGap: getPropertie("barGap"),

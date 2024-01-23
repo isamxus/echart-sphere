@@ -1,6 +1,8 @@
 import { isNumber as _isNumber, commafy, toNumber } from "xe-utils";
 import { DataFormatType } from "../constants/dataFormatConfig";
 import { CurrencyFormatOption } from "../models/dataFormatModel";
+import globalConfig from "@/constants/globalConfig";
+import { RenderPropOptions } from "@/models/propOptionModel";
 
 // 货币格式化默认配置
 export const DEFAULT_NUMBER_FORMAT_OPTIONS = {
@@ -150,4 +152,59 @@ export function getIndexFormatStringByUnitType(
     return `${formatString}%`;
   }
   return formatString;
+}
+
+
+// 处理计量单位
+export function handleMeasure(props: RenderPropOptions) {
+  const {
+    data = [],
+    dataItems = [],
+    labelY = globalConfig.yAxisField,
+    measureType = DataFormatType.BILLION,
+    isNegative = false,
+    isFormatter = false,
+    formatter,
+  } = props.dataOptions;
+  if (!isFormatter) return;
+  const tranFieldsMap = new Map<
+    string,
+    {
+      measureType: string;
+      isNegative: boolean;
+      formatter: ((value: any) => any) | undefined;
+    }
+  >();
+
+  if (dataItems.length) {
+    dataItems.forEach((item) => {
+      item.labelY &&
+        tranFieldsMap.set(item.labelY, {
+          measureType: item.measureType || measureType,
+          isNegative: item.isNegative || isNegative,
+          formatter: item.formatter || formatter,
+        });
+    });
+    data.forEach((item) => {
+      [...tranFieldsMap.entries()].forEach((fieldItem) => {
+        const field = fieldItem[0];
+        const formatItem = fieldItem[1];
+        if (formatItem.formatter)
+          return (item[field] = formatItem.formatter(item[field]));
+        let value = Number.parseFloat(item[field]);
+        if (formatItem.isNegative) value = -value;
+        item[field] = getIndexConvertValueByUnitType(
+          value,
+          formatItem.measureType
+        );
+      });
+    });
+    return;
+  }
+  data.forEach((item) => {
+    let value = Number.parseFloat(item[labelY]);
+    if (formatter) return (item[labelY] = formatter(item[labelY]));
+    if (isNegative) value = -value;
+    item[labelY] = getIndexConvertValueByUnitType(value, measureType);
+  });
 }

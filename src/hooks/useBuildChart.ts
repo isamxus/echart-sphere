@@ -1,10 +1,8 @@
 import { RenderPropOptions } from "../models/propOptionModel";
 import { deepCopy } from "../utils/dataUtils";
 import { chartResizeSet } from "../constants/chartEventConfig";
-import { DataFormatType } from "../constants/dataFormatConfig";
 import { StrategyOptions } from "../models/buildChartModel";
-import { getIndexConvertValueByUnitType } from "./useMeasureType";
-import globalConfig from "../constants/globalConfig";
+import { handleMeasure } from "./useMeasureType";
 import * as echarts from "echarts";
 import useFlexible from "./useFlexible";
 import {
@@ -17,58 +15,6 @@ import {
   getXAxisStrategy,
   getYAxisStrategy,
 } from "./useGetStrategy";
-// 处理计量单位
-function handleMeasure(props: RenderPropOptions) {
-  const {
-    data = [],
-    dataItems = [],
-    labelY = globalConfig.yAxisField,
-    measureType = DataFormatType.BILLION,
-    isNegative = false,
-    isFormatter = false,
-    formatter,
-  } = props.dataOptions;
-  if (!isFormatter) return;
-  const tranFieldsMap = new Map<
-    string,
-    {
-      measureType: string;
-      isNegative: boolean;
-      formatter: ((value: any) => any) | undefined;
-    }
-  >();
-
-  if (dataItems.length) {
-    dataItems.forEach((item) => {
-      item.labelY &&
-        tranFieldsMap.set(item.labelY, {
-          measureType: item.measureType || measureType,
-          isNegative: item.isNegative || isNegative,
-          formatter: item.formatter || formatter,
-        });
-    });
-    data.forEach((item) => {
-      [...tranFieldsMap.entries()].forEach((fieldItem) => {
-        const field = fieldItem[0];
-        const formatItem = fieldItem[1];
-        if (formatItem.formatter)
-          return (item[field] = formatItem.formatter(item[field]));
-        let value = Number.parseFloat(item[field]);
-        if (formatItem.isNegative) value = -value;
-        item[field] = getIndexConvertValueByUnitType(
-          value,
-          formatItem.measureType
-        );
-      });
-    });
-    return;
-  }
-  data.forEach((item) => {
-    let value = Number.parseFloat(item[labelY]);
-    if (isNegative) value = -value;
-    item[labelY] = getIndexConvertValueByUnitType(value, measureType);
-  });
-}
 
 export default function useBuildChart(props: RenderPropOptions) {
   // echart实例
