@@ -154,6 +154,84 @@ setConfig({
 ##### `barColor`
 
 - Type: `string`
+- Default: `'#737373'` // Grey
+- Description: Sets the color of the bar.
+
+##### `barBorderType`
+
+- Type: `string`
+- Default: `'solid'`
+- Description: Sets the style of the bar's border.
+
+##### `barBorderColor`
+
+- Type: `string`
+- Default: `'#D1D1D1'` // Light grey
+- Description: Sets the color of the bar's border.
+
+##### `barBorderWidth`
+
+- Type: `number`
+- Default: `1`
+- Description: Sets the width of the bar's border.
+
+##### `barGap`
+
+- Type: `string`
+- Default: `'20%'`
+- Description: Sets the gap between bars within the same category.
+
+##### `barSymbol`
+
+- Type: `string`
+- Default: `'rect'`
+- Description: Sets the shape type for PictorialBar. The default is `'rect'`, which means a rectangle is used.
+
+##### `barSymbolRepeat`
+
+- Type: `string`
+- Default: `'fixed'`
+- Description: Sets whether the shape repeats along the length of the bar. `'fixed'` means no repeat, and the shape will be stretched.
+
+##### `barSymbolMargin`
+
+- Type: `number`
+- Default: `2`
+- Description: Sets the margin between shapes when they are repeated.
+
+##### `barSymbolOffset`
+
+- Type: `Array<number>`
+- Default: `[0, 0]`
+- Description: Sets the offset position of the shape within the bar. The two elements of the array correspond to the horizontal and vertical offsets, respectively.
+
+##### `barSymbolSize`
+
+- Type: `Array<number>`
+- Default: `[20, 6]`
+- Description: Sets the size of the shape. The two elements of the array correspond to the width and height, respectively.
+
+##### `barSymbolPosition`
+
+- Type: `string`
+- Default: `'start'`
+- Description: Sets the position of the shape relative to the bar. `'start'` means the shape is positioned at the beginning of the bar.
+
+##### `barSymbolClip`
+
+- Type: `boolean`
+- Default: `true`
+- Description: Determines whether to clip the part of the graphic that exceeds the bar area.
+
+##### `barWidth`
+
+- Type: `number`
+- Default: `20`
+- Description: Sets the width of the bar.
+
+##### `barColor`
+
+- Type: `string`
 - Default: `'rgba(132, 212, 232, 1)'`
 - Description: Sets the color of the bar.
 
@@ -224,6 +302,30 @@ setConfig({
 - Description: Determines whether to clip the part of the graphic that exceeds the bar area.
 
 #### Line Chart Configuration
+
+##### `lineColor`
+
+- Type: `string`
+- Default: `"#737373"` // Grey
+- Description: Sets the color of the line.
+
+##### `lineSmooth`
+
+- Type: `boolean`
+- Default: `false`
+- Description: Determines whether the line is displayed as smooth or straight. `true` for a smooth curve, `false` for straight line connections.
+
+##### `lineType`
+
+- Type: `string`
+- Default: `'solid'`
+- Description: Sets the style of the line, with options including `'solid'` (solid line), `'dashed'` (dashed line), or `'dotted'` (dotted line).
+
+##### `showSymbol`
+
+- Type: `boolean`
+- Default: `false`
+- Description: Determines whether to display the data points on the line chart.
 
 ##### `lineColor`
 
@@ -479,67 +581,67 @@ setConfig({
 
 - Type: `boolean`
 - Default: `true`
-- Description: Determines whether to display the Tooltip.
+- Description: Determines whether to display the tooltip.
 
 ##### `isTooltipConfine`
 
 - Type: `boolean`
 - Default: `true`
-- Description: Determines whether the Tooltip is confined within the chart area.
+- Description: Determines whether the tooltip is confined within the chart area.
 
 ##### `tooltipBgColor`
 
 - Type: `string`
-- Default: `"rgba(50,50,50,0.7)"`
-- Description: Sets the background color of the Tooltip.
+- Default: `"#737373"` // Grey
+- Description: Sets the background color of the tooltip.
 
 ##### `tooltipTextColor`
 
 - Type: `string`
 - Default: `"#fff"`
-- Description: Sets the color of the Tooltip text.
+- Description: Sets the color of the tooltip text.
 
 ##### `tooltipTextSize`
 
 - Type: `number`
 - Default: `10`
-- Description: Sets the font size of the Tooltip text.
+- Description: Sets the font size of the tooltip text.
 
 ##### `tooltipBorderColor`
 
 - Type: `string`
-- Default: `"rgba(50,50,50,0)"`
-- Description: Sets the border color of the Tooltip.
+- Default: `"#D1D1D1"` // Light grey
+- Description: Sets the border color of the tooltip.
 
 ##### `tooltipPadding`
 
 - Type: `number`
 - Default: `5`
-- Description: Sets the padding inside the Tooltip.
+- Description: Sets the padding inside the tooltip.
 
 ##### `tooltipTriggerType`
 
 - Type: `string`
 - Default: `"axis"`
-- Description: Sets the trigger type for the Tooltip. `"axis"` means that the Tooltip is triggered by the coordinate axis.
+- Description: Sets the trigger type for the tooltip. `"axis"` means that the tooltip is triggered by the coordinate axis.
 
 ##### `tooltipAxisPointer`
 
 - Type: `string`
 - Default: `"shadow"`
-- Description: Sets the type of axis pointer for the Tooltip. `"shadow"` indicates a shadow indicator.
+- Description: Sets the type of axis pointer for the tooltip. `"shadow"` indicates a shadow indicator.
 
 ##### `tooltipShadowColor`
 
 - Type: `string`
-- Default: `"rgba(153, 153, 153, 0.4)"`
-- Description: Sets the color of the shadow indicator for the Tooltip.
+- Default: `"rgba(0, 0, 0, 0.2)"` // Black shadow with lower opacity
+- Description: Sets the color of the shadow indicator for the tooltip.
 
 ##### `tooltipFormatter`
 
 - Type: `Function`
 - Default: `null`
-- Description: Custom formatter function for the Tooltip.
+- Description: Custom formatter function for the tooltip.
 
 #### X-Axis Configuration
 
@@ -668,19 +770,19 @@ setConfig({
 ##### `colorHl`
 
 - Type: `string`
-- Default: `"auto"`
+- Default: `"#737373"` // Grey
 - Description: Sets the color when highlighted.
 
 ##### `borderColorHl`
 
 - Type: `string`
-- Default: `"#000"`
+- Default: `"#D1D1D1"` // Light grey
 - Description: Sets the border color when highlighted.
 
 ##### `borderWidthHl`
 
 - Type: `number`
-- Default: `0`
+- Default: `1`
 - Description: Sets the border width when highlighted.
 
 ##### `borderTypeHl`
@@ -692,19 +794,19 @@ setConfig({
 ##### `borderRadiusHl`
 
 - Type: `number`
-- Default: `0`
+- Default: `2`
 - Description: Sets the border radius size when highlighted.
 
 ##### `shadowBlurHl`
 
 - Type: `number`
-- Default: `10`
+- Default: `5`
 - Description: Sets the shadow blur size when highlighted.
 
 ##### `shadowColorHl`
 
 - Type: `string`
-- Default: `"auto"`
+- Default: `"rgba(0, 0, 0, 0.2)"` // Black shadow with lower opacity
 - Description: Sets the shadow color when highlighted.
 
 ##### `shadowOffsetXHl`
@@ -716,13 +818,13 @@ setConfig({
 ##### `shadowOffsetYHl`
 
 - Type: `number`
-- Default: `0`
+- Default: `2`
 - Description: Sets the shadow offset on the Y-axis when highlighted.
 
 ##### `opacityHl`
 
 - Type: `number`
-- Default: `1`
+- Default: `0.9`
 - Description: Sets the opacity when highlighted.
 
 ## Props Description
@@ -1167,7 +1269,7 @@ const options = {
 </style>
 ```
 
-![Basic Bar Chart](https://github.com/isamxus/echart-sphere-assets/blob/0b448c8f4eb646c04e49c5b1d189e153726541d9/assets/bar/normalBar.png)
+![Basic Bar Chart](https://github.com/isamxus/echart-sphere-assets/blob/a9d5b5d3d17cbc44936fb5c23dee8384d72f590f/assets/bar/%E5%9F%BA%E7%A1%80%E6%9F%B1%E7%8A%B6%E5%9B%BE.png)
 
 ### Stacked Bar Chart
 
@@ -1184,59 +1286,20 @@ const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
     dataItems: [
-      {
-        name: "Stacked Chart 1",
-        labelX: "label",
-        labelY: "value",
-        barColor: "red",
-      },
-      {
-        name: "Stacked Chart 2",
-        labelX: "label",
-        labelY: "value1",
-        barcolor: "blue",
-      },
-      {
-        name: "Stacked Chart 3",
-        labelX: "label",
-        labelY: "value2",
-        barColor: "yellow",
-      },
+      { name: "StackChart 1", labelX: "label", labelY: "value", barColor: "#737373" },
+      { name: "StackChart 2", labelX: "label", labelY: "value1", barColor: "#D1D1D1" },
+      { name: "StackChart 3", labelX: "label", labelY: "value2", barColor: "#A9A9A9" },
     ],
     data: [
-      {
-        id: "01",
-        label: "Parent 1",
-        value: getValue(),
-        value1: getValue(),
-        value2: getValue(),
-      },
-      {
-        id: "02",
-        label: "Parent 2",
-        value: getValue(),
-        value1: getValue(),
-        value2: getValue(),
-      },
-      {
-        id: "03",
-        label: "Parent 3",
-        value: getValue(),
-        value1: getValue(),
-        value2: getValue(),
-      },
-      {
-        id: "04",
-        label: "Parent 4",
-        value: getValue(),
-        value1: getValue(),
-        value2: getValue(),
-      },
+      { id: "01", label: "Parent 1", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "02", label: "Parent 2", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "03", label: "Parent 3", value: getValue(), value1: getValue(), value2: getValue() },
+      { id: "04", label: "Parent 4", value: getValue(), value1: getValue(), value2: getValue() }
     ],
   },
   chartOptions: {
-    stack: "stack",
-  },
+    stack: "stack"
+  }
 };
 </script>
 <style lang="css">
@@ -1248,7 +1311,7 @@ const options = {
 </style>
 ```
 
-![Stacked Bar Chart](https://github.com/isamxus/echart-sphere-assets/blob/c05d3b7b67d2c1cd9b6a483d05e03644d6803bcc/assets/bar/%E5%A0%86%E5%8F%A0%E6%9F%B1%E5%9B%BE.png)
+![Stacked Bar Chart](https://github.com/isamxus/echart-sphere-assets/blob/43cc453b95769833c7a31dfe820c92db15b3f069/assets/bar/%E5%A0%86%E5%8F%A0%E6%9F%B1%E5%9B%BE.png)
 
 ### Overlapping Bar Chart
 
@@ -1265,24 +1328,9 @@ const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
     dataItems: [
-      {
-        name: "Overlap Chart 1",
-        labelX: "label",
-        labelY: "value",
-        barColor: "red",
-      },
-      {
-        name: "Overlap Chart 2",
-        labelX: "label",
-        labelY: "value1",
-        barcolor: "blue",
-      },
-      {
-        name: "Overlap Chart 3",
-        labelX: "label",
-        labelY: "value2",
-        barColor: "yellow",
-      },
+      { name: "Overlap Chart 1", labelX: "label", labelY: "value", barColor: "#737373" },
+      { name: "Overlap Chart 2", labelX: "label", labelY: "value1", barColor: "#D1D1D1"},
+      { name: "Overlap Chart 3", labelX: "label", labelY: "value2", barColor: "#A9A9A9" }
     ],
     data: [
       {
@@ -1330,7 +1378,7 @@ const options = {
 
 ```
 
-![Overlapping Bar Chart](https://github.com/isamxus/echart-sphere-assets/blob/5548caf0e7eb218208d748182746a1a06a03886f/assets/bar/%E9%87%8D%E5%8F%A0%E6%9F%B1%E5%9B%BE.png)
+![Overlapping Bar Chart](https://github.com/isamxus/echart-sphere-assets/blob/dfd651820ae3ca5b64e24c0e57a2eee462a387bb/assets/bar/%E9%87%8D%E5%8F%A0%E6%9F%B1%E5%9B%BE.png)
 
 ## Line Chart Examples
 
@@ -1372,7 +1420,7 @@ const options = {
 
 ```
 
-![Basic Line Chart](https://github.com/isamxus/echart-sphere-assets/blob/0b448c8f4eb646c04e49c5b1d189e153726541d9/assets/line/normalLine.png)
+![Basic Line Chart](https://github.com/isamxus/echart-sphere-assets/blob/64d02fa633b6d47785a1a62af5d4feb4a2809253/assets/line/%E5%9F%BA%E7%A1%80%E6%8A%98%E7%BA%BF%E5%9B%BE.png)
 
 ## Multi-Series Types
 
@@ -1387,19 +1435,20 @@ By setting the `dataItems` property and specifying the `name`, `labelX`, `labelY
   </div>
 </template>
 <script lang="ts" setup>
+const getValue = () => Math.random() * 10000;
 const options = {
   dataOptions: {
     dataItems: [
-      { name: "Test", labelX: "label", labelY: "value", itemType: "bar" },
-      { name: "Test", labelX: "label", labelY: "value1", itemType: "line" },
+      { name: "Bar Line Mixin 1", labelX: "label", labelY: "value", itemType: "bar" },
+      { name: "Bar Line Mixin 2", labelX: "label", labelY: "value1", itemType: "line", lineColor: "#A9A9A9" },
     ],
     data: [
-      { label: "01", value: 23324, value1: Math.floor(Math.random() * 10000) },
-      { label: "02", value: 23123, value1: Math.floor(Math.random() * 10000) },
-      { label: "03", value: 43431, value1: Math.floor(Math.random() * 10000) },
-      { label: "04", value: 13421, value1: Math.floor(Math.random() * 10000) },
-      { label: "05", value: 55232, value1: Math.floor(Math.random() * 10000) },
-      { label: "06", value: 31234, value1: Math.floor(Math.random() * 10000) },
+      { label: "01", value: getValue(), value1: getValue() },
+      { label: "02", value: getValue(), value1: getValue() },
+      { label: "03", value: getValue(), value1: getValue() },
+      { label: "04", value: getValue(), value1: getValue() },
+      { label: "05", value: getValue(), value1: getValue() },
+      { label: "06", value: getValue(), value1: getValue() },
     ],
   },
 };
@@ -1411,10 +1460,9 @@ const options = {
   background-color: aliceblue;
 }
 </style>
-
 ```
 
-![Bar-Line Mix](https://github.com/isamxus/echart-sphere-assets/blob/4ca5222ed41f2fd13d245039ede7b12d0de88c30/assets/multi-series/bar-line-mixin.png)
+![Bar-Line Mix](https://github.com/isamxus/echart-sphere-assets/blob/c82f8e5e4abddbf3f8f1f4ae5adf294a8df0cea1/assets/multi-series/%E6%9F%B1%E7%BA%BF%E6%B7%B7%E5%90%88.png)
 
 ### Bar-Line Mix (Custom Styles)
 
@@ -1486,11 +1534,11 @@ const options = {
 
 ```
 
-![Bar-Line Mix-Custom Styles](https://github.com/isamxus/echart-sphere-assets/blob/d6b983f8c414782edb788aeb20bdc1ab3c843635/assets/multi-series/%E6%9F%B1%E7%BA%BF%E6%B7%B7%E5%90%88-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F.png)
+![Bar-Line Mix-Custom Styles](https://github.com/isamxus/echart-sphere-assets/blob/61cf3dd6ed50ad6c22667b2037baa2cec681746e/assets/multi-series/%E6%9F%B1%E7%BA%BF%E6%B7%B7%E5%90%88-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F.png)
 
 ## Trend Charts
 
-### Columnar Trend Chart
+### Normal Trend Chart
 
 By setting the `seriesType` to 'trend' and configuring the `split` option in `chartOptions`, we can create a columnar trend chart. In the `split` option, setting `splitX` to 2 means that the X-axis is divided into two parts with the second label as the midpoint, and setting `trend` to "pictorial" indicates that the trend is displayed in a pictorial manner.
 
@@ -1504,7 +1552,7 @@ By setting the `seriesType` to 'trend' and configuring the `split` option in `ch
 const options = {
   dataOptions: {
     dataItems: [
-      { name: "Test", labelX: "label", labelY: "value", itemType: "bar" },
+      { name: "Trend Chart", labelX: "label", labelY: "value", itemType: "bar" },
     ],
     data: [
       { label: "01", value: 23324, value1: Math.floor(Math.random() * 10000) },
@@ -1534,7 +1582,7 @@ const options = {
 
 ```
 
-![Columnar Trend Chart](https://github.com/isamxus/echart-sphere-assets/blob/dd86c5cdfcac2d8ba777e0389e22027770d76c0f/assets/trend/normal-trend.png)
+![Normal Trend Chart](https://github.com/isamxus/echart-sphere-assets/blob/cdb0e87b08d1b1d5bfe0ead672cf0fe7bcae5a99/assets/trend/%E5%9F%BA%E7%A1%80%E8%B6%8B%E5%8A%BF%E5%9B%BE.png)
 
 ### Multi-Series Trend Chart
 
@@ -1551,10 +1599,10 @@ const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
     dataItems: [
-      { name: "Test 1", labelX: "label", labelY: "value", barColor: "blue" },
-      { name: "Test 2", labelX: "label", labelY: "value1" },
+      { name: "Trend Chart 1", labelX: "label", labelY: "value", barColor: "blue" },
+      { name: "Trend Chart 2", labelX: "label", labelY: "value1" },
       {
-        name: "Test 3",
+        name: "Trend Chart 3",
         labelX: "label",
         labelY: "value2",
         itemType: "line",
@@ -1622,7 +1670,7 @@ const options = {
 
 ```
 
-![Multi-Series Trend Chart](https://github.com/isamxus/echart-sphere-assets/blob/e534754c8a5a8d4441e7536f5c11f256fa20bbcf/assets/trend/%E5%A4%9A%E7%B3%BB%E5%88%97%E8%B6%8B%E5%8A%BF%E5%9B%BE.png)
+![Multi-Series Trend Chart](https://github.com/isamxus/echart-sphere-assets/blob/ee14d6d320110e3cd6aee8e75ef03dff03e564f9/assets/trend/%E5%A4%9A%E7%B3%BB%E5%88%97%E8%B6%8B%E5%8A%BF%E5%9B%BE1.png)
 
 ## Pie Charts
 
@@ -2041,7 +2089,7 @@ const options = ref({
 
 ```
 
-![Basic Map](https://github.com/isamxus/echart-sphere-assets/blob/61c4a284c8a542f6b0c0df60bef2d021be8fe6a5/assets/map/%E5%9C%B0%E5%9B%BE.png)
+![Basic Map](https://github.com/isamxus/echart-sphere-assets/blob/a4e15bf67fab71639a4d474cd0427bfe079396b0/assets/map/%E5%9C%B0%E5%9B%BE1.png)
 
 ## Candlestick Chart
 

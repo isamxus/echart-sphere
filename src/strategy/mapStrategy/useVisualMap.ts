@@ -8,7 +8,7 @@ export function buildMapVisualMap(props: RenderPropOptions) {
     max: 10000,
     showLabel: true,
     inRange: {
-      color: ["#edfbfb", "#b7d6f3", "#40a9ed", "#3598c1", "#215096"],
+      color: ["#e0e0e0", "#bdbdbd", "#9e9e9e", "#757575", "#616161"], // 从浅灰到深灰的渐变
     },
   } ;
 }

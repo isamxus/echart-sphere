@@ -165,6 +165,8 @@ export interface ChartPropOptions extends ChartPropertiesOptions {
   radar?: RadarOptions;
 }
 
+export type ThemeType = "modern" | "tech" | "nature" | "fashion" | "youth";
+
 export type StyleConfigType = typeof globalConfig & {
   [key: string]: any;
 };

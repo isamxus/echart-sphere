@@ -158,6 +158,84 @@ setConfig({
 ##### `barColor`
 
 - 类型: `string`
+- 默认值: `'#737373'` // 灰色
+- 描述: 设置柱的颜色。
+
+##### `barBorderType`
+
+- 类型: `string`
+- 默认值: `'solid'`
+- 描述: 设置柱边框的样式。
+
+##### `barBorderColor`
+
+- 类型: `string`
+- 默认值: `'#D1D1D1'` // 浅灰色
+- 描述: 设置柱边框的颜色。
+
+##### `barBorderWidth`
+
+- 类型: `number`
+- 默认值: `1`
+- 描述: 设置柱边框的宽度。
+
+##### `barGap`
+
+- 类型: `string`
+- 默认值: `'20%'`
+- 描述: 设置同一类目中柱间的间隔。
+
+##### `barSymbol`
+
+- 类型: `string`
+- 默认值: `'rect'`
+- 描述: 设置 PictorialBar 的图形类型。默认为 `'rect'`，表示使用矩形。
+
+##### `barSymbolRepeat`
+
+- 类型: `string`
+- 默认值: `'fixed'`
+- 描述: 设置图形是否沿着柱的长度方向重复。`'fixed'` 表示不重复，图形将被拉伸。
+
+##### `barSymbolMargin`
+
+- 类型: `number`
+- 默认值: `2`
+- 描述: 设置图形在重复时的间隔。
+
+##### `barSymbolOffset`
+
+- 类型: `Array<number>`
+- 默认值: `[0, 0]`
+- 描述: 设置图形在柱体中的偏移位置。数组的两个元素分别对应水平和垂直方向的偏移。
+
+##### `barSymbolSize`
+
+- 类型: `Array<number>`
+- 默认值: `[20, 6]`
+- 描述: 设置图形的大小。数组的两个元素分别对应宽度和高度。
+
+##### `barSymbolPosition`
+
+- 类型: `string`
+- 默认值: `'start'`
+- 描述: 设置图形相对于柱体的位置。`'start'` 表示图形位于柱体的起始端。
+
+##### `barSymbolClip`
+
+- 类型: `boolean`
+- 默认值: `true`
+- 描述: 设置是否对超出柱体部分的图形进行裁剪。
+
+##### `barWidth`
+
+- 类型: `number`
+- 默认值: `20`
+- 描述: 设置柱的宽度。
+
+##### `barColor`
+
+- 类型: `string`
 - 默认值: `'rgba(132, 212, 232, 1)'`
 - 描述: 设置柱的颜色。
 
@@ -228,6 +306,30 @@ setConfig({
 - 描述: 设置是否对超出柱体部分的图形进行裁剪。
 
 #### 折线图配置
+
+##### `lineColor`
+
+- 类型: `string`
+- 默认值: `"#737373"` // 灰色
+- 描述: 设置折线的颜色。
+
+##### `lineSmooth`
+
+- 类型: `boolean`
+- 默认值: `false`
+- 描述: 设置折线是否平滑显示。`true` 表示平滑曲线，`false` 表示直线连接。
+
+##### `lineType`
+
+- 类型: `string`
+- 默认值: `'solid'`
+- 描述: 设置折线的样式。可选值为 `'solid'`（实线）, `'dashed'`（虚线）, 或 `'dotted'`（点线）。
+
+##### `showSymbol`
+
+- 类型: `boolean`
+- 默认值: `false`
+- 描述: 设置是否在折线图上显示数据点。
 
 ##### `lineColor`
 
@@ -511,6 +613,72 @@ setConfig({
 
 ##### `tooltipShow`
 
+- 类型: `boolean`
+- 默认值: `true`
+- 描述: 设置是否显示 Tooltip。
+
+##### `isTooltipConfine`
+
+- 类型: `boolean`
+- 默认值: `true`
+- 描述: 设置 Tooltip 是否限制在图表区域内。
+
+##### `tooltipBgColor`
+
+- 类型: `string`
+- 默认值: `"#737373"` // 灰色
+- 描述: 设置 Tooltip 的背景颜色。
+
+##### `tooltipTextColor`
+
+- 类型: `string`
+- 默认值: `"#fff"`
+- 描述: 设置 Tooltip 文本的颜色。
+
+##### `tooltipTextSize`
+
+- 类型: `number`
+- 默认值: `10`
+- 描述: 设置 Tooltip 文本的字体大小。
+
+##### `tooltipBorderColor`
+
+- 类型: `string`
+- 默认值: `"#D1D1D1"` // 浅灰色
+- 描述: 设置 Tooltip 的边框颜色。
+
+##### `tooltipPadding`
+
+- 类型: `number`
+- 默认值: `5`
+- 描述: 设置 Tooltip 的内边距。
+
+##### `tooltipTriggerType`
+
+- 类型: `string`
+- 默认值: `"axis"`
+- 描述: 设置触发 Tooltip 的方式。`"axis"` 表示坐标轴触发。
+
+##### `tooltipAxisPointer`
+
+- 类型: `string`
+- 默认值: `"shadow"`
+- 描述: 设置坐标轴指示器的类型。`"shadow"` 表示阴影指示器。
+
+##### `tooltipShadowColor`
+
+- 类型: `string`
+- 默认值: `"rgba(0, 0, 0, 0.2)"` // 黑色阴影，低透明度
+- 描述: 设置阴影指示器的颜色。
+
+##### `tooltipFormatter`
+
+- 类型: `Function`
+- 默认值: `null`
+- 描述: 自定义 Tooltip 的格式化函数。
+
+##### `tooltipShow`
+
 - 类型: boolean
 - 默认值: true
 - 描述: 设置是否显示 Tooltip。
@@ -703,19 +871,19 @@ setConfig({
 ##### `colorHl`
 
 - 类型: `string`
-- 默认值: `"auto"`
+- 默认值: `"#737373"` // 灰色
 - 描述: 设置高亮时的颜色。
 
 ##### `borderColorHl`
 
 - 类型: `string`
-- 默认值: `"#000"`
+- 默认值: `"#D1D1D1"` // 浅灰色
 - 描述: 设置高亮时的边框颜色。
 
 ##### `borderWidthHl`
 
 - 类型: `number`
-- 默认值: `0`
+- 默认值: `1`
 - 描述: 设置高亮时的边框宽度。
 
 ##### `borderTypeHl`
@@ -727,19 +895,19 @@ setConfig({
 ##### `borderRadiusHl`
 
 - 类型: `number`
-- 默认值: `0`
+- 默认值: `2`
 - 描述: 设置高亮时的边框圆角大小。
 
 ##### `shadowBlurHl`
 
 - 类型: `number`
-- 默认值: `10`
+- 默认值: `5`
 - 描述: 设置高亮时的阴影模糊大小。
 
 ##### `shadowColorHl`
 
 - 类型: `string`
-- 默认值: `"auto"`
+- 默认值: `"rgba(0, 0, 0, 0.2)"` // 黑色的阴影，更低的透明度
 - 描述: 设置高亮时的阴影颜色。
 
 ##### `shadowOffsetXHl`
@@ -751,13 +919,13 @@ setConfig({
 ##### `shadowOffsetYHl`
 
 - 类型: `number`
-- 默认值: `0`
+- 默认值: `2`
 - 描述: 设置高亮时的阴影在 Y 轴的偏移。
 
 ##### `opacityHl`
 
 - 类型: `number`
-- 默认值: `1`
+- 默认值: `0.9`
 - 描述: 设置高亮时的透明度。
 
 ## Props 说明
@@ -1206,7 +1374,7 @@ const options = {
 </style>
 ```
 
-![基础柱状图](https://github.com/isamxus/echart-sphere-assets/blob/0b448c8f4eb646c04e49c5b1d189e153726541d9/assets/bar/normalBar.png)
+![基础柱状图](https://github.com/isamxus/echart-sphere-assets/blob/a9d5b5d3d17cbc44936fb5c23dee8384d72f590f/assets/bar/%E5%9F%BA%E7%A1%80%E6%9F%B1%E7%8A%B6%E5%9B%BE.png)
 
 ### 堆叠柱状图
 
@@ -1223,9 +1391,9 @@ const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
     dataItems: [
-      { name: "堆叠图1", labelX: "label", labelY: "value", barColor: "red" },
-      { name: "堆叠图2", labelX: "label", labelY: "value1", barcolor: "blue"},
-      { name: "堆叠图3", labelX: "label", labelY: "value2", barColor: "yellow" },
+      { name: "堆叠图1", labelX: "label", labelY: "value", barColor: "#737373" },
+      { name: "堆叠图2", labelX: "label", labelY: "value1", barColor: "#D1D1D1" },
+      { name: "堆叠图3", labelX: "label", labelY: "value2", barColor: "#A9A9A9" },
     ],
     data: [
       { id: "01", label: "Parent 1", value: getValue(), value1: getValue(), value2: getValue() },
@@ -1248,7 +1416,7 @@ const options = {
 </style>
 ```
 
-![堆叠柱状图](https://github.com/isamxus/echart-sphere-assets/blob/c05d3b7b67d2c1cd9b6a483d05e03644d6803bcc/assets/bar/%E5%A0%86%E5%8F%A0%E6%9F%B1%E5%9B%BE.png)
+![堆叠柱状图](https://github.com/isamxus/echart-sphere-assets/blob/43cc453b95769833c7a31dfe820c92db15b3f069/assets/bar/%E5%A0%86%E5%8F%A0%E6%9F%B1%E5%9B%BE.png)
 
 ### 重叠柱状图
 
@@ -1265,9 +1433,9 @@ const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
     dataItems: [
-      { name: "重叠图1", labelX: "label", labelY: "value", barColor: "red" },
-      { name: "重叠图2", labelX: "label", labelY: "value1", barcolor: "blue"},
-      { name: "重叠图3", labelX: "label", labelY: "value2", barColor: "yellow" },
+      { name: "重叠图1", labelX: "label", labelY: "value", barColor: "#737373" },
+      { name: "重叠图2", labelX: "label", labelY: "value1", barColor: "#D1D1D1"},
+      { name: "重叠图3", labelX: "label", labelY: "value2", barColor: "#A9A9A9" },
     ],
     data: [
       { id: "01", label: "Parent 1", value: getValue(), value1: getValue(), value2: getValue() },
@@ -1291,7 +1459,7 @@ const options = {
 
 ```
 
-![重叠柱状图](https://github.com/isamxus/echart-sphere-assets/blob/5548caf0e7eb218208d748182746a1a06a03886f/assets/bar/%E9%87%8D%E5%8F%A0%E6%9F%B1%E5%9B%BE.png)
+![重叠柱状图](https://github.com/isamxus/echart-sphere-assets/blob/dfd651820ae3ca5b64e24c0e57a2eee462a387bb/assets/bar/%E9%87%8D%E5%8F%A0%E6%9F%B1%E5%9B%BE.png)
 
 ## 折线图示例
 
@@ -1332,7 +1500,7 @@ const options = {
 </style>
 ```
 
-![基础折线图](https://github.com/isamxus/echart-sphere-assets/blob/0b448c8f4eb646c04e49c5b1d189e153726541d9/assets/line/normalLine.png)
+![基础折线图](https://github.com/isamxus/echart-sphere-assets/blob/64d02fa633b6d47785a1a62af5d4feb4a2809253/assets/line/%E5%9F%BA%E7%A1%80%E6%8A%98%E7%BA%BF%E5%9B%BE.png)
 
 ## 多系列类型
 
@@ -1347,21 +1515,22 @@ const options = {
   </div>
 </template>
 <script lang="ts" setup>
+const getValue = () => Math.random() * 10000;
 const options = {
   dataOptions: {
     dataItems: [
-      { name: "测试",labelX: "label", labelY: "value", itemType: "bar"},
-      { name: "测试",labelX: "label", labelY: "value1", itemType: "line"}
+      { name: "柱线混合1", labelX: "label", labelY: "value", itemType: "bar" },
+      { name: "柱线混合2", labelX: "label", labelY: "value1", itemType: "line", lineColor: "#A9A9A9" },
     ],
     data: [
-      { label: "01", value: 23324, value1: Math.floor(Math.random() * 10000) },
-      { label: "02", value: 23123, value1: Math.floor(Math.random() * 10000) },
-      { label: "03", value: 43431, value1: Math.floor(Math.random() * 10000) },
-      { label: "04", value: 13421, value1: Math.floor(Math.random() * 10000) },
-      { label: "05", value: 55232, value1: Math.floor(Math.random() * 10000) },
-      { label: "06", value: 31234, value1: Math.floor(Math.random() * 10000) },
+      { label: "01", value: getValue(), value1: getValue() },
+      { label: "02", value: getValue(), value1: getValue() },
+      { label: "03", value: getValue(), value1: getValue() },
+      { label: "04", value: getValue(), value1: getValue() },
+      { label: "05", value: getValue(), value1: getValue() },
+      { label: "06", value: getValue(), value1: getValue() },
     ],
-  }
+  },
 };
 </script>
 <style>
@@ -1371,9 +1540,10 @@ const options = {
   background-color: aliceblue;
 }
 </style>
+
 ```
 
-![柱线混合](https://github.com/isamxus/echart-sphere-assets/blob/4ca5222ed41f2fd13d245039ede7b12d0de88c30/assets/multi-series/bar-line-mixin.png)
+![柱线混合](https://github.com/isamxus/echart-sphere-assets/blob/c82f8e5e4abddbf3f8f1f4ae5adf294a8df0cea1/assets/multi-series/%E6%9F%B1%E7%BA%BF%E6%B7%B7%E5%90%88.png)
 
 ### 柱线混合(自定义样式)
 
@@ -1414,11 +1584,11 @@ const options = {
 
 ```
 
-![柱线混合-自定义样式](https://github.com/isamxus/echart-sphere-assets/blob/d6b983f8c414782edb788aeb20bdc1ab3c843635/assets/multi-series/%E6%9F%B1%E7%BA%BF%E6%B7%B7%E5%90%88-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F.png)
+![柱线混合-自定义样式](https://github.com/isamxus/echart-sphere-assets/blob/61cf3dd6ed50ad6c22667b2037baa2cec681746e/assets/multi-series/%E6%9F%B1%E7%BA%BF%E6%B7%B7%E5%90%88-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F.png)
 
 ## 趋势图
 
-### 柱形趋势图
+### 基础趋势图
 
 通过设置 chartOptions 中的 seriesType 为 'trend' 和 split 选项，我们可以创建一个柱形趋势图。在 split 选项中，splitX 设置为 2 表示 X 轴以第二个标签为中点分割成两部分，trend 设置为 "pictorial" 表示使用象形的方式显示趋势
 
@@ -1432,7 +1602,7 @@ const options = {
 const options = {
   dataOptions: {
     dataItems: [
-      { name: "测试", labelX: "label", labelY: "value", itemType: "bar" },
+      { name: "趋势图", labelX: "label", labelY: "value", itemType: "bar" },
     ],
     data: [
       { label: "01", value: 23324, value1: Math.floor(Math.random() * 10000) },
@@ -1459,10 +1629,9 @@ const options = {
   background-color: aliceblue;
 }
 </style>
-
 ```
 
-![柱形趋势图](https://github.com/isamxus/echart-sphere-assets/blob/dd86c5cdfcac2d8ba777e0389e22027770d76c0f/assets/trend/normal-trend.png)
+![基础趋势图](https://github.com/isamxus/echart-sphere-assets/blob/cdb0e87b08d1b1d5bfe0ead672cf0fe7bcae5a99/assets/trend/%E5%9F%BA%E7%A1%80%E8%B6%8B%E5%8A%BF%E5%9B%BE.png)
 
 ### 多系列趋势图
 
@@ -1479,16 +1648,16 @@ const getValue = () => Math.floor(Math.random() * 10000);
 const options = {
   dataOptions: {
     dataItems: [
-      { name: "测试1", labelX: "label", labelY: "value", barColor: "blue" },
-      { name: "测试2", labelX: "label", labelY: "value1" },
+      { name: "趋势图1", labelX: "label", labelY: "value", barColor: "blue" },
+      { name: "趋势图2", labelX: "label", labelY: "value1" },
       {
-        name: "测试3",
+        name: "趋势图3",
         labelX: "label",
         labelY: "value2",
         itemType: "line",
         lineColor: "orange",
         split: {
-          trend: "line"
+          trend: "line",
         },
       },
     ],
@@ -1547,10 +1716,9 @@ const options = {
   background-color: aliceblue;
 }
 </style>
-
 ```
 
-![多系列趋势图](https://github.com/isamxus/echart-sphere-assets/blob/e534754c8a5a8d4441e7536f5c11f256fa20bbcf/assets/trend/%E5%A4%9A%E7%B3%BB%E5%88%97%E8%B6%8B%E5%8A%BF%E5%9B%BE.png)
+![多系列趋势图](https://github.com/isamxus/echart-sphere-assets/blob/ee14d6d320110e3cd6aee8e75ef03dff03e564f9/assets/trend/%E5%A4%9A%E7%B3%BB%E5%88%97%E8%B6%8B%E5%8A%BF%E5%9B%BE1.png)
 
 ## 饼图
 
@@ -1872,7 +2040,7 @@ const options = ref({
 
 ```
 
-![基础地图](https://github.com/isamxus/echart-sphere-assets/blob/61c4a284c8a542f6b0c0df60bef2d021be8fe6a5/assets/map/%E5%9C%B0%E5%9B%BE.png)
+![基础地图](https://github.com/isamxus/echart-sphere-assets/blob/a4e15bf67fab71639a4d474cd0427bfe079396b0/assets/map/%E5%9C%B0%E5%9B%BE1.png)
 
 ## K 线图
 
@@ -1961,4 +2129,5 @@ const options = {
 }
 </style>
 ```
+
 ![基础仪表盘](https://github.com/isamxus/echart-sphere-assets/blob/45ea2eb6ea74234ebd3327b92a9686a5362aa28e/assets/gauge/%E5%9F%BA%E7%A1%80%E4%BB%AA%E8%A1%A8%E7%9B%98.png)

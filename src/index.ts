@@ -6,7 +6,7 @@ import { VueVersionEnum } from "./constants/globalConfig";
 import { setVueVersion } from "./hooks/useGlobalConfig";
 import { chartComponentMap } from "./constants/chartStrageConfig";
 export { setConfig, setLoadingConfig } from "./hooks/useGlobalConfig";
-
+export { setTheme } from "./theme/index";
 export default {
   ...extendOptions,
   install(Vue) {

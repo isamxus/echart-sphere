@@ -9,40 +9,39 @@ export const vueConfig = {
   context: null,
 };
 
-// 柱图配置
+// 柱图配置 - 极简单色主题
 export const barConfig = {
   barWidth: 20,
-  barColor: "rgba(132, 212, 232, 1)",
-  barBorderType: "#fff",
-  barBorderColor: "solid",
-  barBorderWidth: 0,
-  barGap: "30%",
+  barColor: "#737373", // 灰色
+  barBorderType: "solid",
+  barBorderColor: "#D1D1D1", // 浅灰色
+  barBorderWidth: 1, // 设置边框宽度，使其更加细腻
+  barGap: "20%", // 减小柱子之间的间隙，以适应极简风格
   barSymbol: "rect",
   barSymbolRepeat: "fixed",
   barSymbolMargin: 2,
   barSymbolOffset: [0, 0],
-  barSymbolSize: [6, 2],
+  barSymbolSize: [20, 6],
   barSymbolPosition: "start",
   barSymbolClip: true,
 };
-
-// 高亮配置
+// 高亮配置 - 极简单色主题
 export const hightlightConfig = {
-  colorHl: "auto",
-  borderColorHl: "#000",
-  borderWidthHl: 0,
+  colorHl: "#737373", // 灰色
+  borderColorHl: "#D1D1D1", // 浅灰色
+  borderWidthHl: 1, // 设置边框宽度以保持细腻
   borderTypeHl: "solid",
-  borderRadiusHl: 0,
-  shadowBlurHl: 10,
-  shadowColorHl: "auto",
+  borderRadiusHl: 2, // 设置较小的边框圆角
+  shadowBlurHl: 5,
+  shadowColorHl: "rgba(0, 0, 0, 0.2)", // 黑色的阴影，更低的透明度
   shadowOffsetXHl: 0,
-  shadowOffsetYHl: 0,
-  opacityHl: 1,
+  shadowOffsetYHl: 2, // 设置较小的阴影Y偏移
+  opacityHl: 0.9, // 设置较高的不透明度以突出高亮
 };
 
-// 折线图配置
+// 折线图配置 - 极简单色主题
 export const lineConfig = {
-  lineColor: "rgba(45, 174, 194, 1)",
+  lineColor: "#737373", // 灰色
   lineSmooth: false,
   lineType: "solid",
   showSymbol: false,
@@ -54,15 +53,15 @@ export const scatterConfig = {};
 // K线图配置
 export const candlestickConfig = {};
 
-// 地图配置
+// 地图配置 - 极简单色主题
 export const mapConfig = {
   mapZoom: 1,
-  mapColor: "#c8def1",
+  mapColor: "#737373", // 灰色
   mapLabelShow: false,
   mapLabelSize: 10,
-  mapColorHL: "#337ab7",
+  mapColorHL: "#D1D1D1", // 浅灰色
   mapLableColorHL: "#fff",
-  mapSelectedColor: "#337ab7",
+  mapSelectedColor: "#A9A9A9", // 暗灰色
   mapSelectedLabelColor: "#fff",
 };
 
@@ -118,18 +117,18 @@ export const seriesConfig = {
   yAxisIndex: 0,
 };
 
-// tooltip配置
+// tooltip配置 - 极简单色主题
 export const tooltipConfig = {
   tooltipShow: true,
   isTooltipConfine: true,
-  tooltipBgColor: "rgba(50,50,50,0.7)",
+  tooltipBgColor: "#737373", // 灰色背景
   tooltipTextColor: "#fff",
   tooltipTextSize: 10,
-  tooltipBorderColor: "rgba(50,50,50,0)",
+  tooltipBorderColor: "#D1D1D1", // 浅灰色边框
   tooltipPadding: 5,
   tooltipTriggerType: "axis",
   tooltipAxisPointer: "shadow",
-  tooltipShadowColor: "rgba(153, 153, 153, 0.4)",
+  tooltipShadowColor: "rgba(0, 0, 0, 0.2)", // 黑色的阴影，更低的透明度
   tooltipFormatter: null,
 };
 
@@ -235,7 +234,7 @@ export const treeConfig = {
 };
 
 // 仪表盘图表配置
-export const gaugeConfig = {}
+export const gaugeConfig = {};
 
 export default {
   ...barConfig,
@@ -253,5 +252,5 @@ export default {
   ...mapConfig,
   ...legendRichConfig,
   ...candlestickConfig,
-  ...gaugeConfig
+  ...gaugeConfig,
 };
